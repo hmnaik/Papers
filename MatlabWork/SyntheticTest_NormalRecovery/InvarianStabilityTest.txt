@@ -1,0 +1,238 @@
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 8953.000000 
+
+ Positive Center Results 
+Center Success : 6343.000000 
+
+ Positive Combined Results 
+Both Success : 5955.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 8851.000000 
+
+ Positive Center Results 
+Center Success : 6360.000000 
+
+ Positive Combined Results 
+Both Success : 5940.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 8879.000000 
+
+ Positive Center Results 
+Center Success : 6415.000000 
+
+ Positive Combined Results 
+Both Success : 6010.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 8811.000000 
+
+ Positive Center Results 
+Center Success : 6422.000000 
+
+ Positive Combined Results 
+Both Success : 5994.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 8897.000000 
+
+ Positive Center Results 
+Center Success : 6382.000000 
+
+ Positive Combined Results 
+Both Success : 5957.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.300000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 9469.000000 
+
+ Positive Center Results 
+Center Success : 8372.000000 
+
+ Positive Combined Results 
+Both Success : 8071.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 15.000000 
+
+ Noise Factor : 0.300000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 9474.000000 
+
+ Positive Center Results 
+Center Success : 8357.000000 
+
+ Positive Combined Results 
+Both Success : 8075.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 6.000000 
+
+ Noise Factor : 0.300000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 8216.000000 
+
+ Positive Center Results 
+Center Success : 4714.000000 
+
+ Positive Combined Results 
+Both Success : 4313.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 6.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 6655.000000 
+
+ Positive Center Results 
+Center Success : 2681.000000 
+
+ Positive Combined Results 
+Both Success : 2307.000000 
+
+ New Data : 
+
+ No of Experiments : 10000.000000 
+
+ Marker Radius : 6.000000 
+
+ Noise Factor : 0.500000 
+
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range x - y : -100.000000 to 100.000000 
+
+ Translation Range z : 500.000000 to 1800.000000 
+
+ Positive Normal Results 
+Normal Success : 6626.000000 
+
+ Positive Center Results 
+Center Success : 2586.000000 
+
+ Positive Combined Results 
+Both Success : 2224.000000 

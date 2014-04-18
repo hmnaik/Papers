@@ -1,0 +1,12 @@
+
+% Experiment design 
+1. Radius Fixed : 20 mm 
+
+2. Distance from camera : 500mm to 2000mm (Steps of 100) 
+
+3. Rotation along 
+   x-axis : 0 to 90 ( Steps of 5) 
+
+4. Graphical representation for Error
+   angle vs distance vs Error
+ie ( An image per angle vs Distance from Center vs Error 

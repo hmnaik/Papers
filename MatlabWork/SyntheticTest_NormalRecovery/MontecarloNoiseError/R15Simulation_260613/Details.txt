@@ -1,0 +1,36 @@
+1. Radius of markers 15
+Noise indicated as - nxx in file name
+
+3. Iteration performed = 100 
+
+4. Experiemnt output 
+
+CenterEstimationError : 
+
+We have a circle in world and we rotate it from 0 to 80 along X axis, detect the position of circle and normal at each angle rotation. 
+for distance of 500 to 2000 mm. 
+i.e. say at 500mm and 45 degree original points it at ( A,B,C) 
+Ground truth is = ( X,Y,Z ) 
+
+
+
+Basically = 
+
+
+NoiseVecotr = 1 to 100 ( Different vector with same mean )  
+	Distance = 500 to 2000 mm 
+		angle rot = 0 to 90 degree
+			save( measurement )
+		end
+	end
+end
+
+So for each configuration we have 100 readings of center position. 
+lets say P1,P2,P3,P4.... Pn. 
+Lets say P is ideal value. 
+
+Error is e1 = || P - P1 ||
+For 100 Values we have = [ e1 e2 e3 e4 e5 ...... en ]
+
+Std Div = swrt ( var) 
+var = sum ( ( e1 - mean(e1 to en)^2 ) / n 

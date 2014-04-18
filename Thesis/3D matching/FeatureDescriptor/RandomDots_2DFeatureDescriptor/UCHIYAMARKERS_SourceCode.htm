@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+  
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>UCHIYAMARKERS</title>
+  
+
+  
+  
+  <script src="UCHIYAMARKERS_SourceCode_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12235932-9']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+  </script></head><body>
+<big><big><span style="font-weight: bold;">Random Dot Markers (UCHIYAMARKERS) <span style="color: white;">UCHIYAMARKER</span></span></big></big><br>
+
+<br>
+
+<span style="font-weight: bold;">Preparation</span><br>
+
+<ol>
+
+  <li>Download <a href="http://hvrl.ics.keio.ac.jp/uchiyama/me/code/UCHIYAMARKERS/UCHIYAMARKERS.zip">source</a> (153KB)
+(prepared
+for
+visual studio 2010. For
+other versions, please prepare the solution file)<br>
+  </li>
+  <li>Set up OpenCV (2.0 or later) and OpenGL GLUT</li>
+  <li>Add OpenCV headers and library paths in mylib/opencvpath.h</li>
+  <li>Set up OpenMP (optional)<br>
+  </li>
+  <li>Compile the source</li>
+</ol>
+
+<span style="font-weight: bold;">Setting</span><br>
+
+<ol>
+
+  <li>Print markers in data directory (like 10cm x 10cm)<br>
+  </li>
+  <li>Run the software<br>
+  </li>
+  <li>Click 's' to watch binary images and check black dots are
+extracted or not<br>
+  </li>
+  <li>Click ESC to close the software and change the threshold for
+binaization at Binarization() in mylib/myimage.cpp</li>
+</ol>
+
+<span style="font-weight: bold;">Usage</span><br>
+
+<ol>
+
+  
+  <li>Run the software</li>
+
+  
+  <li>Show markers to a camera (rectangles are displayed if markers are
+successfully retrieved)<br>
+  </li>
+
+  <li>Click ESC to close the software (takes time for releasing memory)</li>
+</ol>
+
+<span style="font-weight: bold;">Option</span><br>
+
+<ol>
+
+  <li>Download <a href="http://hvrl.ics.keio.ac.jp/uchiyama/me/code/UCHIYAMARKERS/1000.zip">one thousand markers</a> (13MB) and
+put
+them into data directory (download <a href="http://hvrl.ics.keio.ac.jp/uchiyama/me/code/UCHIYAMARKERS/markers.pdf">markers</a>
+in PDF for printing if need)</li>
+  <li><span style="font-weight: bold;">Make your own markers with </span><a style="font-weight: bold;" href="http://hvrl.ics.keio.ac.jp/uchiyama/me/code/RDMM/index.html">our code</a><br>
+  </li>
+  <li>Set the number of markers you use on int nummarker at
+trackingInit() in main.cpp (need 500MB for
+execution if use 1000 markers)</li>
+</ol>
+
+<span style="font-weight: bold;">Technology</span><br>
+
+<ol>
+
+  <li>Keypoint matching by locally likely arrangement hashing
+(LLAH)</li>
+  <li>Multiple planar object retrieval and tracking</li>
+</ol>
+
+<span style="font-weight: bold;">Note</span><br>
+
+<ol>
+
+  <li style="font-weight: bold;">Better to move the data directory into the directory of executable and directly run with the executable (running
+on visual studio is a little slow)</li>
+  <li style="font-weight: bold;">Better to change the number of
+iterations for homography estimation with RANSAC in OpenCV for fast
+retrieval (need to change const int maxIters like 300 in
+cvFindHomography and recompile OpenCV)</li>
+  <li>Use this software for only research (non-profit) purposes</li>
+  <li>Feel free to email me for any questions</li>
+  <li style="font-weight: bold;">Try <a style="font-weight: bold;" href="http://hvrl.ics.keio.ac.jp/uchiyama/me/code/UCHIYAMARKERS2/index.html">deformable version</a></li>
+</ol>
+
+<a href="http://hvrl.ics.keio.ac.jp/uchiyama/index.html">Back to top</a><br>
+
+<hr style="width: 100%; height: 2px;"> Updated on Nov. 4, 2011.<br>
+
+contact:<br>
+
+<img style="width: 305px; height: 29px;" alt="" src="UCHIYAMARKERS_SourceCode_files/email_keio.png"><br>
+
+<br>
+
+</body></html>

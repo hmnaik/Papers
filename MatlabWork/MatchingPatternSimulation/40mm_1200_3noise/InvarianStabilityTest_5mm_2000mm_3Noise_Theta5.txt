@@ -1,0 +1,13 @@
+
+ No of Experiments : 1000.000000  
+ Marker Radius : 40.000000  
+ Noise Factor : 0.300000  
+ Angle matching threshold : 5.000000 , Distance Matching Threshold 10.000000 
+ Conic Rotation Range : 10.000000 : 90.000000 
+ Conic Distance Range : 10.000000 : 160.000000 
+ Angle Range : -65.000000 to 65.000000 
+
+ Translation Range X - Y - Z : 
+ x : -100.000000 to 100.000000 
+ y : -100.000000 to 100.000000 
+ z : 500.000000 to 2000.000000  

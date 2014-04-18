@@ -1,0 +1,125 @@
+
+ Inavriant 1 : Angle between normals:
+Original Angle : 0.000000 
+ Measured:0.205773 136.133754 133.948810 2.537042 
+ Invariant 2.1 : 
+ (Dc) Distance Between Centers:
+Original : 49.244289 
+ Measured:48.703989 48.643037 48.767448 48.706227 
+ Invariant 2.2 : 
+ Theta 1 : Angle between 1st normal and vector joining center
+Original : 73.310603 
+ Measured:72.554334 72.677583 125.154116 125.037709 
+ Invariant 2.3 : 
+ Theta 2 : Angle between 2nd normal and vector joining center
+Original : 106.689397 
+ Measured:107.468368 107.345292 53.740950 53.860183 
+ Invariant 2.4 : 
+ Theta 3 : Angle between cross of two normals and vector joining center
+Original : 0.000000 
+ Measured:18.536969 37.988052 143.741902 42.914281 
+ New Data : 
+
+ Inavriant 1 : Angle between normals:
+Original Angle : 0.000000 
+ Measured:0.286052 135.980913 133.793722 2.332859 
+ Invariant 2.1 : 
+ (Dc) Distance Between Centers:
+Original : 49.244289 
+ Measured:51.907216 51.850482 51.967704 51.910708 
+ Invariant 2.2 : 
+ Theta 1 : Angle between 1st normal and vector joining center
+Original : 73.310603 
+ Measured:76.802618 76.921771 126.990093 126.877205 
+ Invariant 2.3 : 
+ Theta 2 : Angle between 2nd normal and vector joining center
+Original : 106.689397 
+ Measured:102.912470 102.793298 52.635769 52.751264 
+ Invariant 2.4 : 
+ Theta 3 : Angle between cross of two normals and vector joining center
+Original : 0.000000 
+ Measured:94.983972 42.341580 138.913932 38.029443 
+ New Data : 
+
+ Inavriant 1 : Angle between normals:
+Original Angle : 54.603740 
+ Measured:90.203867 54.540265 51.307350 89.013872 
+ Invariant 2.1 : 
+ (Dc) Distance Between Centers:
+Original : 60.299254 
+ Measured:61.437321 61.350800 61.499108 61.412876 
+ Invariant 2.2 : 
+ Theta 1 : Angle between 1st normal and vector joining center
+Original : 69.402624 
+ Measured:71.645571 71.537025 121.998399 122.143925 
+ Invariant 2.3 : 
+ Theta 2 : Angle between 2nd normal and vector joining center
+Original : 59.968227 
+ Measured:93.340861 93.239748 56.626441 56.699805 
+ Invariant 2.4 : 
+ Theta 3 : Angle between cross of two normals and vector joining center
+Original : 111.121528 
+ Measured:18.689967 72.773172 133.346729 130.708571 
+ New Data : 
+
+ Inavriant 1 : Angle between normals:
+Original Angle : 48.858647 
+ Measured:106.380138 49.184422 44.210010 100.351317 
+ Invariant 2.1 : 
+ (Dc) Distance Between Centers:
+Original : 123.838605 
+ Measured:124.951972 125.003026 125.054690 125.105783 
+ Invariant 2.2 : 
+ Theta 1 : Angle between 1st normal and vector joining center
+Original : 45.528619 
+ Measured:46.824762 46.793807 166.056216 166.115370 
+ Invariant 2.3 : 
+ Theta 2 : Angle between 2nd normal and vector joining center
+Original : 92.506879 
+ Measured:57.263724 57.214257 91.506775 91.560388 
+ Invariant 2.4 : 
+ Theta 3 : Angle between cross of two normals and vector joining center
+Original : 63.265333 
+ Measured:50.745083 118.134800 95.368753 100.812624 
+ New Data : 
+
+ Inavriant 1 : Angle between normals:
+Original Angle : 48.858647 
+ Measured:105.155481 48.352721 38.106684 87.890732 
+ Invariant 2.1 : 
+ (Dc) Distance Between Centers:
+Original : 217.568380 
+ Measured:214.814550 214.943478 214.971738 215.100664 
+ Invariant 2.2 : 
+ Theta 1 : Angle between 1st normal and vector joining center
+Original : 43.651071 
+ Measured:41.618232 41.609149 164.766897 164.738544 
+ Invariant 2.3 : 
+ Theta 2 : Angle between 2nd normal and vector joining center
+Original : 100.800994 
+ Measured:39.074747 39.058718 103.094045 103.123795 
+ Invariant 2.4 : 
+ Theta 3 : Angle between cross of two normals and vector joining center
+Original : 54.965108 
+ Measured:73.682039 123.862790 74.852743 90.913160 
+ New Data : 
+
+ Inavriant 1 : Angle between normals:
+Original Angle : 48.858647 
+ Measured:104.018061 49.540933 38.976846 86.761831 
+ Invariant 2.1 : 
+ (Dc) Distance Between Centers:
+Original : 217.568380 
+ Measured:220.336814 220.459162 220.491565 220.613914 
+ Invariant 2.2 : 
+ Theta 1 : Angle between 1st normal and vector joining center
+Original : 43.651071 
+ Measured:45.440157 45.429299 168.094864 168.061938 
+ Invariant 2.3 : 
+ Theta 2 : Angle between 2nd normal and vector joining center
+Original : 100.800994 
+ Measured:37.488412 37.472005 98.590280 98.621070 
+ Invariant 2.4 : 
+ Theta 3 : Angle between cross of two normals and vector joining center
+Original : 54.965108 
+ Measured:72.079611 126.038682 78.483639 88.641941 

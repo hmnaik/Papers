@@ -1,0 +1,124 @@
+
+#oldtv { width:842px; margin:auto; background:white; border:1px solid #a9d6ff;padding:10px;}
+#oldtv table td{font-size:12px}
+ #oldtv h1, #oldtv h2, #oldtv h3, #oldtv h4, #oldtv h5, #oldtv h6{margin:5px 0px 0px 0px;clear:both;padding:0px}
+ #oldtv ul{margin:0px;padding:0px}
+ #oldtv p{margin:2px 0px;padding-top:5px;padding-bottom:5px}
+ #oldtv h3{padding-top:5px;padding-bottom:2px}
+ #oldtv #centering{width:100%;text-align:center}
+ #oldtv #main{position:relative;width:922px;margin-left:auto;margin-right:auto;background:#3f464c;text-align:left}
+ #oldtv .main{background:url(/webimg/common/seo_spriteview.png) -2px 0px no-repeat;height:5px}
+ #oldtv #subNav{text-align:right;margin:0 25px 0 0;color:#7e7e7e}
+ #oldtv #logo{margin:-10px 0 10px 25px}
+ #oldtv #nav{background:url(/webimg/common/seo_spriteview.png) -2px -17px no-repeat;width:896px;height:32px;margin-left:13px}
+ #oldtv #welcomeMessage{text-align:right;margin:-25px 25px 0 0;padding:5px 0 3px 0;color:#FFF;font-weight:bold}
+ #oldtv #default{overflow-y:auto;padding:10px 25px;width:846px;margin-left:13px;background:#FFFFFF;}
+ #oldtv #contentArea{text-align:justify}
+ #oldtv #content{float:left;width:610px;text-align:justify}
+ #oldtv #sidebar{float:right;width:224px}
+ #oldtv #defaultBottom{position:relative;width:896px;height:15px;margin-left:13px;background:url(/webimg/common/seo_spriteview.png) no-repeat;background-position:-2px -102px;clear:both}
+ #oldtv #subjectsBox{position:relative;width:896px;height:100px;margin:15px 0 0px 13px;background-image:url(/webimg/common/seo_spriteview.png);background-position:-4px -143px;color:#000;clear:both}
+ #oldtv #subjectsBoxBottom{height:15px;width:896px;position:absolute;bottom:0px;background-image:url(/webimg/common/seo_spriteview.png);background-position:-4px -367px;text-align:center;clear:both}
+ #oldtv #footer{width:auto;margin-left:auto;margin-right:auto;padding-top:10px;background:#3f464c;text-align:center;color:#d2d2d2;font-size:0.9em}
+ #oldtv .footer{background:url(/webimg/common/seo_spriteview.png) -2px -190px no-repeat;height:5px}
+ #oldtv .logoposcont{margin-top:-60px !important}
+ #oldtv .formMargin{margin:0px}
+ #oldtv .navigation{color:#3f464c;font-weight:bold;font-size:13px;text-decoration:underline}
+ #oldtv .navigationPara{color:#3f464c;font-weight:bold;font-size:13px;padding-bottom:5px}
+ #oldtv .navigationCurrent{color:#5f6a70;font-size:13px;font-weight:normal}
+ #oldtv #NavigationArea u{text-decoration:none}
+ #oldtv .contentBox{border:solid 1px #e58c2d;padding:3px;background:#fbfadf;text-align:left;margin:10px;}
+ #oldtv #rightBoxMiddle .contentBox{width:210px}
+ #oldtv .paddingPTag{margin:0px;padding:0px;padding-top:5px}
+ #oldtv .subjects{float:left;width:125px;margin:7px 0 0 50px;font-size:11px}
+ #oldtv #footer p{margin:0px;padding:0px;padding-bottom:5px}
+ #oldtv img, #oldtv img a{border:0px}
+ #oldtv a:link, #oldtv a:visited{color:#0060ff;text-decoration:none}
+ #oldtv a:hover, #oldtv a:active{color:#0060ff;text-decoration:underline}
+ #oldtv a.nav {display:block;float:left;height:32px;border-right:1px solid #e57600}
+ #oldtv a:hover.nav, #oldtv a:active.nav{background-color:#ee7d06}
+ #oldtv a.selected{background-color:#ee7d06;font-weight:bold}
+ #oldtv .navLink{margin:7px 10px}
+ #oldtv a.home{display:block;float:left;height:32px;border-right:1px solid #e57600}
+ #oldtv a:hover.home, #oldtv a:active.home{background-image:url(/webimg/common/seo_spriteview.png);background-position:-4px -58px}
+ #oldtv a.homeSelected{display:block;float:left;height:32px;font-weight:bold;border-right:1px solid #e57600;background-image:url(/webimg/common/seo_spriteview.png);background-position:-2px -54px}
+ #oldtv #subNav a, #oldtv #footer a, #oldtv #nav a{color:#fff;text-decoration:none}
+ #oldtv #subNav a:hover, #oldtv #subNav a:active, #oldtv #footer a:hover, #oldtv #footer a:active, #oldtv #nav a:hover, #oldtv #nav a:active{color:#fff;text-decoration:underline}
+ #oldtv ul{list-style:none;margin:0px 0;padding:1px 0 0 0}
+ #oldtv ul li{background-image:url(/webimg/common/seo_spriteview.png);background-repeat:no-repeat;background-position:-135px -270px;margin:.4em 0 0 1.4em;padding-left:1.3em}
+ #oldtv li.top{margin-top:0px}
+ #oldtv .subText{color:#444;font-size:11px}
+ #oldtv .contentBoxHead{border-bottom:solid 1px #e58c2d;padding-bottom:2px;font-size:13px;color:#33557f;text-align:left;font-weight:bold}
+ #oldtv h1, #oldtv h2{font-weight:normal;font-size:28px;color:#1063bf;line-height:1.2em}
+ #oldtv h1{font-size:22px;font-weight:bold;padding-bottom:3px;border-bottom:solid 1px #999}
+ #oldtv h2{color:#e57600;font-size:19px}
+ #oldtv h3{color:#1063bf;font-size:14px}
+ #oldtv h4{font-size:13px;font-weight:bold;color:#e57600}
+ #oldtv #relatedSearch{background:#FBFADF none repeat scroll 0 0;border:1px solid #E58C2D;padding:3px}
+ #oldtv #relatedSearch h2{border-bottom:1px solid #E58C2D;color:#33557F;font-size:14px;font-weight:bold;padding-bottom:2px;text-align:left}
+ #oldtv #relatedSearch h3, #oldtv #relatedSearch h4, #oldtv #relatedSearch h5, #oldtv #relatedSearch h6{font-weight:normal;display:inline;color:#000;line-height:18px}
+ #oldtv #relatedSearch h3{font-size:17px}
+ #oldtv #relatedSearch h4{font-size:15px}
+ #oldtv #relatedSearch h5{font-size:13px}
+ #oldtv #relatedSearch h6{font-size:11px}
+ #oldtv .contentend{border-top:solid 1px #999;padding-bottom:10px}
+ #oldtv .indexOuterTable{border:solid 1px #EFD8B2;background:#FAF4EA}
+ #oldtv .indexHeading{background:#EFD8B2}
+ #oldtv .side_text_5{font-size:14px;font-weight:bold;text-decoration:none}
+ #oldtv .txtarea{font-size:12px;font-weight:bold;height:75px;overflow:auto;width:95%;font-family:arial;margin-top:5px;margin-bottom:5px;resize:none}
+ #oldtv .showans{border-bottom:solid 1px #999;padding:5px;margin-bottom:15px}
+ #oldtv .showanstxtarea{padding-left:15px;padding-right:15px}
+ #oldtv .anshead{padding-left:10px}
+ #oldtv .connecttutdiv{width:95%}
+ #oldtv .bookmarkbtn{margin-top:-25px;margin-left:685px}
+ #oldtv .bookmarkbtniframe{height:28px;text-align:right;width:161px;margin-top:-5px}
+ #oldtv .searchrightbox{width:257px;background:url(/webimg/bgline.gif) repeat-y !important;padding-top:8px}
+ #oldtv .searchcontent{padding-top:8px}
+ #oldtv .search-highlight{color:#E57600}
+ #oldtv .search-entry{border-bottom:thin solid #EEE;padding-bottom:12px;padding-top:6px}
+ #oldtv .entry-title{font-size:15px;margin-bottom:2px}
+ #oldtv .btnCarrerApply{background:url(/webimg/btn_applynow.gif);height:34px;width:90px;border:solid 0px;cursor:pointer}
+ #oldtv #sessionMsg{color:#CCC;left:230px;position:absolute;top:57px;width:300px}
+ #oldtv .blogodiv{ margin-left:35%; text-align:center}
+ #oldtv .tollfree{ clear:both; padding-bottom:3px; padding-top:10px; text-align:center}
+ #oldtv .hundredtd{ border-left:1px solid #EFEAE6; border-right:1px solid #EFEAE6;padding:0 10px}
+ #oldtv .firstmkttbl{ border-bottom:1px solid #EFEAE6; border-top:1px solid #EFEAE6}
+ #oldtv .hundredtd-head{ color:#4D94DD}
+ #oldtv .customertd-head{ color:#DE7018; padding-bottom:5px}
+ #oldtv .customertd{ padding-bottom:5px}
+ #oldtv .blogo{ background:transparent url(http://image.tutorvista.com/instant/tvinstimgnew.png) repeat scroll -154px -5px; height:35px; width:98px}
+ #oldtv .firstmkt{ float:left}
+ #oldtv  .adgrouphead{font-size:20px;font-weight:bold;color:#1f7dac}
+ #oldtv .roundboxadgroup{margin-top:15px}
+ #oldtv .listimg{margin:0px;padding:0px;padding-left:20px;list-style-image:url(/webimg/bullet_orange.gif)}
+ #oldtv .hundredtd-head{font-weight:bold;padding-bottom:5px;padding-left:5px;color:#1155a1}
+ #oldtv .highlight{background:#fff1a8;padding-left:3px;padding-right:2px}
+ #oldtv .availmsg{color:#1155a1;padding-top:5px}
+ #oldtv .admsgtbl{background:#f0f0f0;text-align:justify}
+ #oldtv .orangebullet{font-size:15px;color:#f30;font-weight:bold}
+ #oldtv .rquotebullet{font-size:18px;color:#7f0306;font-weight:bold}
+ #oldtv .adfirstmsg{line-height:19px;padding:5px 10px}
+ #oldtv .adsecmsg{padding:5px 10px}
+ #oldtv .admsgspc{border-left:solid 1px #FFF}
+ #oldtv .bbclogpostion{position:absolute;right:40px;margin-top:-38px}
+ #oldtv .school_heading{font-size:1.2em;font-weight:bold;color:#D5791E;text-decoration:underline;margin-bottom:6px;padding:3px}
+ #oldtv .schools_more{clear:both;text-align:right;font-size:0.9em}
+ #oldtv .schools_more a{color:#a60}
+ #oldtv .school_label{color:#99a;font-weight:bold}
+ #oldtv .school_value{line-height:20px}
+ #oldtv .schools_near_schools{float:left;width:33%}
+ #oldtv .tryitnw{background:transparent url(/webimg/common/seo_spriteview.png) no-repeat;background-position:-253px -198px;width:124px;height:39px;border:solid 0px;cursor:pointer;cursor:hand}
+ #oldtv .list_schools_more a{color:#a60;display: block;float: left;}
+ #oldtv .school_heading a{color:#D5791E;}
+ #oldtv .list_schools_more {clear:both;font-size:0.9em;}
+ #oldtv .tvlogotm{height:57px;width:210px;background:url(/webimg/common/seo_spriteview.png) no-repeat;background-position:-382px -201px}
+ #oldtv .btnlogin{height:20px;width:55px;background:url(/webimg/common/seo_spriteview.png) no-repeat;background-position:-136px -203px;border:solid 0px;cursor:pointer;cursor:hand}
+ #oldtv .btnsearch{height:39px;width:124px;background:url(/webimg/common/seo_spriteview.png) no-repeat;background-position:-3px -243px;border:solid 0px;cursor:pointer;cursor:hand}
+ #oldtv .btnconnectnw{height:60px;width:320px;background:url(/webimg/common/seo_spriteview.png) no-repeat;background-position:-1497px -402px;border:solid 0px;cursor:pointer;cursor:hand;outline:none;}
+ #oldtv #tvSessionMsg{color:#CCCCCC;left:212px;position:absolute;top:50px;width:300px;}
+ #oldtv #tvLogo{margin: 3px 0 14px 0;}
+ #oldtv #tvsubNav{text-align:right;margin:0 10px 0 0;color:#7e7e7e;}
+ #oldtv #tvsubNav a{color: #FFFFFF;text-decoration:none;}
+ #oldtv #tvsubNav a:hover, #oldtv  a:active{color:#fff;text-decoration:underline;}
+ #oldtv #default a:link, #oldtv  a:visited{color:#0060ff;text-decoration:none;}
+ #oldtv #default a:hover, #oldtv  a:active{color:#0060ff;text-decoration:underline;}

@@ -1,0 +1,6 @@
+12/March/2013 : 
+- Reading papers for finding cutting plane of cone such that we get the conic in the image 
+We rotate it in such a way that it takes shape of circle and becomes parellel to target plane. 
+
+13/March/2013 : 
+Same and reading concept of stefan for natural markers. 
