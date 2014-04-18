@@ -1,7 +1,7 @@
 \documentclass{bmvc2k}
 
 %% Enter your paper number here for the review copyu
-\bmvcreviewcopy{??}
+\bmvcreviewcopy{666}
 
 \title{Author Guidelines for the\\ British Machine Vision Conference}
 
@@ -42,33 +42,36 @@
 \maketitle
 
 \begin{abstract}
-This document demonstrates the format requirements for papers submitted
-to the British Machine Vision Conference.  The format is designed for
-easy on-screen reading, and to print well at one or two pages per sheet.
-Additional features include: pop-up annotations for
-citations~\cite{Authors06,Mermin89}; a margin ruler for reviewing; and a
-greatly simplified way of entering multiple authors and institutions.
+In this work we have proposed a method to determine 2D-3D correspondence between non-coplanar circles from a single image.
+Our method uses image conics to compute circle plane orientation in camera coordinate system, thus bringing the problem from 2D to 3D domain. This information is used to generate projective invariant descriptors which can be used directly for correspondence matching, given that the 3D information about circles are known. Additionally, the evaluation also covers study stability of the projective invariants and the factors affecting their computation. One of the intended applications is for tracking industrial objects with circles on it. 
 
-{\bf All authors are encouraged to read this document}, even if you have
-written many papers before.  As well as a description of the format, the
-document contains many instructions relating to formatting problems and
-errors that are common even in the work of authors who {\em have}
-written many papers before.
+In our approach we use conic properties of circles to compute projective invariant descriptors. These descriptors are matched with known 3D information to establish correspondences. We also demonstrate stability of the invariants used to generate descriptors,   
+In our approach we compute 3D plane orientation of each circle from its image contour, and compute projective invariants between each pair of circles. We propose a new descriptor 
+
 \end{abstract}
 
 %------------------------------------------------------------------------- 
 \section{Introduction}
 \label{sec:intro}
-From 2009, the proceedings of BMVC (the British Machine Vision
-Conference) will be published only in electronic form.  This document
-illustrates the required paper format, and includes guidelines on
-preparation of submissions.  Papers which fail to adhere to these
-requirements may be rejected at any stage in the review process.
+Correspondence matching is one of the key problems in computer vision. 
+Applications related to pose estimation or object detection require accurate knowledge of model features and their corresponding image features. This problem is more complex for monocular systems. Recent literature suggests use of machine learning based methods \cite{Hartley00} provide good results, but are limited to specific group of objects. Many authors have proposed using natural features like points, lines and conics for establishing correspondence relation. [Quan] Using multiple images from different perspective can be use to effectively establish correspondences. In this approach matching image features are computed and then concept of triangulation is used to find 2D-3D correspondences. Using only one image for matching is a more complex problem since depth feature is lost. In this paper we will focus on solving this particular problem of matching with single images. Many applications in vision or augmented reality 
+also in use due to their reliability and performance.   
 
-\LaTeX\ users should use this template in order to prepare their paper.
-Users of other packages should emulate the style and layout of this
-example.  Note that best results will be achieved using {\tt pdflatex},
-which is available in most modern distributions.
+This topic is studied extensively in the vision community, however the solutions proposed are mainly suitable for a particular configuration of object or cameras. In recent literature machine learning techniques are used to learn features from an object. 
+Various Machine Vision, Computer Vision and Augmented reality applications use circles for tracking objects or pose estimation. 
+Use of circles for tracking objects is
+
+Why circle? 
+
+What has been done, or is being done? 
+
+
+
+
+ 
+
+
+
 
 \subsection{Paper length: nine pages plus bibliography}
 Papers length should not exceed  9~pages in length, {\em not counting} the bibliography.   {\bf Papers which are

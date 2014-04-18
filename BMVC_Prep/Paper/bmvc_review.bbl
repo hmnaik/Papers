@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -30,6 +30,11 @@ Authors.
 Authors.
 \newblock Frobnication tutorial, 2006{\natexlab{b}}.
 \newblock Supplied as additional material {\tt tr.pdf}.
+
+\bibitem[Hartley and Zisserman(2000)]{Hartley00}
+R.~I. Hartley and A.~Zisserman.
+\newblock \emph{Multiple View Geometry in Computer Vision}.
+\newblock Cambridge University Press, ISBN: 0521623049, 2000.
 
 \bibitem[Mermin(1989)]{Mermin89}
 N.~David Mermin.
