@@ -1,5 +1,0 @@
-*** 
-
-1. For the shoe based tracking board we can use this random markers. 
-It helps us in doing CV in robust way + No one sees the markers 
-system looks awesome. 

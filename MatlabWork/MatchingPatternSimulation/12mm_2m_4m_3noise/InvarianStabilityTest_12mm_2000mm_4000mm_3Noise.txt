@@ -1,12 +1,0 @@
-
- No of Experiments : 1000.000000  
- Marker Radius : 6.000000  
- Noise Factor : 0.300000  
- Conic Rotation Range : 10.000000 : 90.000000 
- Conic Distance Range : 10.000000 : 160.000000 
- Angle Range : -65.000000 to 65.000000 
-
- Translation Range X - Y - Z : 
- x : -100.000000 to 100.000000 
- y : -100.000000 to 100.000000 
- z : 2000.000000 to 4000.000000  
