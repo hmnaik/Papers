@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2013.7.31)  18 APR 2014 19:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2013.7.31)  19 APR 2014 17:00
 entering extended mode
 **bmvc_review.tex
 (C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.tex
@@ -540,85 +540,48 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 54.
 
 BMVC cite {Hartley and Zisserman} 2000{C:/ProgramData/MiKTeX/2.9/pdftex/config/
-pdftex.map}
+pdftex.map} [1
+
+]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 76.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 77.
- [1
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 96.
+ [2]
+(C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.bbl
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 26.
 
-] <images/eg1_largeprint.png, id=20, 467.7475pt x 707.64375pt>
-File: images/eg1_largeprint.png Graphic file (type png)
-
-<use images/eg1_largeprint.png>
-Package pdftex.def Info: images/eg1_largeprint.png used on input line 93.
-(pdftex.def)             Requested size: 66.29497pt x 100.2896pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
-
- []
-
-File: images/eg1_largeprint.png Graphic file (type png)
-<use images/eg1_largeprint.png>
-Package pdftex.def Info: images/eg1_largeprint.png used on input line 94.
-(pdftex.def)             Requested size: 79.6678pt x 120.5246pt.
-
-<images/eg1_2up.png, id=21, 807.015pt x 611.28375pt>
-File: images/eg1_2up.png Graphic file (type png)
- <use images/eg1_2up.png>
-Package pdftex.def Info: images/eg1_2up.png used on input line 95.
-(pdftex.def)             Requested size: 159.3356pt x 120.68758pt.
-
-Overfull \hbox (4.90482pt too wide) in paragraph at lines 91--103
-[][] 
- []
-
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 125.
 ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-[2 <C:/Users/Hemal/Dropbox/Papers/BMVC_Prep/Paper/images/eg1_largeprint.png> <C
-:/Users/Hemal/Dropbox/Papers/BMVC_Prep/Paper/images/eg1_2up.png>]
-BMVC cite {Authors} 2006{} BMVC cite {Authors} 2006{} [3]
-BMVC cite {Alpher} 2002 BMVC cite {Alpher and Fotheringham-Smythe} 2003
-BMVC cite {Alpher, Fotheringham-Smythe, and Gamow} 2004
-BMVC cite {Alpher and Fotheringham-Smythe} 2003
-BMVC cite {Alpher and Fotheringham-Smythe} 2003 BMVC cite {Alpher} 2002
-BMVC cite {Alpher and Fotheringham-Smythe} 2003 BMVC cite {Authors} 2006{}
-BMVC cite {Authors} 2006{} [4] BMVC cite {Mermin} 1989
-BMVC cite {Authors} 2006{}
-(C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.bbl [5])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 339.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 339.
+))
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
 
-(C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 339.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 339.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 339.
+[3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
+ (C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 153.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
  ) 
 Here is how much of TeX's memory you used:
- 7207 strings out of 493921
- 104659 string characters out of 3140866
- 199036 words of memory out of 3000000
- 10346 multiletter control sequences out of 15000+200000
- 74160 words of font info for 99 fonts, out of 3000000 for 9000
+ 7177 strings out of 493921
+ 104246 string characters out of 3140866
+ 197586 words of memory out of 3000000
+ 10330 multiletter control sequences out of 15000+200000
+ 66858 words of font info for 92 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,17n,32p,561b,487s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,13n,32p,1057b,358s stack positions out of 5000i,500n,10000p,200000b,50000s
 {L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}
-<L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/cou
-rier/ucrr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/he
-lvetic/uhvb8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/
-helvetic/uhvr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/ur
-w/times/utmb8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw
-/times/utmr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/
-times/utmr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/t
-imes/utmri8a.pfb>
-Output written on bmvc_review.pdf (6 pages, 415930 bytes).
+<L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y8.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/courier/ucr
+r8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/helvetic/u
+hvb8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/helvetic
+/uhvr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/times/
+utmb8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/times/u
+tmr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/times/ut
+mr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/urw/times/utm
+ri8a.pfb>
+Output written on bmvc_review.pdf (3 pages, 97477 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 95 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 80 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 7 words of extra memory for PDF output out of 10000 (max. 10000000)
 

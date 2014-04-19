@@ -3,7 +3,7 @@
 %% Enter your paper number here for the review copyu
 \bmvcreviewcopy{666}
 
-\title{Author Guidelines for the\\ British Machine Vision Conference}
+\title{Correspondence matching of non-coplanar circles from a single image}
 
 % Enter the paper's authors in order
 % \addauthor{Name}{email/homepage}{INSTITUTION_CODE}
@@ -43,9 +43,7 @@
 
 \begin{abstract}
 In this work we have proposed a method to determine 2D-3D correspondence between non-coplanar circles from a single image.
-Our method uses image conics to compute circle plane orientation in camera coordinate system, thus bringing the problem from 2D to 3D domain. This information is used to generate projective invariant descriptors which can be used directly for correspondence matching, given that the 3D information about circles are known. Additionally, the evaluation also covers study stability of the projective invariants and the factors affecting their computation. One of the intended applications is for tracking industrial objects with circles on it. 
-
-In our approach we use conic properties of circles to compute projective invariant descriptors. These descriptors are matched with known 3D information to establish correspondences. We also demonstrate stability of the invariants used to generate descriptors,   
+Our method uses image conics to compute circle plane orientation in camera coordinate system, thus bringing the problem from 2D to 3D domain. This information is used to generate projective invariant descriptors which can be used directly for correspondence matching, given that the 3D information about circles are known. Additionally, the evaluation also covers study stability of the projective invariants and the factors affecting their computation. One of the intended applications is for tracking industrial objects with circles on it. In our approach we use conic properties of circles to compute projective invariant descriptors. These descriptors are matched with known 3D information to establish correspondences. We also demonstrate stability of the invariants used to generate descriptors,   
 In our approach we compute 3D plane orientation of each circle from its image contour, and compute projective invariants between each pair of circles. We propose a new descriptor 
 
 \end{abstract}
@@ -53,287 +51,136 @@ In our approach we compute 3D plane orientation of each circle from its image co
 %------------------------------------------------------------------------- 
 \section{Introduction}
 \label{sec:intro}
-Correspondence matching is one of the key problems in computer vision. 
-Applications related to pose estimation or object detection require accurate knowledge of model features and their corresponding image features. This problem is more complex for monocular systems. Recent literature suggests use of machine learning based methods \cite{Hartley00} provide good results, but are limited to specific group of objects. Many authors have proposed using natural features like points, lines and conics for establishing correspondence relation. [Quan] Using multiple images from different perspective can be use to effectively establish correspondences. In this approach matching image features are computed and then concept of triangulation is used to find 2D-3D correspondences. Using only one image for matching is a more complex problem since depth feature is lost. In this paper we will focus on solving this particular problem of matching with single images. Many applications in vision or augmented reality 
-also in use due to their reliability and performance.   
+Correspondence matching is one of the key problems in computer vision. Applications related to pose estimation or object detection require accurate knowledge of model features and their corresponding image features. This is a challenging problem especially for monocular systems. Machine learning based methods \cite{Hartley00} provide promising results, but are limited to a specific group of objects and require prior learning of the object. Many authors have proposed using natural features like points, lines and conics for solving correspondence problem. The core idea is to compute projective invariants from such features to obtain robust matching with model feature points.[Quan] One approach is using two or more images from different perspective to find same image features and then obtain correspondence using triangulation technique. The problem is more complex with a single image as depth feature is lost. In this paper we will focus on solving this particular problem of matching from a single image. 
 
-This topic is studied extensively in the vision community, however the solutions proposed are mainly suitable for a particular configuration of object or cameras. In recent literature machine learning techniques are used to learn features from an object. 
-Various Machine Vision, Computer Vision and Augmented reality applications use circles for tracking objects or pose estimation. 
-Use of circles for tracking objects is
+Single image correspondence matching problem is easier to achieve when a group of coplanar model features as they are easied to 
+extract. Especially with specially designed fiducials ...    
 
-Why circle? 
+Explain the problem in questions, the motivation for the work and the proposed application in mind.
+No much work done in this direction. The invariants proposed are never used for a application so we provide use and discuss stability of the algorithm. Comment on why circles and the paper we build up to. 
+The work of Forsyth as the base of our work, the concepts given in the paper. Our contribution is matching strategy using such invariants. Demonstrating an application and evaluation of the method. 
 
-What has been done, or is being done? 
+The assumptions made in our work. We have the camera calibrated and we use 3D points and their normal positions for the descriptor measurement. 
+
+%-> Figure explaining the issue 
+%\begin{figure}
+%\begin{tabular}{ccc}
+%\bmvaHangBox{\fbox{\parbox{2.7cm}{~\\[2.8mm]
+%\rule{0pt}{1ex}\hspace{2.24mm}\includegraphics[width=2.33cm]{images/eg1_largeprint.png}\\[-0.1pt]}}}&
+%\bmvaHangBox{\fbox{\includegraphics[width=2.8cm]{images/eg1_largeprint.png}}}&
+%\bmvaHangBox{\fbox{\includegraphics[width=5.6cm]{images/eg1_2up.png}}}\\
+%(a)&(b)&(c)
+%\end{tabular}
+%\caption{It is often a good idea for the first figure to attempt to
+%encapsulate the article, complementing the abstract.  This figure illustrates
+%the various print and on-screen layouts for which this paper format has
+%been optimized: (a) traditional BMVC print format; (b) on-screen
+%single-column format, or large-print paper; (c) full-screen two column, or
+%2-up printing. }
+%\label{fig:teaser}
+%\end{figure}
 
 
 
+\section{Related Work}
 
- 
+Many applications in vision or augmented reality using points and lines for single image correspondence. 
+Work done by zissermann and safreed on computing 3D position. Single circle based coded solution proposed by TRIP. 
+We work on problem of un-coded circles which can very much be natural features of a particular model.  
 
+We are fixed on fiducial based systems or sparce points and therefore other solutions of markerless are not idea because selection of feature points in not in users hand.
 
+Write about the uniquness of the work and proposed analysis of the invariants. 
 
-
-\subsection{Paper length: nine pages plus bibliography}
-Papers length should not exceed  9~pages in length, {\em not counting} the bibliography.   {\bf Papers which are
- overlength will not be reviewed}.  This includes papers where the
-margins and formatting are deemed to have been significantly altered from
-those laid down by this style guide.  The reason such papers will not be
-reviewed is that there is no provision for supervised revisions of
-manuscripts.  The reviewing process cannot determine the suitability of the
-paper for presentation in nine pages if it is reviewed in twelve.
-
-The bibliography should begin immediately after the paper text.  It may
-be of any length, within reason.  It should {\em not} include
-annotations, figures, or any other paraphernalia intended to subvert the
-paper length requirement.
-
-\begin{figure}
-\begin{tabular}{ccc}
-\bmvaHangBox{\fbox{\parbox{2.7cm}{~\\[2.8mm]
-\rule{0pt}{1ex}\hspace{2.24mm}\includegraphics[width=2.33cm]{images/eg1_largeprint.png}\\[-0.1pt]}}}&
-\bmvaHangBox{\fbox{\includegraphics[width=2.8cm]{images/eg1_largeprint.png}}}&
-\bmvaHangBox{\fbox{\includegraphics[width=5.6cm]{images/eg1_2up.png}}}\\
-(a)&(b)&(c)
-\end{tabular}
-\caption{It is often a good idea for the first figure to attempt to
-encapsulate the article, complementing the abstract.  This figure illustrates
-the various print and on-screen layouts for which this paper format has
-been optimized: (a) traditional BMVC print format; (b) on-screen
-single-column format, or large-print paper; (c) full-screen two column, or
-2-up printing. }
-\label{fig:teaser}
-\end{figure}
-
-\subsection{Dual submission}
-By submitting this manuscript to BMVC, the authors assert that it has not
-been previously published in substantially similar form, and no paper
-currently under submission to a conference contains significant overlap
-with this one.  If you are in doubt about the amount of overlap, cite the
-dual submission (as described below), and argue in the body of your paper
-why this is a nontrivial advance.  A simultaneous journal submission would
-be expected to have significant additional material not in the conference
-paper, and should not be previously published, nor in the final acceptance
-stages. The conference chairs reserve the right to cancel
-submission of any paper which is found to violate these conditions.  In
-particular, {\em uncited} dual submissions will be summarily dealt with.
-
-\subsection{Anonymity and blind review}
-BMVC operates a double-blind review process.  Your review submission {\bf
-must not identify you as the author}.  This means, in particular, that the
-author list should be replaced by the words ``BMVC {\em YYYY} Submission \#
-{\em NNN}'', where the italics are to indicate the year and the submission
-number.  The provided \LaTeX\ command \verb'\bmvcreviewcopy' does this
-automatically.  In addition, acknowledgements should not be included in the
-review copy.
-
-Many authors misunderstand the concept of anonymizing for blind
-review.  Blind review {\bf does not mean that one must remove
-citations to one's own work}---in fact it is often impossible to
-review a paper unless the previous citations are known and
-available.
-
-Blind review means that you do not use the words ``my'' or ``our''
-when citing previous work.  That is all.  (But see below for 
-techreports)
-
-Saying ``this builds on the work of Lucy Smith [1]'' does not say
-that you are Lucy Smith, it says that you are building on her
-work.  If you are Smith and Jones, do not say ``as we show in
-[7]'', say ``as Smith and Jones show in [7]'' and at the end of the
-paper, include reference 7 as you would any other cited work.
-
-An example of a bad paper:
-\begin{quote}
-\begin{center}
-    An analysis of the frobnicatable foo filter. 
-\end{center}
-   
-   In this paper we present a performance analysis of our
-   previous paper [1], and show it to be inferior to all
-   previously known methods.  Why the previous paper was
-   accepted without this analysis is beyond me.
-   
-   [1] Removed for blind review
-\end{quote}
-   
-   
-An example of an excellent paper:   
-   
-\begin{quote}
-\begin{center}
-     An analysis of the frobnicatable foo filter. 
-\end{center}
-   
-   In this paper we present a performance analysis of the
-   paper of Smith \etal [1], and show it to be inferior to
-   all previously known methods.  Why the previous paper
-   was accepted without this analysis is beyond me.
-   
-   [1] Smith, L and Jones, C. ``The frobnicatable foo
-   filter, a fundamental contribution to human knowledge''.
-   Nature 381(12), 1-213.
-\end{quote}
-   
-If you are making a submission to another conference at the same time,
-which covers similar or overlapping material, you will almost certainly
-need to refer to that submission in order to explain the differences,
-just as you would if you or others had previously published related
-work.  In such cases, include the anonymized parallel
-submission~\cite{Authors06} as additional material and cite it as
-\begin{quote}
-[1] Authors. ``The frobnicatable foo filter'', ECCV 2006 Submission ID 324,
-Supplied as additional material {\tt eccv06.pdf}.
-\end{quote}
-
-Finally, you may feel you need to tell the reader that more details can be
-found elsewhere, and refer them to a technical report.  For conference
-submissions, the paper must stand on its own, and not {\em require} the
-reviewer to go to a techreport for further details.  Thus, you may say in
-the body of the paper ``further details may be found
-in~\cite{Authors06b}''.  Then submit the techreport as additional material.
-Again, you may not assume the reviewers will read this material.
-
-Sometimes your paper is about a problem which you tested using a tool which
-is widely known to be restricted to a single institution.  For example,
-let's say it's 1969, you have solved a key problem on the Apollo lander,
-and you believe that the ICLL'70 audience would like to hear about your
-solution.  The work is a development of your celebrated 1968 paper entitled
-``Zero-g frobnication: How being the only people in the world with access to
-the Apollo lander source code makes us a wow at parties'', by Zeus \etal.
-
-You can handle this paper like any other.  Don't write ``We show how to
-improve our previous work [Anonymous, 1968].  This time we tested the
-algorithm on a lunar lander [name of lander removed for blind review]''.
-That would be silly, and would immediately identify the authors. Instead
-write the following:
-\begin{quotation}
-\noindent
-   We describe a system for zero-g frobnication.  This
-   system is new because it handles the following cases:
-   A, B.  Previous systems [Zeus et al. 1968] didn't
-   handle case B properly.  Ours handles it by including
-   a foo term in the bar integral.
-
-   ...
-
-   The proposed system was integrated with the Apollo
-   lunar lander, and went all the way to the moon, don't
-   you know.  It displayed the following behaviours
-   which show how well we solved cases A and B: ...
-\end{quotation}
-As you can see, the above text follows standard scientific convention,
-reads better than the first version, and does not explicitly name you as
-the authors.  A reviewer might think it likely that the new paper was
-written by Zeus \etal, but cannot make any decision based on that guess.
-He or she would have to be sure that no other authors could have been
-contracted to solve problem B.
-
-FAQ: Are acknowledgements OK?  No.  Leave them for the final copy.
-
-\subsection{Citations}
-When citing a multi-author paper, you may save space by using ``{\em et
-alia}'', shortened to ``\etal'' (not ``{\em et.\ al.}'' as ``{\em et}'' is
-a complete word.)  The provided \verb'\etal' macro is a useful {\em aide
-memoire} in this regard.  However, use it only when there are three or more
-authors.  Thus, the following is correct: `` Frobnication has been trendy
-lately.  It was introduced by Alpher~\cite{Alpher02}, and subsequently
-developed by Alpher and Fotheringham-Smythe~\cite{Alpher03}, and Alpher
-\etal~\cite{Alpher04}.''
-
-This is incorrect: ``... subsequently developed by Alpher \etal~\cite{Alpher03} ...''
-because reference~\cite{Alpher03} has just two authors.  If you use the
-\verb'\etal' macro, then you need not worry about double periods
-when used at the end of a sentence as in Alpher \etal.
-
-%For this citation style, keep multiple citations in numerical (not
-%chronological) order, so prefer
-We use {\tt natbib}, so citations in random order are nicely sorted:
- \cite{Alpher03,Alpher02,Authors06b,Authors06}.  However, we don't use the
-compress option, as we want each reference to have its own hyperlink and
-popup window.
-
+\section{Method}
+Page 3: 
+The available information as input (3D points and normals), the concept of descriptor and back ground of the re-projection 
+A simple input and output function that explains the process in nutshell. 
+\subsection{Invariants}
+The invariants generated by a pair of circles. 
+The computation of plane orientation from image contour. 
+The ambiguity is explained and complexity added due to ambiguity is explained. 
+\subsection{Descriptor design}
+The simulations done for the invariants are commented and comments are made on 
+A descriptor represents two unique points and not one point. Unlike many methods used these days. 
+<d,theta>, <d,th1,th12,th21,th22>. 
+Since both are not exactly same a matching strategy is developed to have point to point correspondence.    
+\subsection{Step 1: Initial Pairwise Matching}
+- Algorithm (Select pairs as tentitive matches by matching d and theta with some threshold)
+- Explain the pairwise matching 
 %------------------------------------------------------------------------- 
-\subsection{Footnotes}
+\subsection{Step 2: Triplet Matching}
+Why? : because of ambiguity lot of results are false, by adding another constraint we restrict the probability of false matching. Also to make it point wise problem from a pair wise problem. 
+- Matching steps on voting 
+- Solving problem from pairwise matching to point wise matching
+\subsection{Step 3: Hypothesis generation}
+Filter the voting matrix to generate point wise matching hypothesis. 
+Comment on how many would be enough to check other hypothesis. 
+(3 are enough to predict solutions) since we know the calibration. 
+One can select only top voted 3 pairs (since they are 3D points) and then verify the whole choice, or go for 6 point matching and achieve the same.
 
-Please use footnotes\footnote {This is what a footnote looks like.  It
-often distracts the reader from the main flow of the argument.} sparingly.
-Indeed, try to avoid footnotes altogether and include necessary peripheral
-observations in 
-the text (within parentheses, if you prefer, as in this sentence).  If you
-wish to use a footnote, place it at the bottom of the column on the page on
-which it is referenced. Use Times 8-point type, single-spaced.
+%\begin{figure*}
+%\begin{center}
+%\fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
+%\end{center}
+%   \caption{Example of a short caption, which should be centered.}
+%\label{fig:short}
+%\end{figure*}
 
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{|l|c|}
+%\hline
+%Method & Frobnability \\
+%\hline\hline
+%Theirs & Frumpy \\
+%Yours & Frobbly \\
+%Ours & Makes one's heart Frob\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Results.   Ours is better.}
+%\end{table}
 
-\begin{figure*}
-\begin{center}
-\fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
-\end{center}
-   \caption{Example of a short caption, which should be centered.}
-\label{fig:short}
-\end{figure*}
-
+\section{Evaluation}
+Page 5: 
+Explain the experiment models. The selection of the markers as per standard. 
+Model 1 : 12mm 
+Model 2 : 8mm-5mm 
+Ground truth : GOM data for 3D information and ground truth for 3D and 2D correspondences. 
 %------------------------------------------------------------------------- 
-\subsection{The ruler}
-The \LaTeX\ style defines a printed ruler which should be present in the
-version submitted for review.  The ruler is provided in order that
-reviewers may comment on particular lines in the paper without
-circumlocution.  If you are preparing a document using a non-\LaTeX\
-document preparation system, please arrange for an equivalent ruler to
-appear on the final output pages.  The presence or absence of the ruler
-should not change the appearance of any other content on the page.  The
-camera ready copy should not contain a ruler. (\LaTeX\ users may remove
-the \verb'[review]' option from the \verb'\documentclass' statement.)
-Reviewers: note that the ruler measurements do not align well with lines
-in the paper --- this turns out to be very difficult to do well when the
-paper contains many figures and equations, and, when done, looks ugly.
-Just use fractional references (e.g.\ this line is $210.5$), although in
-most cases one would expect that the approximate location ($210$ in the
-previous example) will be adequate.
+\subsection{Matching comparison}
+1. Exp 1 : Models in the frame with different pose 
+Comment : How are images taken, Fixed camera distances 
+Table : No of input points , No of Matched points , No of correct Match, No of Images
+1. For model 12 mm 
+2. For model 5 mm
 
+2. Exp 2 : Models in presence of each other (False positive rejection (on and off the model) )
+How are images taken, which model is supposed to be tracked, Addition of false positives in the scene. 
+1. 12mm car with 8mm/5mm car model 
 
-\begin{table}
-\begin{center}
-\begin{tabular}{|l|c|}
-\hline
-Method & Frobnability \\
-\hline\hline
-Theirs & Frumpy \\
-Yours & Frobbly \\
-Ours & Makes one's heart Frob\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Results.   Ours is better.}
-\end{table}
+2. 8 mm with 5mm on itself (Bad results) : Is this experiment important? or Experiment with other model with 12 mm configuration. (Bad matching results removed by voting filtering). 
 
-\subsection{Mathematics}
-
-Please number all of your sections and displayed equations.  It is
-important for readers to be able to refer to any particular equation.  Just
-because you didn't refer to it in the text doesn't mean some future reader
-might not need to refer to it.  It is cumbersome to have to use
-circumlocutions like ``the equation second from the top of page 3 column
-1''.  (Note that the ruler will not be present in the final copy, so is not
-an alternative to equation numbers).  All authors will benefit from reading
-Mermin's description~\cite{Mermin89} of how to write mathematics.
-
-
-%------------------------------------------------------------------------- 
-\subsection{References}
-
-List and number all bibliographical references in 9-point Times,
-single-spaced, at the end of your paper. When referenced in the text,
-enclose the citation number in square brackets, for
-example~\cite{Authors06}.  Where appropriate, include the name(s) of
-editors of referenced books.
-
-
+3. 12 mm with 130 false positives and computing the right model. 
 %------------------------------------------------------------------------
-\subsection{Color}
+\subsection{Time}
+Time taken for high resolution images and low resolution images. Tracking applications specific performance comments. Suitable for real time applications like in AR. 
 
-Color is valuable, and will be visible to readers of the electronic copy.
-However ensure that, when printed on a monochrome printer, no important
-information is lost by the conversion to grayscale.
+\section{Conclusion}
+Page 7 : 
+1. Reliable method for correspondence matching for non coplananr circular features. 
+2. Accuracy is improved with the size and method works better if the detection range is selected appropriate to the conic size. 
+3. Comment on the stability of the invariants 
+
+\section{Future Applications}
+Future work : 
+1. 2D-2D correspondence to triangulate from multiple images to get rid of the initial condition. 
+2. Improving the matching method for higher runtime performance.
+3. Using normals obtained for solving p3p problem. 
+
+Each model has its own orientation and random arrangement gives us choice between tracking same models with individual identity. 
+
 
 \bibliography{egbib}
 \end{document}
