@@ -43,7 +43,7 @@
 
 \begin{abstract}
 In this work we have proposed a method to determine 2D-3D correspondence between non-coplanar circles from a single image.
-Our method uses image conics to compute circle plane orientation in camera coordinate system, thus bringing the problem from 2D to 3D domain. This information is used to generate projective invariant descriptors which can be used directly for correspondence matching, given that the 3D information about circles are known. Additionally, the evaluation also covers study stability of the projective invariants and the factors affecting their computation. One of the intended applications is for tracking industrial objects with circles on it. In our approach we use conic properties of circles to compute projective invariant descriptors. These descriptors are matched with known 3D information to establish correspondences. We also demonstrate stability of the invariants used to generate descriptors,   
+Our method uses image conics to compute circle plane orientation in camera coordinate system, thus bringing the problem from 2D to 3D domain. This information is used to generate projective invariant descriptors which can be used directly for correspondence matching, given that the 3D information about circles are known. Additionally, the evaluation also covers study stability of the projective invariants and the factors affecting their computation. One of the intended applications is for tracking industrial objects with circles on it. In our approach we use conic properties of circles to compute projective invariant descriptors. These descriptors are matched with known 3D information to establish correspondences. We also demonstrate stability of the invariants used to generate descriptors both in practice and simulation. 
 In our approach we compute 3D plane orientation of each circle from its image contour, and compute projective invariants between each pair of circles. We propose a new descriptor 
 
 \end{abstract}
@@ -53,7 +53,9 @@ In our approach we compute 3D plane orientation of each circle from its image co
 \label{sec:intro}
 Correspondence matching is one of the key problems in computer vision. Applications related to pose estimation or object detection require accurate knowledge of model features and their corresponding image features. This is a challenging problem especially for monocular systems. Machine learning based methods \cite{Hartley00} provide promising results, but are limited to a specific group of objects and require prior learning of the object. Many authors have proposed using natural features like points, lines and conics for solving correspondence problem. The core idea is to compute projective invariants from such features to obtain robust matching with model feature points.[Quan] One approach is using two or more images from different perspective to find same image features and then obtain correspondence using triangulation technique. The problem is more complex with a single image as depth feature is lost. In this paper we will focus on solving this particular problem of matching from a single image. 
 
-Using points and lines to establish correspondence is 
+In monocular systems projective transformation to image domain makes it complex to compute invariant features. Coplanar circles and points can be used to compute planar projective invariants. Circles have a special property to retain depth information under projective transformation. A world circle always produces an elliptical curve in the image plane. This property can be used to define orientation of circle plane in 3D, assuming that size of world circle is known (forsyth,safreed). Forsyth proposed three projective invariant that can be computed from a non coplanar pair of circles. The concept was proposed in early 90s, however these invariants have remained unexplored. In this paper we propose a new descriptor to establish correspondence relation when multiple non-coplanar circles of same shape exist in the scene. We have also proposed a practical scenario where such application can be used effectively.  
+
+Often in model based tracking applications 3D-CAD model is available. Our method is suitable for tracking 3D objects having circular features on different planes. In photogrammetry circular fiducial are place on models for accurate 3D data measurement. Correspondence is solved by using few encoded coded markers to obtain initial correspondence and then un-coded markers are matched. This information is basically surface normals and positions of each circle. Once this data is available we can use the proposed method to find correspondence of uncoded marker without any initialisation
 
 Explain the problem in question, the motivation for the work and the proposed application in mind.
 No much work done in this direction. The invariants proposed are never used for a application so we provide use and discuss stability of the algorithm. Comment on why circles and the paper we build up to. 
@@ -83,6 +85,7 @@ The assumptions made in our work. We have the camera calibrated and we use 3D po
 
 \section{Related Work}
 
+Researchers have explored using planar circles and points to obtain planar projective invariants to establish matching. 
 Many applications in vision or augmented reality using points and lines for single image correspondence. 
 Work done by zissermann and safreed on computing 3D position. Single circle based coded solution proposed by TRIP. 
 We work on problem of un-coded circles which can very much be natural features of a particular model.  
