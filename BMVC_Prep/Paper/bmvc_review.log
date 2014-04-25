@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2013.7.31)  25 APR 2014 02:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2013.7.31)  25 APR 2014 19:45
 entering extended mode
 **bmvc_review.tex
 (C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.tex
@@ -436,42 +436,91 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 \bmv@box inst2 =\box43
 \bmv@box instFN2 =\box44
 
-(C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 40.
+("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e
+.sty"
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count129
+ ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+) ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
+)
+********************************************************
+Package `algorithm2e' Release 5.0 -- january 06 2013 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (cfiorio@um2.fr)
+********************************************************
+\skiptotal=\skip55
+\skiplinenumber=\skip56
+\skiprule=\skip57
+\skiphlne=\skip58
+\skiptext=\skip59
+\skiplength=\skip60
+\algomargin=\skip61
+\skipalgocfslide=\skip62
+\algowidth=\dimen131
+\inoutsize=\dimen132
+\inoutindent=\dimen133
+\interspacetitleruled=\dimen134
+\interspacealgoruled=\dimen135
+\interspacetitleboxruled=\dimen136
+\algocf@inoutbox=\box45
+\algocf@inputbox=\box46
+\AlCapSkip=\skip63
+\AlCapHSkip=\skip64
+\algoskipindent=\skip65
+\algocf@nlbox=\box47
+\algocf@hangingbox=\box48
+\algocf@untilbox=\box49
+\algocf@skipuntil=\skip66
+\algocf@capbox=\box50
+\algoheightruledefault=\skip67
+\algoheightrule=\skip68
+\algotitleheightruledefault=\skip69
+\algotitleheightrule=\skip70
+\c@algocfline=\count130
+\c@algocfproc=\count131
+\c@algocf=\count132
+\algocf@algoframe=\box51
+\algocf@algobox=\box52
+) (C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 41.
 
 ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count129
-\scratchdimen=\dimen131
-\scratchbox=\box45
-\nofMPsegments=\count130
-\nofMParguments=\count131
+\scratchcounter=\count133
+\scratchdimen=\dimen137
+\scratchbox=\box53
+\nofMPsegments=\count134
+\nofMParguments=\count135
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count132
-\MPscratchDim=\dimen132
-\MPnumerator=\count133
-\makeMPintoPDFobject=\count134
+\MPscratchCnt=\count136
+\MPscratchDim=\dimen138
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
 \everyMPtoPDFconversion=\toks23
 )
-\AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring ON on input line 40.
+\AtBeginShipoutBox=\box54
+Package hyperref Info: Link coloring ON on input line 41.
  ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -479,11 +528,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ng.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count135
+\c@section@level=\count139
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -520,24 +569,24 @@ LaTeX Info: Redefining \nameref on input line 40.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 42.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 42.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 
-Package hyperref Warning: Ignoring empty anchor on input line 42.
+Package hyperref Warning: Ignoring empty anchor on input line 43.
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 42.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 43.
 ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 45.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 52.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 53.
 
 BMVC cite {Hartley and Zisserman} 2003{C:/ProgramData/MiKTeX/2.9/pdftex/config/
 pdftex.map}
@@ -569,12 +618,12 @@ BMVC cite {Lo{\T1\textbackslash }' pez\protect \unhbox \voidb@x \penalty \@M \
 BMVC cite {Pagani, Koehler, Stricker, and Vision-{DFKI}} 2011
 BMVC cite {Luhmann, Robson, and Harley} 2006 [2]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 122.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 125.
 
 BMVC cite {Naimark and Foxlin} 2002
 BMVC cite {Fitzgibbon, Pilu, and Fisher} 1999
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 129.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 132.
 
 BMVC cite {Forsyth, Mundy, Zisserman, Coelho, Heller, and Rothwell} 1991
 BMVC cite {Lo{\T1\textbackslash }' pez\protect \unhbox \voidb@x \penalty \@M \ 
@@ -582,71 +631,63 @@ BMVC cite {Lo{\T1\textbackslash }' pez\protect \unhbox \voidb@x \penalty \@M \
  }cca, Hopper, and Hopper} 2002
 BMVC cite {Forsyth, Mundy, Zisserman, Coelho, Heller, and Rothwell} 1991
 BMVC cite {Forsyth, Mundy, Zisserman, Coelho, Heller, and Rothwell} 1991
-BMVC cite {Werghi, Doignon, and Abba} 1996 [3] [4]
-(C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.bbl
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 23.
+BMVC cite {Werghi, Doignon, and Abba} 1996 [3] BMVC cite {Rusu} 2009
+<images/matchingProblem.png, id=143, 337.7418pt x 190.7928pt>
+File: images/matchingProblem.png Graphic file (type png)
+
+<use images/matchingProblem.png>
+Package pdftex.def Info: images/matchingProblem.png used on input line 197.
+(pdftex.def)             Requested size: 142.26378pt x 80.36531pt.
+
+<images/matchingProcess.png, id=145, 688.0104pt x 433.1382pt>
+File: images/matchingProcess.png Graphic file (type png)
+
+<use images/matchingProcess.png>
+Package pdftex.def Info: images/matchingProcess.png used on input line 198.
+(pdftex.def)             Requested size: 142.26378pt x 89.56056pt.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 228.
 
 ("L:\Softwares\Installed_Softwares\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 98--103
-[]\T1/ptm/m/n/10 Alain Pa-gani, Jo-hannes Koehler, Di-dier Stricker, and Aug-me
-nted
- []
+[4] [5 <C:/Users/Hemal/Dropbox/Papers/BMVC_Prep/Paper/images/matchingProblem.pn
+g> <C:/Users/Hemal/Dropbox/Papers/BMVC_Prep/Paper/images/matchingProcess.png>]
+(C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.bbl [6] [7])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 326.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--103
-\T1/ptm/m/n/10 Vision-DFKI.  Cir-cu-lar mark-ers for cam-era pose es-ti-ma-tion
-.  2011.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--103
-\T1/ptm/m/n/10 URL [][]$\T1/pcr/m/n/10 http : / / repository . tudelft . nl / a
-ssets / uuid :$
- []
-
-
-Underfull \hbox (badness 4072) in paragraph at lines 115--121
-\T1/ptm/m/n/10 URL [][]$\T1/pcr/m/n/10 http : / / ieeexplore . ieee . org / xpl
-s / abs _ all . jsp ? arnumber =$
- []
-
-[6])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 264.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 264.
+[8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 326.
  (C:\Users\Hemal\Dropbox\Papers\BMVC_Prep\Paper\bmvc_review.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 264.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 264.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 264.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 326.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 326.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 326.
  ) 
 Here is how much of TeX's memory you used:
- 7224 strings out of 493921
- 105146 string characters out of 3140866
- 200419 words of memory out of 3000000
- 10345 multiletter control sequences out of 15000+200000
- 75542 words of font info for 104 fonts, out of 3000000 for 9000
+ 8634 strings out of 493921
+ 124981 string characters out of 3140866
+ 246955 words of memory out of 3000000
+ 11729 multiletter control sequences out of 15000+200000
+ 81384 words of font info for 111 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,13n,32p,885b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,20n,32p,885b,559s stack positions out of 5000i,500n,10000p,200000b,50000s
 {L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}
-<L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/font
-s/type1/urw/courier/ucrr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fon
-ts/type1/urw/helvetic/uhvb8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/f
-onts/type1/urw/helvetic/uhvr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9
-/fonts/type1/urw/symbol/usyr.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/f
-onts/type1/urw/times/utmb8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fo
-nts/type1/urw/times/utmr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fon
-ts/type1/urw/times/utmr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/font
-s/type1/urw/times/utmri8a.pfb>
-Output written on bmvc_review.pdf (7 pages, 182629 bytes).
+<L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cme
+x10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><L:/Softwares/Installed_Softwares/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb><L:/Softwares/Installed_Softwares/MiKTeX 
+2.9/fonts/type1/urw/courier/ucrr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX
+ 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><L:/Softwares/Installed_Softwares/MiKT
+eX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><L:/Softwares/Installed_Softwares/Mi
+KTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><L:/Softwares/Installed_Softwares/MiKT
+eX 2.9/fonts/type1/urw/times/utmb8a.pfb><L:/Softwares/Installed_Softwares/MiKTe
+X 2.9/fonts/type1/urw/times/utmr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX
+ 2.9/fonts/type1/urw/times/utmr8a.pfb><L:/Softwares/Installed_Softwares/MiKTeX 
+2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on bmvc_review.pdf (8 pages, 302565 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 211 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
+ 227 words of extra memory for PDF output out of 10000 (max. 10000000)
 
