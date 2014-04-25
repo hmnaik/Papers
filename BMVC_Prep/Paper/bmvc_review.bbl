@@ -1,45 +1,159 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Alpher(2002)]{Alpher02}
-A.~Alpher.
-\newblock Frobnication.
-\newblock \emph{Journal of Foo}, 12\penalty0 (1):\penalty0 234--778, 2002.
+\bibitem[Chekhlov et~al.(2007)Chekhlov, Gee, Calway, and
+  Mayol-Cuevas]{chekhlov_ninja_2007}
+D.~Chekhlov, {A.P.} Gee, A.~Calway, and W.~Mayol-Cuevas.
+\newblock Ninja on a plane: Automatic discovery of physical planes for
+  augmented reality using visual {SLAM}.
+\newblock In \emph{6th {IEEE} and {ACM} International Symposium on Mixed and
+  Augmented Reality, 2007. {ISMAR} 2007}, pages 153--156, 2007.
 
-\bibitem[Alpher and Fotheringham-Smythe(2003)]{Alpher03}
-A.~Alpher and J.~P.~N. Fotheringham-Smythe.
-\newblock Frobnication revisited.
-\newblock \emph{Journal of Foo}, 13\penalty0 (1):\penalty0 234--778, 2003.
+\bibitem[Dhome et~al.(1990)Dhome, Laprest{\'e}, Rives, and
+  Richetin]{dhome_spatial_1990}
+Michel Dhome, Jean-Thierry Laprest{\'e}, G{\'e}rard Rives, and Marc Richetin.
+\newblock Spatial localization of modelled objects of revolution in monocular
+  perspective vision.
+\newblock In \emph{Computer {Vision{\textemdash}ECCV} 90}, page
+  475{\textendash}485. Springer, 1990.
+\newblock URL \url{http://link.springer.com/chapter/10.1007/BFb0014897}.
 
-\bibitem[Alpher et~al.(2004)Alpher, Fotheringham-Smythe, and Gamow]{Alpher04}
-A.~Alpher, J.~P.~N. Fotheringham-Smythe, and G.~Gamow.
-\newblock Can a machine frobnicate?
-\newblock \emph{Journal of Foo}, 14\penalty0 (1):\penalty0 234--778, 2004.
+\bibitem[Ferri et~al.(1993)Ferri, Mangili, and Viano]{Ferri_1993}
+M.~Ferri, F.~Mangili, and G.~Viano.
+\newblock Projective pose estimation of linear and quadratic primitives in
+  monocular computer vision.
+\newblock \emph{CVGIP: Image Underst.}, 58\penalty0 (1):\penalty0 66--84, July
+  1993.
+\newblock ISSN 1049-9660.
 
-\bibitem[Authors(2006{\natexlab{a}})]{Authors06}
-Authors.
-\newblock The frobnicatable foo filter, 2006{\natexlab{a}}.
-\newblock ECCV06 submission ID 324. Supplied as additional material {\tt
-  eccv06.pdf}.
+\bibitem[Fitzgibbon et~al.(1999)Fitzgibbon, Pilu, and
+  Fisher]{fitzgibbon_direct_1999}
+Andrew Fitzgibbon, Maurizio Pilu, and Robert~B. Fisher.
+\newblock Direct least square fitting of ellipses.
+\newblock \emph{Pattern Analysis and Machine Intelligence, {IEEE} Transactions
+  on}, 21\penalty0 (5):\penalty0 476{\textendash}480, 1999.
 
-\bibitem[Authors(2006{\natexlab{b}})]{Authors06b}
-Authors.
-\newblock Frobnication tutorial, 2006{\natexlab{b}}.
-\newblock Supplied as additional material {\tt tr.pdf}.
+\bibitem[Forsyth et~al.(1991)Forsyth, Mundy, Zisserman, Coelho, Heller, and
+  Rothwell]{forsyth_91}
+D.~Forsyth, J.L. Mundy, A.~Zisserman, C.~Coelho, A.~Heller, and C.~Rothwell.
+\newblock Invariant descriptors for 3d object recognition and pose.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 13\penalty0 (10):\penalty0 971--991, 1991.
 
-\bibitem[Hartley and Zisserman(2000)]{Hartley00}
-R.~I. Hartley and A.~Zisserman.
-\newblock \emph{Multiple View Geometry in Computer Vision}.
-\newblock Cambridge University Press, ISBN: 0521623049, 2000.
+\bibitem[Hartley and Zisserman(2003)]{hartley_multiple_2003}
+Richard Hartley and Andrew Zisserman.
+\newblock \emph{Multiple view geometry in computer vision}.
+\newblock Cambridge University Press, Cambridge, {UK;} New York, 2003.
 
-\bibitem[Mermin(1989)]{Mermin89}
-N.~David Mermin.
-\newblock What's wrong with these equations?
-\newblock \emph{Physics Today}, October 1989.
-\newblock \small\url{http://www.cvpr.org/doc/mermin.pdf}.
+\bibitem[Hinterstoisser et~al.(2007)Hinterstoisser, Benhimane, and
+  Navab]{hinterstoisser_n3m:_2007}
+Stefan Hinterstoisser, Selim Benhimane, and Nassir Navab.
+\newblock N3m: Natural 3d markers for real-time object detection and pose
+  estimation.
+\newblock In \emph{Computer Vision, 2007. {ICCV} 2007. {IEEE} 11th
+  International Conference on}, page 1{\textendash}7, 2007.
+
+\bibitem[Lepetit and Fua(2005)]{lepetit_monocular_2005}
+Vincent Lepetit and Pascal Fua.
+\newblock \emph{Monocular model-based 3d tracking of rigid objects: A survey}.
+\newblock Now Publishers Inc, 2005.
+
+\bibitem[Lo{\textbackslash}' pez~de Ipin~a et~al.(2002)Lo{\textbackslash}'
+  pez~de Ipin~a, Mendon{\textbackslash}cca, Hopper, and
+  Hopper]{lo_pez_de_ipin_a_trip:_2002}
+Diego Lo{\textbackslash}' pez~de Ipin~a, Paulo~{RS} Mendon{\textbackslash}cca,
+  Andy Hopper, and Andy Hopper.
+\newblock {TRIP:} a low-cost vision-based location system for ubiquitous
+  computing.
+\newblock \emph{Personal and Ubiquitous Computing}, 6\penalty0 (3):\penalty0
+  206{\textendash}219, 2002.
+
+\bibitem[Lowe(1999)]{lowe_object_1999}
+David~G. Lowe.
+\newblock Object recognition from local scale-invariant features.
+\newblock In \emph{Computer vision, 1999. The proceedings of the seventh {IEEE}
+  international conference on}, volume~2, page 1150{\textendash}1157, 1999.
+
+\bibitem[Luhmann et~al.(2006)Luhmann, Robson, and Harley]{luhmann_close_2006}
+Thomas Luhmann, Stuart Robson, and Stephen Kyle:~Ian Harley.
+\newblock \emph{Close Range Photogrammetry: Principles, Techniques and
+  Applications: Principles, Methods and Applications}.
+\newblock Whittles Publishing, revised edition edition, October 2006.
+\newblock ISBN 1870325508.
+
+\bibitem[Naimark and Foxlin(2002)]{naimark_circular_2002}
+Leonid Naimark and Eric Foxlin.
+\newblock Circular data matrix fiducial system and robust image processing for
+  a wearable vision-inertial self-tracker.
+\newblock In \emph{Proceedings of the 1st International Symposium on Mixed and
+  Augmented Reality}, page~27, 2002.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=854961}.
+
+\bibitem[Pagani et~al.(2011)Pagani, Koehler, Stricker, and
+  Vision-{DFKI}]{pagani_circular_2011}
+Alain Pagani, Johannes Koehler, Didier Stricker, and Augmented Vision-{DFKI}.
+\newblock Circular markers for camera pose estimation.
+\newblock 2011.
+\newblock URL
+  \url{http://repository.tudelft.nl/assets/uuid:6b009c1c-e00d-4f0d-94c6-07925bd162bc/51.pdf}.
+
+\bibitem[Quan(1995)]{quan_invariant_1995}
+Long Quan.
+\newblock Invariant of a pair of non-coplanar conics in space: Definition,
+  geometric interpretation and computation.
+\newblock In \emph{Computer Vision, 1995. Proceedings., Fifth International
+  Conference on}, page 926{\textendash}931, 1995.
+\newblock URL
+  \url{http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=466836}.
+\newblock 00018.
+
+\bibitem[Quan(1996)]{quan_conic_1996}
+Long Quan.
+\newblock Conic reconstruction and correspondence from two views.
+\newblock \emph{Pattern Analysis and Machine Intelligence, {IEEE} Transactions
+  on}, 18\penalty0 (2):\penalty0 151{\textendash}160, 1996.
+\newblock URL
+  \url{http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=481540}.
+
+\bibitem[Safaee-Rad et~al.(1992)Safaee-Rad, Tchoukanov, Smith, and
+  Benhabib]{safaee-rad_three-dimensional_1992}
+Reza Safaee-Rad, Ivo Tchoukanov, Kenneth~Carless Smith, and Bensiyon Benhabib.
+\newblock Three-dimensional location estimation of circular features for
+  machine vision.
+\newblock \emph{Robotics and Automation, {IEEE} Transactions on}, 8\penalty0
+  (5):\penalty0 624{\textendash}640, 1992.
+\newblock URL
+  \url{http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=163786}.
+
+\bibitem[Uchiyama and Marchand(2011)]{uchiyama_deformable_2011}
+Hideaki Uchiyama and Eric Marchand.
+\newblock Deformable random dot markers.
+\newblock In \emph{Mixed and Augmented Reality ({ISMAR)}, 2011 10th {IEEE}
+  International Symposium on}, page 237{\textendash}238, 2011.
+
+\bibitem[Uchiyama and Saito(2011)]{uchiyama_random_2011}
+Hideaki Uchiyama and Hideo Saito.
+\newblock Random dot markers.
+\newblock In \emph{Virtual Reality Conference ({VR)}, 2011 {IEEE}}, page
+  35{\textendash}38, 2011.
+
+\bibitem[Werghi et~al.(1996)Werghi, Doignon, and Abba]{werghi_pose_1996}
+Naoufel Werghi, Christophe Doignon, and Gabriel Abba.
+\newblock Pose estimation of objects based on circular patterns in monocular
+  computer vision.
+\newblock In \emph{{SPIE's} 1996 International Symposium on Optical Science,
+  Engineering, and Instrumentation}, page 254{\textendash}257. International
+  Society for Optics and Photonics, 1996.
+\newblock 00002.
+
+\bibitem[Ying and Zha(2007)]{ying_camera_2007}
+Xianghua Ying and Hongbin Zha.
+\newblock Camera calibration using principal-axes aligned conics.
+\newblock \emph{Computer {Vision{\textendash}ACCV} 2007}, page
+  138{\textendash}148, 2007.
 
 \end{thebibliography}
