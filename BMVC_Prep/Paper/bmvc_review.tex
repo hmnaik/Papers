@@ -205,8 +205,12 @@ $ V_{\{1...p\}} $ are computed off-line as the 3D data is already available. In 
 \end{figure}
 
 \subsection{Step 1: Pairwise Initial Matching}
-In the first stage of descriptor matching we find all possible matching descriptor pairs ($ V \leftrightarrow v $). The strategy is to first compare unique component($ d_c $) of descriptors, if positive then check for ambiguous component ($ \theta $) for a possible match against all 4 values. $ T_{d_c} $ and $ T_\theta $ are the thresholds used to compare the components. 
-The reader should note that a descriptor represents a pair, therefore we will have hypothesis of a possible matching pair. Individual correspondence among the pair will not be solved in this stage. 
+In the first stage of matching process we find a possible conic pair correspondence ($ V \leftrightarrow v $).
+The objective is to reduce complexity of the problem by finding possible correspondence candidates. 
+The strategy is to first compare unique component($ d_c $) of descriptors, if positive then check for ambiguous component ($ \theta $) for a possible match against all 4 values. 
+$ T_{d_c} $ and $ T_\theta $ are the thresholds used to compare the components. 
+The stage may result in \textit{one to many} type of relation between descriptors. This can be either due to similar feature orientation on object or due to presence of \textit{Conic ambiguity} (ambiguous $ \theta $ solutions). 
+The reader should note that a descriptor represents a pair of conics, therefore even an accurate match does not solve individual correspondence in this stage. 
 
 \begin{algorithm}
 \SetKwData{threeDFv}{$ V_{p} $}\SetKwData{twoDFv}{$ v_{q} $}
@@ -231,18 +235,21 @@ The reader should note that a descriptor represents a pair, therefore we will ha
 
 %------------------------------------------------------------------------- 
 \subsection{Step 2: Pointwise Triplet Matching}
-In this stage we simplify the problem further and obtain point wise matching ($ m_i \leftrightarrow M_i $) by performing a verification. After Initial pairwise matching we have a hypothesis about a possible conic pair match. However, since each descriptor represents two conics we can not verify exact correspondence by a single descriptor matching result. In order to solve this ambiguity we use two results (Fig \ref{fig:matchingAndProblem})   
+In this stage we simplify the problem further and obtain point wise matching ($ m_i \leftrightarrow M_i $) by performing a verification on $ v \leftrightarrow V $ matching results. 
+The first objective is to identify and reject false descriptor matches, thereby obtaining a \textit{one to one} conic pair matching relation. Additionally, a single conic pair matching still leaves ambiguity regarding individual conic correspondence $ m_i \leftrightarrow M_i $. 
+We follow a two step approach to generate a matching hypothesis,
+\begin{enumerate}
+\item[1] Find any two results of Pairwise matching in which both image and model descriptors represent one and only one common conic. If such results exist then an initial triplet matching hypothesis can be proposed.
+\[
+ V_{12} \leftrightarrow v_{AB},V_{13} \leftrightarrow v_{AC } \xrightarrow{\text{Triplet Hypothesis}} [1~2~3] \leftrightarrow [A~B~ C]
+\]
+In the example above we can see that world conic 1 and image conic A is common among two solutions. We form a 3 point matching hypothesis with these results. 
+\item[2] Find a new descriptor matching pair ($ V_{23} \leftrightarrow v_{BC}$) which can verify the 3 point matching hypothesis.
+\end{enumerate}
+If a triplet is verified then the result is saved for further processing. This step may also contain false triplet matches (Ref. \ref{fig:matchingAndProblem}). 
 
-
-
-Why? : because of ambiguity lot of results are false, by adding another constraint we restrict the probability of false matching. Also to make it point wise problem from a pair wise problem. 
-- Matching steps on voting 
-- Solving problem from pairwise matching to point wise matching
 \subsection{Step 3: Correspondence Hypothesis }
-Filter the voting matrix to generate point wise matching hypothesis. 
-Comment on how many would be enough to check other hypothesis. 
-(3 are enough to predict solutions) since we know the calibration. 
-One can select only top voted 3 pairs (since they are 3D points) and then verify the whole choice, or go for 6 point matching and achieve the same.
+In this final step results of Pointwise Triplet matching are combined and a voting matrix is generated (Ref. \ref{fig:matchingAndProblem}). A pair having maximum votes in the matrix is proposed as a correspondence hypothesis. In case of conflicting votes results are not considered. A minimum of 3 correspondence are required to compute the pose of the object \cite{lepetit_monocular_2005}(camera intrinsics are known). We recommend selecting top 3 correspondence results to compute the pose and verify the other correspondences suggested in the hypothesis. Further, unmatched image conics can also be associated with corresponding circular features in model.
 
 %\begin{figure*}
 %\begin{center}
@@ -268,6 +275,9 @@ One can select only top voted 3 pairs (since they are 3D points) and then verify
 %\end{table}
 
 \section{Evaluation}
+In this section we will cover experiments carried out to check accuracy and robustness of the algorithm. In order to simulate a test case we have prepared two car identical models with uncoded circular markers of size $ \phi $ = 12 mm ($ M_i = 20 $) and 5mm ($ M_i  = 26$). The markers are attached in random order and coplanar placement is avoided.  
+Measurement of 3D data is done with state of the art metrology systems, and ground truth is established by giving each model point a unique ID in database. We took several images of the models from a calibrated camera (5 Mp)
+
 Page 5: 
 Explain the experiment model preparation. The selection of the markers as per standard. Good detection range with such sizes to give reader idea of tracking range. 
 Model 1 : 12mm 
