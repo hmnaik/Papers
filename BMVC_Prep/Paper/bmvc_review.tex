@@ -1,9 +1,9 @@
 \documentclass{bmvc2k}
 
 %% Enter your paper number here for the review copyu
-\bmvcreviewcopy{666}
+\bmvcreviewcopy{123}
 
-\title{Correspondence matching of non-coplanar circles from a single image}
+\title{Single View Correspondence Matching for Non-Coplanar Circles Using Euclidean Invariants}
 
 % Enter the paper's authors in order
 % \addauthor{Name}{email/homepage}{INSTITUTION_CODE}
@@ -47,9 +47,18 @@
 In this work we introduce a method to determine 2D-3D correspondence for non-coplanar circles using a single image, given that 
 3D information is known. 
 %the orientation of circle plane is known. 
-Conic theory suggests that an elliptical image projection of a circle can be used to define the circle plane orientation in camera frame with an ambiguity. This concept is used to compute Euclidean invariants from model features and image features. We encapsulate the invariants in \textit{Conic Descriptor} and show an approach to obtain correspondences by removing ambiguity. Our method computes 3D information from 2D features, thus transforming a 2D-3D problem to a 3D-3D problem. 
-We also provide detailed understanding of factors affecting computation of invariants and the matching algorithm itself. 
-The method can be used for any 3D object having circular features on different planes. Additionally, we also propose an example application of the method in industrial domain. The experiments carried out to evaluate the method are designed to show compatibility with proposed industrial applications. 
+The core idea of our method is to compute 3D information from 2D features, thereby transforming a 2D-3D problem to a 3D-3D problem. 
+Earlier researchers suggested that a pair of non-coplanar circles preserve Euclidean invariants under perspective projection. 
+These invariants can be extracted from their image projections, but with a two fold ambiguity. 
+%Conic theory suggests that an elliptical image projection of a circle can be used to define the circle plane orientation in camera frame with an ambiguity. 
+%encapsulate these invariants in
+We follow this concept to compute Euclidean invariants from known model features and detected image features. 
+We introduce \textit{Conic Pair Descriptor} and derive a 3 step descriptor matching approach to obtain correspondences despite the ambiguity in invariants. 
+This paper also includes a detailed account of factors affecting the computation of invariants and the matching algorithm itself. 
+Our method can be used for any 3D object having identical circular features on different planes. 
+Experiments are carried out on real and simulated models to evaluate the proposed method.
+We endorse our method for model based tracking applications in the industrial domain, where natural or artificial circular features readily exist on the model. 
+%which is supported our claim and show compatibility with proposed industrial applications. 
 
 \end{abstract}
 
@@ -61,10 +70,20 @@ The method can be used for any 3D object having circular features on different p
 %No much work done in this direction. The invariants proposed are never used for a application so we provide use and discuss stability of the algorithm. Comment on why circles and the paper we build up to. 
 %The work of Forsyth as the base of our work, the concepts given in the paper. Our contribution is matching strategy using such invariants. Demonstrating an application and evaluation of the method. 
 
-Correspondence matching is one of the key problems in computer vision. Applications related to pose estimation or object detection require accurate knowledge of model features and their corresponding image features. 
-The problem becomes more challenging for monocular systems as the depth information is lost. Popular monocular methods involve learning object with few initial frames or require initialisation to facilitate matching [N3M so on]. Many authors have proposed using natural features like points, lines and conics for solving correspondence problem \cite{hartley_multiple_2003}. Such features are easier to extract from images and can be used to compute reliable projective invariants. Invariants are extensively studied topic in early vision community, Forsyth \etal \cite{forsyth_91} provided a detailed account on 3D invariant descriptors and their stability under projective motion. 
+Correspondence matching is one of the key problems in computer vision. Pose estimation and object recognition applications require accurate knowledge of correspondence relation ($ m_i \leftrightarrow M_i $) between 3D model features ($ M_i $) and 2D image features ($ m_i $). 
+In case of monocular systems the $ m_i \leftrightarrow M_i $ problem becomes more challenging as the depth information is lost.
+Various Computer Vision and Augmented Reality applications require correspondence matching from single view. Popular approach to achieve this is to compute projective invariant from features like points, lines and conics \cite{hartley_multiple_2003}. 
+Invariants are extensively studied topic in vision community, Forsyth \etal \cite{forsyth_91} and Gros \cite{gros_projective_1992} covered a detailed study on projective invariant descriptors and their stability under projective transformation.
+
+
+In recent times researchers have focused on using learning based methods for monocular 3D object tracking. 
+In order to achieve 
+
+
+In this paper we will focus on a specific class of features, that is \textit{circles}. 
+
 In learning based model tracking methods initial frames of the camera are used to learn model and compute unique descriptors from dense or sparse set of natural model features \cite{chekhlov_ninja_2007} \cite{hinterstoisser_n3m:_2007} \cite{lowe_object_1999}. Other methods involve using a selective set features (edges, contours, etc.) to compute invariants from a single image \cite{lepetit_monocular_2005}. In our method we demonstrate how non-planar circular features can be used to compute invariant descriptors and solve matching from single image. 
-%We propose one such method for multiple non-coplanar circular features exist in the scene. solving correspondence problem when 
+
 %Machine learning based methods \cite{Hartley00} provide promising results, but are limited to a specific group of objects and require prior learning of the object. 
 %This work is focussed on finding correspondence information from a single image of the scene. 
 %Methods [quan] find correspondence    
