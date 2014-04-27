@@ -25,6 +25,7 @@
 }
 \usepackage[]{algorithm2e}
 
+
 \runninghead{Student, Prof, Collaborator}{BMVC Author Guidelines}
 
 % Any macro definitions you would like to include
@@ -43,17 +44,20 @@
 \maketitle
 
 \begin{abstract}
-In this work we have proposed a method to determine 2D-3D correspondence between non-coplanar circles from a single image.
-Our method uses image conics to compute circle plane orientation in camera coordinate system, thus bringing the problem from 2D to 3D domain. This information is used to generate projective invariant descriptors which can be used directly for correspondence matching, given that the 3D information about circles are known. Additionally, the evaluation also covers study stability of the projective invariants and the factors affecting their computation. One of the intended applications is for tracking industrial objects with circles on it. In our approach we use conic properties of circles to compute projective invariant descriptors. These descriptors are matched with known 3D information to establish correspondences. We also demonstrate stability of the invariants used to generate descriptors both in practice and simulation. 
-In our approach we compute 3D plane orientation of each circle from its image contour, and compute projective invariants between each pair of circles. We propose a new descriptor 
+In this work we introduce a method to determine 2D-3D correspondence for non-coplanar circles using a single image, given that 
+3D information is known. 
+%the orientation of circle plane is known. 
+Conic theory suggests that an elliptical image projection of a circle can be used to define the circle plane orientation in camera frame with an ambiguity. This concept is used to compute Euclidean invariants from model features and image features. We encapsulate the invariants in \textit{Conic Descriptor} and show an approach to obtain correspondences by removing ambiguity. Our method computes 3D information from 2D features, thus transforming a 2D-3D problem to a 3D-3D problem. 
+We also provide detailed understanding of factors affecting computation of invariants and the matching algorithm itself. 
+The method can be used for any 3D object having circular features on different planes. Additionally, we also propose an example application of the method in industrial domain. The experiments carried out to evaluate the method are designed to show compatibility with proposed industrial applications. 
 
 \end{abstract}
 
 %------------------------------------------------------------------------- 
 \section{Introduction}
 \label{sec:intro}
-goal : 
-Explain the problem in question, the motivation for the work and the proposed application in mind. The assumptions made in our work. We have the camera calibrated and we use 3D points and their normal positions for the descriptor measurement. 
+%goal : 
+%Explain the problem in question, the motivation for the work and the proposed application in mind. The assumptions made in our work. We have the camera calibrated and we use 3D points and their normal positions for the descriptor measurement. 
 %No much work done in this direction. The invariants proposed are never used for a application so we provide use and discuss stability of the algorithm. Comment on why circles and the paper we build up to. 
 %The work of Forsyth as the base of our work, the concepts given in the paper. Our contribution is matching strategy using such invariants. Demonstrating an application and evaluation of the method. 
 
@@ -70,6 +74,16 @@ In learning based model tracking methods initial frames of the camera are used t
 %[Quan] One approach is using two or more images from different perspective to find same image features and then obtain correspondence using triangulation technique. 
 %The problem is more complex with a single image as depth feature is lost. 
 %In this paper we will focus on solving this particular problem of matching from a single image. 
+\begin{figure}
+\centering
+\begin{tabular}{cc}
+\bmvaHangBox{\fbox{\includegraphics[width=5cm,height =3cm]{images/Problem.png}} }&
+\bmvaHangBox{\fbox{\includegraphics[width=5cm,height = 3cm]{images/carModels.png}} } \\ %keepaspectratio=true
+(a)&(b)
+\end{tabular}
+\caption{ Matching problem for non-coplanar circles ;
+(a) A primitive example explaining the problem when image features have same properties and correspondence relation with model is ambiguous (b) A realistic model prepared with circular fiducials used for Photogrammetric measurements in Industry \label{fig:introProblem}}
+\end{figure}
 
 In single images projective transformation of features make it difficult to compute invariant features. Coplanar conics, lines and points can be used to compute planar invariants \cite{forsyth_91}. Circles have a special property to retain depth information under projective transformation. A world circle always produces an elliptical curve on the image plane. If size of circle is known orientation of circle plane can be defined in 3D (camera coordinates) with a two fold ambiguity \cite{forsyth_91} \cite{safaee-rad_three-dimensional_1992}. 
 Further, Forsyth \etal \cite{forsyth_91} proposed that up to three projective invariant can be computed from a non-coplanar pair of circles. They explain that angle between circle planes (angle between surface normals) and distance between centre of the circles are invariant quantities. The concept was proposed in early 90s, however these invariants have remained unexplored. 
@@ -128,6 +142,19 @@ Literature study suggests that, existing methods either provide a solution for c
 We assume that both 2D and 3D data is already available, and will focus on the matching method in detail. 
 3D data includes the surface normal ($N_i$), centre position ($M_i$) and size ($R_i$) of the circles on the model. 
 2D data includes centre points ($m_i$) and conic matrices ($C_i$) recovered from the undistorted image. The camera intrinsics ($K$) and distortion parameters are known. We have followed approach of Naimark \cite{naimark_circular_2002} and Fitzgibbon \cite{fitzgibbon_direct_1999} for ellipse detection and fitting.  
+
+\begin{figure}
+\centering
+\begin{tabular}{cc}
+\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/centerEstimationErrorR6_N3.png}} }&
+\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/NormalRecoveryError_R6_3.png}} } \\
+%\caption{\label{fig:matchingProblem}}
+%\caption{\label{fig:matchingProcess}}
+(a)&(b)
+\end{tabular}
+\caption{ Ellipse backprojection results at different camera distance and viewing angles,Image noise = $ \sigma = 0.3 $,$ \phi = 12 mm $ ;
+(a) Error in Centre ($ Mc_i $) (b) Error in Normal ($ Nc_i $) \label{fig:InvariantRecovery} }
+\end{figure}
 
 \subsection{Conic Invariants : Theory and Computation}
 \label{subSec:ConicInv}
@@ -195,8 +222,8 @@ $ V_{\{1...p\}} $ are computed off-line as the 3D data is already available. In 
 \begin{figure}
 \centering
 \begin{tabular}{cc}
-\bmvaHangBox{\fbox{\includegraphics[width=5cm,keepaspectratio=true]{images/matchingProblem.png}} }&
-\bmvaHangBox{\fbox{\includegraphics[width=5cm,keepaspectratio=true]{images/matchingProcess.png}} } \\
+\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/matchingProblem.png}} }&
+\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/matchingProcess.png}} } \\
 %\caption{\label{fig:matchingProblem}}
 %\caption{\label{fig:matchingProcess}}
 (a)&(b)
@@ -204,6 +231,8 @@ $ V_{\{1...p\}} $ are computed off-line as the 3D data is already available. In 
 \caption{ Matching problem and the overview of the method to generate correspondence hypothesis ;
 (a) A problem showing four image points, and their correspondence with world points (1-A,2-B,C-3) and one false positive (D) (b) Image shows the simplified matching process for the problem suggested in (a), partial results of all 3 steps are shown. \label{fig:matchingAndProblem}}
 \end{figure}
+
+
 
 \subsection{Step 1: Pairwise Initial Matching}
 \label{subSec:PIM}
@@ -232,7 +261,7 @@ The reader should note that a descriptor represents a pair of conics, therefore 
 			}
 		}	
 	}
-\caption{Initial pair matching algorithm}
+\caption{Pairwise Initial Matching algorithm}
 \end{algorithm}
 
 %------------------------------------------------------------------------- 
@@ -254,29 +283,6 @@ If a triplet is verified then the result is saved for further processing. This s
 \label{subSec:CHypo}
 In this final step results of Pointwise Triplet matching are combined and a voting matrix is generated (Ref. \ref{fig:matchingAndProblem}). A pair having maximum votes in the matrix is proposed as a correspondence hypothesis. In case of conflicting votes results are not considered. A minimum of 3 correspondence are required to compute the pose of the object \cite{lepetit_monocular_2005}(camera intrinsics are known). We recommend computing pose of the object by 
 selecting top 3 correspondence results. The computed pose can be used to further verify and modify correspondences. This implies that for images having only 3 conic features matching results may not be reliable. 
-
-%\begin{figure*}
-%\begin{center}
-%\fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
-%\end{center}
-%   \caption{Example of a short caption, which should be centered.}
-%\label{fig:short}
-%\end{figure*}
-
-%\begin{table}
-%\begin{center}
-%\begin{tabular}{|l|c|}
-%\hline
-%Method & Frobnability \\
-%\hline\hline
-%Theirs & Frumpy \\
-%Yours & Frobbly \\
-%Ours & Makes one's heart Frob\\
-%\hline
-%\end{tabular}
-%\end{center}
-%\caption{Results.   Ours is better.}
-%\end{table}
 
 \section{Evaluation}
 In this section we will cover experiments (simulations and real) carried out to comment on accuracy and robustness of the algorithm. To the best of our knowledge no other application has attempted using the euclidean invariants generated by circles. 
@@ -372,15 +378,11 @@ Our contribution also includes providing detailed understanding of behaviour of 
 The results of the experiments support our claim, that the method is fast, reliable and robust against false positives.
 Our method can be used for object tracking or object identification in Industrial scenario, where natural or artificial circular features exist on the models. However, the method is generic and can be used for any application dealing with non coplanar circles. 
 The 3D information of the features on the model and camera calibration are the only prerequisites for matching. 
-The reader should also note that algorithm may not perform well with symmetric arrangement of circular features. 
+The reader should also note that algorithm may not perform well with symmetric or coplanar arrangement of circular features. 
 
-In context of future work, a faster matching strategy can be developed to handle large number of feature points and false positives. We would like to use the same invariants to compute 2D-2D correspondence matching between two images in order to generate the 3D data which is a prerequisite now. We also consider using such matching algorithm to support creating 3D markers for monocular Augmented Reality applications. This can be a cheap alternative to conventionally used 3D spherical markers.  
+In context of future work, we would like to improve the method to be able to handle features of different sizes simultaneously.
+Also a faster matching strategy is required to handle large number of feature points and false positives. We would like to use the same invariants to compute 2D-2D correspondence matching between two images in order to generate the 3D data which is a prerequisite now. We also consider using such matching algorithm to support creating 3D markers for monocular Augmented Reality applications. This can be a cheap alternative to conventionally used 3D spherical markers.  
 
-Page 7 : 
-1. Reliable method for correspondence matching for non coplananr circular features. 
-2. Accuracy is improved with the size and method works better if the detection range is selected appropriate to the conic size. 
-3. Comment on the stability of the invariants 
-4. Comment on arrangement of the circles. (Random and non symmetric)
 
 \bibliography{egbib}
 \end{document}
