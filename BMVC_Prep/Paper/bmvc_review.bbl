@@ -1,17 +1,9 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[Chekhlov et~al.(2007)Chekhlov, Gee, Calway, and
-  Mayol-Cuevas]{chekhlov_ninja_2007}
-D.~Chekhlov, {A.P.} Gee, A.~Calway, and W.~Mayol-Cuevas.
-\newblock Ninja on a plane: Automatic discovery of physical planes for
-  augmented reality using visual {SLAM}.
-\newblock In \emph{6th {IEEE} and {ACM} International Symposium on Mixed and
-  Augmented Reality, 2007. {ISMAR} 2007}, pages 153--156, 2007.
 
 \bibitem[Dhome et~al.(1990)Dhome, Laprest{\'e}, Rives, and
   Richetin]{dhome_spatial_1990}
@@ -21,6 +13,12 @@ Michel Dhome, Jean-Thierry Laprest{\'e}, G{\'e}rard Rives, and Marc Richetin.
 \newblock In \emph{Computer {Vision{\textemdash}ECCV} 90}, page
   475{\textendash}485. Springer, 1990.
 \newblock URL \url{http://link.springer.com/chapter/10.1007/BFb0014897}.
+
+\bibitem[Farin and Hansford(1998)]{farin_geometry_1998}
+Gerald~E Farin and Dianne Hansford.
+\newblock \emph{The geometry toolbox for graphics and modeling}.
+\newblock {A.K.} Peters, Natick, Mass., 1998.
+\newblock ISBN 1568810741 9781568810744.
 
 \bibitem[Ferri et~al.(1993)Ferri, Mangili, and Viano]{Ferri_1993}
 M.~Ferri, F.~Mangili, and G.~Viano.
@@ -44,18 +42,17 @@ D.~Forsyth, J.L. Mundy, A.~Zisserman, C.~Coelho, A.~Heller, and C.~Rothwell.
 \newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 13\penalty0 (10):\penalty0 971--991, 1991.
 
+\bibitem[Gros and Quan(1992)]{gros_projective_1992}
+Patrick Gros and Long Quan.
+\newblock Projective invariants for vision.
+\newblock Technical Report RT 90 IMAG - 15 LIFIA, MOVI - IMAG-INRIA
+  Rh{\^o}ne-Alpes / GRAVIR , Laboratoire d'Informatique Fondamentale et
+  d'Intelligence Artificielle - LIFIA, 1992.
+
 \bibitem[Hartley and Zisserman(2003)]{hartley_multiple_2003}
 Richard Hartley and Andrew Zisserman.
 \newblock \emph{Multiple view geometry in computer vision}.
 \newblock Cambridge University Press, Cambridge, {UK;} New York, 2003.
-
-\bibitem[Hinterstoisser et~al.(2007)Hinterstoisser, Benhimane, and
-  Navab]{hinterstoisser_n3m:_2007}
-Stefan Hinterstoisser, Selim Benhimane, and Nassir Navab.
-\newblock N3m: Natural 3d markers for real-time object detection and pose
-  estimation.
-\newblock In \emph{Computer Vision, 2007. {ICCV} 2007. {IEEE} 11th
-  International Conference on}, page 1{\textendash}7, 2007.
 
 \bibitem[Lepetit and Fua(2005)]{lepetit_monocular_2005}
 Vincent Lepetit and Pascal Fua.
@@ -72,12 +69,6 @@ Diego Lo{\textbackslash}' pez~de Ipin~a, Paulo~{RS} Mendon{\textbackslash}cca,
 \newblock \emph{Personal and Ubiquitous Computing}, 6\penalty0 (3):\penalty0
   206{\textendash}219, 2002.
 
-\bibitem[Lowe(1999)]{lowe_object_1999}
-David~G. Lowe.
-\newblock Object recognition from local scale-invariant features.
-\newblock In \emph{Computer vision, 1999. The proceedings of the seventh {IEEE}
-  international conference on}, volume~2, page 1150{\textendash}1157, 1999.
-
 \bibitem[Luhmann et~al.(2006)Luhmann, Robson, and Harley]{luhmann_close_2006}
 Thomas Luhmann, Stuart Robson, and Stephen Kyle:~Ian Harley.
 \newblock \emph{Close Range Photogrammetry: Principles, Techniques and
@@ -92,11 +83,12 @@ Leonid Naimark and Eric Foxlin.
 \newblock In \emph{Proceedings of the 1st International Symposium on Mixed and
   Augmented Reality}, page~27, 2002.
 
-\bibitem[Pagani et~al.(2011)Pagani, Koehler, Stricker, and
-  Vision-{DFKI}]{pagani_circular_2011}
-Alain Pagani, Johannes Koehler, Didier Stricker, and Augmented Vision-{DFKI}.
+\bibitem[Pagani et~al.(2011)Pagani, K\"{o}hler, and
+  Stricker]{pagani_circular_2011}
+Alain Pagani, Johannes K\"{o}hler, and Didier Stricker.
 \newblock Circular markers for camera pose estimation.
-\newblock 2011.
+\newblock In \emph{12th International Workshop on Image Analysis for Multimedia
+  Interactive Services (WIAMIS 2011)}, 2011.
 
 \bibitem[Quan(1995)]{quan_invariant_1995}
 Long Quan.
@@ -104,8 +96,6 @@ Long Quan.
   geometric interpretation and computation.
 \newblock In \emph{Computer Vision, 1995. Proceedings., Fifth International
   Conference on}, page 926{\textendash}931, 1995.
-\newblock URL
-  \url{http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=466836}.
 \newblock 00018.
 
 \bibitem[Quan(1996)]{quan_conic_1996}
