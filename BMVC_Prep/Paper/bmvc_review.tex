@@ -28,17 +28,21 @@
 % added by Yuji
 %%%%%%%% FROM HERE
 \usepackage{color}
+\newcommand{\parmessage}[1]{\textcolor{cyan}{[Paragraph: #1]}}
 \newcommand{\comments}[1]{\textcolor{magenta}{[Comments: #1]}}
-\newcommand{\yuji}[2]{\textcolor{red}{\sout{#1}} \textcolor{blue}{#2}}  %Before (magenta) and after (blue)
-%\newcommand{\yuji}[2]{\textcolor{green}{#1}}  %Modifications appear in green
-%\newcommand{\yuji}[2]{#1} % Just the modified result
-%\newcommand{\yuji}[2]{#2} % Before the modification
+\newcommand{\yuji}[1]{\textcolor{magenta}{[Yuji: #1]}}
+\newcommand{\revise}[2]{\textcolor{red}{\sout{#1}} \textcolor{blue}{#2}}  %Before (magenta) and after (blue)
+%\newcommand{\revise}[2]{\textcolor{green}{#1}}  %Modifications appear in green
+%\newcommand{\revise}[2]{#1} % Just the modified result
+%\newcommand{\revise}[2]{#2} % Before the modification
 \usepackage{ulem}
 
 \newcommand{\fref}[1]{Fig\bmvaOneDot~\ref{#1}}
 \newcommand{\Fref}[1]{Figure~\ref{#1}}
 \newcommand{\eref}[1]{Eq\bmvaOneDot~\ref{#1}}
 \newcommand{\Eref}[1]{Equation~\ref{#1}}
+\newcommand{\sref}[1]{Sec\bmvaOneDot~\ref{#1}}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
 %%%%%%%% UNTIL HERE
 
 \runninghead{Student, Prof, Collaborator}{BMVC Author Guidelines}
@@ -183,6 +187,120 @@ Luhmann \cite{luhmann_close_2006} provides detailed account of methods using poi
 \paragraph{}
 Literature study suggests that, existing methods either provide a solution for coplanar circular features or non-coplanar  coded circular features. The novelty of our method is that it addresses 2D-3D matching problem for non planar circles present in the scene. 
 
+
+\section{New introduction}
+
+\par 
+\parmessage{what is correspondence matching
+\begin{itemize}
+\item correspondence matching is ...
+\item 2 solutions.
+\end{itemize}
+}
+Correspondence matching aims to find correspondences between images or ones between object model and its image projection, thus is one of the key problems in computer vision.
+Since perspective transformation differs appearance of a single object on images, correspondence matching needs feature descriptors, which can compute invariant quantities against some transformation, and establishes correspondence by matching the invariant quantities obtained by the descriptors.
+
+%\par 
+%\parmessage{projective invariants on primitive features}
+%Popular approach to achieve this is to compute projective invariant quantities from primitive features such as points, lines, and conics~\cite{hartley_multiple_2003} and use these invariant quantities for matching.
+%Such primitive features are easier to detect from images, therefore invariants on the primitive features have been extensively studied in vision community.
+%There exist several works that covered a detailed study on projective invariants and their stability under projective transformation \cite{forsyth_91,gros_projective_1992}
+%\yuji{ask Hemal whether the followings are right or not.}
+%Quan used \textbf{WHAT} invariant quantity from conic section for finding correspondence between two images and 3D reconstruction \cite{quan_conic_1996}.
+%Coplanar conics was used to compute \textbf{WHAT} invariant quantity~\cite{forsyth_91,Ferri_1993} \yuji{is it better to move this invariant quantity on coplanar conics to the next paragraph?}.
+%\yuji{any more projective invariants on primitive features?}
+%\yuji{will mention why these invariants have used less in this decade.}
+%
+\par 
+\parmessage{Projective invariants on planar objects or primitive features}
+\yuji{ask Hemal whether this paragraph is right or not.}
+One of the popular approaches use invariant quantities on planar object against perspective transformation.
+This type of approaches are based on invariants theory, which has been well-studied in 90s.
+There exist several works that covered a detailed study on projective invariants and their stability under projective transformation \cite{forsyth_91,gros_projective_1992}
+The invariants theory revealed that primitive features such as points, lines, and conics have invariant quantities against perspective transformation~\cite{hartley_multiple_2003} and the idea is to use these invariant quantities for matching.
+Especially, planar projective descriptors, which compute invariant quantities against perspective transformation from planar object, have been investigated.
+Quan used \textbf{WHAT} invariant quantity from conic section for finding correspondence between two images and 3D reconstruction \cite{quan_conic_1996}.
+Coplanar conics was used to compute \textbf{WHAT} invariant quantity~\cite{forsyth_91,Ferri_1993}.
+\yuji{any more projective invariants on primitive features?}
+\yuji{will mention why these invariants have used less in this decade.}
+\yuji{is here the best place to mention triangulation based matching such as ART?}
+
+\par 
+\parmessage{some invariants on fiducial markers}
+%\begin{itemize}
+%\item use 
+%\begin{itemize}
+%\item encoded binary pattern (fiducial markers)
+%\item some invariants on plane~\cite{Matsunaga2000,uchiyama_random_2011}
+%\end{itemize}
+%\item can construct a 3D marker by concatenating multiple planar markers
+%\end{itemize}
+Another approach also using primitive features embeds binary patterns into a planar object, called fiducial markers.
+%This type of markers can be made with consumer printers, therefore it is preferred by users making light weight system.
+The embedded patterns are extracted from images by adaptive thresholding for matching the correspondence between the marker model and its image projection and then the extracted patterns are decoded for identifying the extracted marker.
+The original work by Kato and Billinghurst~\cite{Kato1999} uses the contour of a rectangle but does not use any invariant quantity.
+Matsunaga \etal made a special chessboard with different pattern sizes and use cross ratio, which is a projective invariant quantity, defined by intersection of the patterns~\cite{Matsunaga2000}.
+Recent works compute perspective~\cite{Nakai2005}, affine~\cite{Nakai2006}, rotation invariants~\cite{Uchiyama2011a} on key-points distribution defined by a set of key-points' location.
+\yuji{any disadvantage?}
+
+\par 
+\parmessage{local texture descriptors}
+%\begin{itemize}
+%\item encodes local texture in image
+%\item like SIFT
+%\item for mobile applications
+%\item up to rotation, affine invariants
+%\item more idea~\cite{Kurz2012,Lepetit2006}, to handle perspective transformation
+%\end{itemize}
+Recent trend computes some invariant quantities defined by local texture in image such as SIFT descriptor~\cite{Lowe1999}.
+Contrast to the above approaches, this type of approaches does not assume any primitive features in target scene.
+Alternatively, the approaches assume textured scene so that we can use the approaches for mobile applications, in which primitive shapes cannot be assumed.
+The approaches focus on improving their invariance as well as efficient memory usage so that the matching can run even on powerless processors in mobile phones~\cite{Ke2004,Calonder2010}.
+One of the disadvantages of these approaches is that their invariance are up to 2D transformation such as affine and rotation transformation.
+To handle view change caused by perspective transformation, we must explicitly learn how invariant quantities are affected by perspective transformation~\cite{Kurz2012,Lepetit2006}
+
+\subsection{Conic invariants under perspective transformation}
+\parmessage{conic invariants under perspective transformation}
+\yuji{will add more stuff later.}\\
+3D objects are known to retain Euclidean invariants rather than projective invariants~\cite{forsyth_91}.
+In case of 3D objects, Euclidean invariants are difficult to extract from images due to perspective projection.
+Circles have a special property to retain depth information even under projective transformation.
+A circle in the 3D world coordinate always appears as an elliptical curve on the image plane.
+When the size of circle is known, orientation of circle plane can be defined in 3D (camera coordinates) with a two fold ambiguity~\cite{forsyth_91,safaee-rad_three-dimensional_1992}.
+Further, Forsyth \etal~\cite{forsyth_91} proposed that up to three projective invariant can be computed from a pair of non-coplanar circles.
+Is is explained that angle between circle planes (angle between surface normals) and distance between centre of the circles are perspective invariant quantities.
+Although those invariants were theoretically validated even in early 90s, its practical application have not been explored.
+
+\subsection{Our contribution}
+\parmessage{Our contribution}
+\yuji{will touch later}\\
+%\begin{itemize}
+%\item conic pair descriptor
+%	\begin{itemize}
+%	\item 3D information
+%	\item based on invariants of a pair of non-coplanar conics
+%	\end{itemize}
+%\end{itemize}
+\comments{h: our work based on conic invariants}
+We propose using these invariants to solve correspondence problem when multiple 3D circular features exist on a model. 
+%We \revise{propose}{derive \textit{Conic pair descriptor}} using these invariants \revise{}{computed from a pair of non-coplanar circles} to solve correspondence problem\revise{ when multiple 3D circular features exist on a model}{}. 
+In this approach we bring problem from 2D to 3D by computing 3D invariants from image features, then solve 3D-3D matching problem with model.
+We introduce $ Conic Pair Descriptor $, which encapsulate invariants computed from elliptical image features to solve the conic ambiguity and provide accurate matching with 3D features.%\revise{In this approach we bring problem from 2D to 3D by computing 3D invariants from image features, then solve 3D-3D matching problem with model.
+%We introduce $ Conic Pair Descriptor $, which encapsulate invariants computed from elliptical image features to solve the conic ambiguity and provide accurate matching with 3D features.}
+%{With the proposed descriptor, we can extract 3D information from a set of non-coplanar circles, therefore the 2D-3D matching problem is solved as a 3D-3D matching problem.}
+The proposed method is first attempt to use these invariants, therefore we also carried out simulations to show stability of invariants against change of perspective.  
+
+\comments{i: our contribution}
+%We demonstrate  practical scenario where such method can be used effectively.
+Our contribution is a new method to accurately identify image correspondences when multiple identical 3D circular features exist in the scene. We assume that calibration of camera is known and 3D information of features is available. 
+Often in Industry based model tracking applications 3D-CAD data is known. Our matching method is suitable for tracking any 3D objects having known circles on different planes. In close range photogrammetry multiple circular markers (Figure. \ref{fig:introProblem}) are placed on 3D models for surface measurements \cite{luhmann_close_2006}. 
+These measurements include computation of surface normal and 3D position of each marker. 
+This process involves taking multiple images of the model with additional presence of encoded markers in the scene to solve correspondence. 
+Once 3D measurements are done our method can be extremely useful to support tracking application without using coded patterns. Similarly various industrial parts having natural circles can be identified and tracked with this method. 
+We prepared two car models with circular markers for evaluating our matching method. The proposed method can find corresponding circular marker from a single image, with high accuracy. We also show that our method is stable against false positives detected from the scene. Our method is fast enough to support real-time tracking applications. 
+
+
+
 \section{Method}
 We will assume that both the 2D and 3D data are already available and focus on the matching method in detail. 
 The 3D data includes the surface normal $N_i$, centre position $M_i$ and size $R_i$ (diameter) of the circles present on the model. 
@@ -250,7 +368,7 @@ The proposed \textit{Conic pair descriptor} structure,
 \textit{Conic pair descriptor}_{image} &= v_{q} \langle  d_c,\theta_{11},\theta_{12},\theta_{21},\theta_{22} \rangle_{i,j} \label{Eq:2Ddescriptors} 
 \end{align}
 where $V_{p}$ represents world circles $i,j$ and $v_{q}$ represents image conic pair $i,j$. 
-The reader should note that given a set of points and their corresponding normals in 3D camera space, PFH descriptor \cite{RusuDoctoralDissertation} also computes similar invariants, however in our case the concept can not be applied as the \textit{Conic ambiguity} restricts us from computing a unique set of invariants. 
+The reader should note that given a set of points and their corresponding normals in 3D camera space, PFH descriptor \cite{RusuDoctoralDissertation} also computes similar invariants. In this case, the concept can not be applied to the results of \textit{Ellipse backprojection} as the \textit{Conic ambiguity} restricts us from computing a unique set of invariants. 
 Unlike popular methods, a \textit{Conic pair descriptor} represents two features at same time. 
 In order to uniquely represent a single conic using Euclidean invariants, at least more than two conic features are required. 
 Addition of each conic feature adds 3 wrong solutions of $ \theta $ in the descriptor, additionally the matching must rely on detection of all the conics used for descriptor computation. 
@@ -285,14 +403,14 @@ After computing the \textit{Conic pair descriptors} the following 3 step matchin
 In the first stage of the matching process we compare the \textit{Conic pair descriptors}.
 % ($ V \leftrightarrow v $).
 The objective is to reduce complexity of the problem by finding the possible pair correspondences ($ v \leftrightarrow V $). 
-First the unique component($ d_c $) between the descriptors is compared, if matched then ($ \theta $) component of $ V $ is compared with all 4 values of $ \theta $ component in $ v $. 
+First the unique component($ d_c $) between the descriptors is compared, if matched then ($ \theta $) component of $ V $ is compared with all 4 values of $ \theta $ component in $ v $ (Ref. Algorithm \ref{algo:PIM}). 
 $ T_{d_c} $ and $ T_\theta $ are the threshold values used to compare the respective components. 
 The stage may result in \textit{one to many} type of relation between descriptors. This can be either due to similar feature orientation on object or due to presence of the \textit{Conic ambiguity}. 
 The reader should note that a descriptor represents a pair of conics, therefore the stage is called pairwise matching.
 %Even an accurate match does not solve individual correspondence in this stage. 
-[REFER IMAGE]
+The example given in Figure \ref{fig:matchingAndProblem} shows possible outcome of step 1 with respect to the given example problem. 
 
-\begin{algorithm}
+\begin{algorithm} \label{algo:PIM}
 \SetKwData{threeDFv}{$ V_{p} $}\SetKwData{twoDFv}{$ v_{q} $}
 \SetKwData{ThresholdD}{$T_{d_c} $}\SetKwData{ThresholdA}{$T_\theta $}
 \SetKwFunction{compareDist}{compare$d_c$}\SetKwFunction{compareAngle}{compare$ \theta $}
@@ -315,11 +433,9 @@ The reader should note that a descriptor represents a pair of conics, therefore 
 
 %------------------------------------------------------------------------- 
 \subsection{Step 2: Pointwise Triplet Matching}
-[REFER IMAGE]
 In this stage we simplify the problem further and obtain hypothesis on point wise matching ($ m_i \leftrightarrow M_i $) by performing a verification on $ v \leftrightarrow V $ matching results. 
-%The first objective is to identify and reject false descriptor matches, thereby obtaining a \textit{one to one} conic pair matching relation. 
-The first objective is to compare the results of step 1 to identify and reject false descriptor matches. 
-We seek three $ v \leftrightarrow V $ results, such that they complement each other to form a unique $ m_i \leftrightarrow M_i $ hypothesis for three points. 
+The objective is to compare the results of step 1 to identify and reject false descriptor matches. 
+We seek three $ v \leftrightarrow V $ results, such that they complement each other to form a unique three points $ m_i \leftrightarrow M_i $ hypothesis.
 A simple two stage approach is proposed to generate a triplet matching hypothesis,
 \begin{enumerate}
 \item[1] Find any two results of Pairwise Initial Matching in which both the image and the model descriptors represent one and only one common conic. If such results exist then an initial triplet matching hypothesis can be proposed. 
@@ -329,75 +445,114 @@ A simple two stage approach is proposed to generate a triplet matching hypothesi
 In the example above we can see that world conic 1 and image conic A is common among the two solutions. We form a 3 point matching hypothesis with these results. 
 \item[2] Find a new descriptor matching pair which can verify the triplet matching hypothesis formed in the previous stage (e.g. $ V_{23} \leftrightarrow v_{BC}$).
 \end{enumerate}
-If a triplet is verified then the result is saved for further processing. This step may also contain false triplet matches (Ref. \ref{fig:matchingAndProblem}). If $ x $ number of results are generated in step 1, the number of pairs compared in this stage is $ \binom{x}{3} $. 
+The verified triplets are saved and others are rejected. 
+The results may also contain false triplet matches (Fig. \ref{fig:matchingAndProblem}). 
+If $ x $ number of results are generated in step 1, the number of pairs compared in this stage is $ \binom{x}{3} $. 
 
 \subsection{Step 3: Correspondence Hypothesis }
 \label{subSec:CHypo}
-In this final step results of Pointwise Triplet Matching are combined and a voting matrix is generated (Ref. \ref{fig:matchingAndProblem}). A pair having maximum votes in the matrix is proposed as a correspondence hypothesis. In case of conflicting votes the respective $ m_i \leftrightarrow M_i $ relation is not considered. A minimum of 3 correspondence are required to compute the pose of the object \cite{lepetit_monocular_2005}. We recommend computing pose of the object by 
-selecting top 3 correspondence results. The computed pose can be used to further verify and modify other relations correspondences. This implies that for images having only 3 conic features matching results verification is not possible and results may not be reliable. 
+In this final step results of triplet matching are combined and a voting matrix is generated (Fig. \ref{fig:matchingAndProblem}). 
+A $ m_i \leftrightarrow M_i $ pair having maximum votes in the matrix is proposed as a correspondence hypothesis. 
+In case of conflicting votes the respective $ m_i \leftrightarrow M_i $ relation is not considered. 
+A minimum of 3 correspondence are required to compute the pose of the object \cite{lepetit_monocular_2005}, if camera intrinsics are known. 
+A pose of the object can be computed by selecting top 3 correspondence results and verify other correspondences obtained from the matrix. 
+If only 3 out of $ n $ conics are detected in the image, verification with pose is not possible and results may not be reliable. 
 
 \section{Evaluation}
-In this section we will cover experiments (simulations and real) carried out to comment on accuracy and robustness of the algorithm. To the best of our knowledge no other application has attempted using the euclidean invariants generated by circles. 
-The reader should note that the problem of achieving single image correspondence with non-coplanar circles is not addressed earlier. Therefore, alternative methods for comparison are not available. 
-We prepared a test scenario by attaching uncoded circular markers of size $ \phi $ = 12 mm ($ M_i = 20 $) and 5mm ($ M_i  = 26$) to two identical car models.  
-The markers are attached randomly and coplanar placement is avoided.
-Measurement of 3D data is done with state of the art metrology systems, and ground truth is established by giving each model point a unique ID in database. 
-Images of the models are captured from different perspective with a calibrated camera (5 Mpx). 
+In this section we will cover experiments carried out to comment on accuracy and robustness of the algorithm. 
+%To the best of our knowledge no other application has attempted using the euclidean invariants generated by circles. 
+The reader should note that the problem of achieving single image 2D-3D correspondences for non-coplanar circles has not been addressed earlier. 
+Therefore, alternative methods for comparison are not available. 
+We prepared test models by attaching circular markers of size $ \phi $ = 12 mm ($ M_i = 20 $) and 5mm ($ M_i  = 26$). The markers used are widely accepted and used in the Industrial domain for Photogrammetric measurements.     
+3D measurements for the markers are done with state of the art metrology system, and the ground truth is established by giving each model point a unique ID in the database. 
+The markers are attached randomly and coplanar placement is avoided. 
+A high resolution (2560x1920) camera is used for the experiments and MATLAB is used for synthetic experiments. 
 
 \subsection{Experiment 1 : Descriptor Matching vs Marker Orientation}
-This experiment is carried out to understand the factors affecting descriptor matching stage with respect to orientation of the circles.
-A MATLAB simulation is performed to position two circles in different orientations and captured images (noise $ \sigma = 0.3 $) from 1000 different camera positions for each orientation.  
-%(Rotation angles : -65 to 65, X-Y Translation : -100 to 100 ).
-The control parameters are distance between circle centres ($ d_c $) is varied from 10 - 150 and plane angle ($ \theta $ )is varied from 10 - 90. Realistic values are used for camera intrinsics, $ T_{d_c} $ = 10 and $ T_\theta $ = 5 are kept constant through the experiment. Rotation ($ R $) and Translation ($ T $) parameters for camera position are random, only $ T_z $ parameters is limits are different from smaller and bigger markers. 
+This experiment is carried out synthetically to observe the effect of orientation of the circles on the descriptor matching results.
+Two circle planes are placed in different orientations and images are captured (noise $ \sigma = 0.3 $) from 1000 different camera positions for each orientation. 
+The control parameters, the distance between circle centres $ d_c $ is varied from 10 - 150 (mm) and the angle between the planes $ \theta $ is varied from 10 - 80$ ^\circ $. 
+The objective is to recover the descriptor components $ d_c $ and $ \theta $ from the images, compare them with ground truth and measure the success rate. 
+Realistic values are used for camera intrinsics, $ T_{d_c} $ = 10 and $ T_\theta $ = 5 are kept constant. 
+%Camera rotation parameters is set -70 to 70 and translation parameters for 
+Camera positions are chosen at random from a defined range, range for x-y-z rotation is -70 to 70, x-y translation range is -500 to 500 mm, z-translation (Camera distance) range is 500-2000 mm. 
 
 \begin{table}
 \centering
 \caption{Descriptor Matching Analysis } \label{table:MatchingSuccess}
-\begin{tabular}{|c| c | c | c |}
+\begin{tabular}{|c | c | c | c | c |}
 \hline
-$ \phi $ & $ \theta $ & Camera Distance (mm) & Matching Success($ \% $) \\ \hline
-12 & 0-40 & 500-2000 & 80-95 \\
-& 40-90 & 500-2000 & 50-80 \\
-& 0-40 & 2000-4000 & 40-60 \\
-& 40-90 & 2000-4000 & 20-40 \\ \hline
-5 & 0-40 & 500-1200 & 75-90 \\
- & 40-90 & 500-1200 & 40-75 \\
- & 0-40 & 1200-2000 & 55-80 \\
- & 40-90 & 1200-2000 & 35-55\\ \hline
- 20 & 0-80 & 500-2000 & 100 \\
- 20 & 80-90 & 500-2000  & 30-90 \\ \hline 
+$ R_i $ & $ \theta $ & $ d_c $ & Camera Distance (mm) & Min-Max Success($ \% $) \\ \hline
+5 & 10-40 & 10-150 & 500-2000 & 58-82 \\
+ & 40-80 & 10-150 & 500-2000 & 35-65 \\ \hline
+% & 0-40 & 1200-2000 & 55-80 \\
+% & 40-90 & 1200-2000 & 35-55\\ 
+12 & 10-40 & 10-150 & 500-2000 & 64-86 \\
+& 40-80 & 10-150& 500-2000 & 40-69 \\ \hline
+%& 0-40 & 10-150& 2000-4000 & 40-60 \\
+%& 40-90 & 10-150 & 2000-4000 & 20-40 \\ \hline
+ 20 & 10-40 & 10-150 & 500-2000 & 74-92 \\
+ 20 & 40-80 & 10-150 & 500-2000  & 48-77 \\ \hline 
 \end{tabular} \\
 \label{tab:Exp1}
 \end{table}
-The table above provides summary of key observations of the experiment. Matching result shown is AND operation between $ d_c $ match and $ \theta $ match ( Sec. \ref{subSec:PIM}). 
-% (Success vs $ d_c $ vs $ \theta $) 
-The key learning from this experiment is that descriptor matching is influenced more by angle between planes than distance between circles at fixed threshold values. It is also seen that success of matching can be improves significantly with increased size of circles, even at higher values of $ \theta $. This experiments suggest that when features placement is possible in scene it is advised to chose larger circles or surfaces with lower plane angles for better matching. 
+The table \ref{table:MatchingSuccess} provides summary of key observations made during the experiment. 
+The matching success shows inversely proportional relation with $ \theta $, independent of $ d_c $. 
+We learn that descriptor matching is influenced more by angle between planes than distance between the circle centres. 
+It is also seen that success of matching can be improved by increasing the size of the circles. 
+%even at higher values of $ \theta $. 
+This experiments suggest that when features placement is possible, it is advised to choose larger circles or surfaces with lower plane angles for improved matching results. 
 
 %------------------------------------------------------------------------- 
-\subsection{Correspondence Matching vs Threshold Settings}
-The first experiment has recommendation regarding choice of features and placement of features. In a realistic scenario this option may not be available, therefore aim of the experiment is to understand the role of threshold values ($ T_{d_c}, T_\theta $) in overall correspondence matching results. In order to perform this experiment we took 75 images of car model with 12 mm markers (Distance Range 0-2000 mm). All the results (Table.~\ref{tab:Exp2}) are verified with ground truth data manually. 
-The images have at least 4 conics detected in each image. If hypothesis proposes less than 3 $ m_i \leftrightarrow M_i $ results we consider it as \textit{Not Converged}. \textit{Correct} results are divided in two categories purely to provide detailed overview of algorithm performance. \textit{ Complete} refers to $ m_i \leftrightarrow M_i $ hypothesis being 100\% correct, \textit{Partial} results suggest that some of the matching results (excluding top 3 voted pairs) are not correct.  
+\subsection{Experiment 2 : Correspondence Matching vs Threshold Settings}
+In case of model with natural features choice over size or placement is not available.
+The aim of this experiment is to understand the role of threshold values $ T_{d_c}$ and $ T_\theta $ in $ m_i \leftrightarrow M_i $ matching results. 
+In order to perform this experiment we took 75 images of car model with 12 mm markers (Distance Range 500-2000 mm). 
+%All the results (Table.~\ref{tab:Exp2}) are verified with ground truth data manually. 
+As suggested in Sec. \ref{subSec:CHypo}, each image has at least 4 detected conics. 
+The results are considered \textit{Not Converged} (NC) in case of less than 3 $ m_i \leftrightarrow M_i $ results.
+%If hypothesis proposes less than 3 $ m_i \leftrightarrow M_i $ results we consider it as \textit{Not Converged}. %\textit{Correct} results are divided in two categories purely to provide detailed overview of algorithm performance. \textit{ Complete} refers to $ m_i \leftrightarrow M_i $ hypothesis being 100\% correct, \textit{Partial} results suggest that some of the matching results (excluding top 3 voted pairs) are not correct.  
+
+%\begin{table}
+%\centering
+%\caption{Correspondence matching with varying threshold settings } \label{table:ThresholdEffect}
+%\begin{tabular}{ | c | c | c | c | c | c |}
+%\hline
+%\multicolumn{2}{|c|}{Settings} & NC & \multicolumn{2}{|c|}{Correct} & Wrong \\ \hline
+%$ T_\theta $ & $ T_{d_c} $ & {} & Complete & Partial & {}\\ \hline
+%5 & 5  & 13 & 62 & 0 & 0 \\
+%5 & 10 & 8 & 67 & 0 & 0 \\
+%5 & 15 & 4 & 67 & 0 & 4 \\ \hline
+%3 & 5  & 28 & 47 & 0 & 0 \\
+%3 & 10 & 21 & 50 & 4 & 0 \\
+%3 & 15 & 19 & 52 & 1 & 3 \\ \hline
+%\end{tabular} \\
+%\label{tab:Exp2}
+%\end{table}
 
 \begin{table}
 \centering
 \caption{Correspondence matching with varying threshold settings } \label{table:ThresholdEffect}
-\begin{tabular}{ | c | c | c | c | c | c |}
+\begin{tabular}{ | c | c | c | c | c | c| c |}
 \hline
-\multicolumn{2}{|c|}{Settings} & NC & \multicolumn{2}{|c|}{Correct} & Wrong \\ \hline
-$ T_\theta $ & $ T_{d_c} $ & {} & Complete & Partial & {}\\ \hline
-5 & 5  & 13 & 62 & 0 & 0 \\
-5 & 10 & 8 & 67 & 0 & 0 \\
-5 & 15 & 4 & 67 & 0 & 4 \\ \hline
-3 & 5  & 28 & 47 & 0 & 0 \\
-3 & 10 & 21 & 50 & 4 & 0 \\
-3 & 15 & 19 & 52 & 1 & 3 \\ \hline
+$ T_\theta $ & $ T_{d_c} $ & NC & Positive & FP & Precision & Recall \\ \hline
+%$ T_\theta $ & $ T_{d_c} $ & {} & Complete & Partial & {}\\ \hline
+5 & 5  & 13 & 62 & 0 & 100 & 82.6 \\
+5 & 10 & 8 & 67 & 0 & 100 & 89.33\\
+5 & 15 & 4 & 67  & 4 & 94.36 & 89.33\\ \hline
+3 & 5  & 28 & 47  & 0 & 100 & 62.66 \\
+3 & 10 & 21 & 54  & 0 & 100 & 72 \\
+3 & 15 & 19 & 53  & 3 & 94.64 & 70.66 \\ \hline
 \end{tabular} \\
 \label{tab:Exp2}
 \end{table}
-In Sec. \ref{subSec:ConicInv}, we learned that $ d_c $ recovery is weak and therefore a flexible threshold may be appropriate for matching. The results ( Table. \ref{tab:Exp2}) show that flexible $ T_{d_c} $ with stringent $ T_\theta $ may allow more Pairwise matching results, but due to \textit{conic ambiguity} of $ \theta $ probability of wrong matching goes higher. 
-On the other hand, very stringent thresholds lead to higher non convergence. Therefore, a right balance of threshold can be selected to achieve balanced results. Our preferred settings for experiments is $ T_{d_c} = 10 $ and $ T_\theta = 5 $, as 90\% of images show maximum 100\% success with (0\%) wrong matching. The selection may require change based on density of the features. 
+
+In Sec. \ref{subSec:ConicInv}, we learned that $ d_c $ recovery is weak and therefore a flexible threshold may be appropriate for matching. 
+The results ( Table. \ref{tab:Exp2}) show that higher flexibility in $ T_{d_c} $ impacts both precision and recall values in negative manner. 
+On the other hand, very stringent thresholds lead to lower recall values. Therefore, a right balance of threshold can be selected to achieve higher precision and recall rates. Our preferred settings for experiments is $ T_{d_c} = 10 $ and $ T_\theta = 5 $. The selection may require change based on density of the features. 
 
 \subsection{Robustness against false positives}
+
 
 %------------------------------------------------------------------------
 \subsection{Time Analysis}

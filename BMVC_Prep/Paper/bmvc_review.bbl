@@ -10,8 +10,8 @@
 Michel Dhome, Jean-Thierry Laprest{\'e}, G{\'e}rard Rives, and Marc Richetin.
 \newblock Spatial localization of modelled objects of revolution in monocular
   perspective vision.
-\newblock In \emph{Computer {Vision{\textemdash}ECCV} 90}, page
-  475{\textendash}485. Springer, 1990.
+\newblock In \emph{Computer {Vision{\textemdash}ECCV} 90}, pages 475--485.
+  Springer, 1990.
 \newblock URL \url{http://link.springer.com/chapter/10.1007/BFb0014897}.
 
 \bibitem[Farin and Hansford(1998)]{farin_geometry_1998}
@@ -33,7 +33,7 @@ M.~Ferri, F.~Mangili, and G.~Viano.
 Andrew Fitzgibbon, Maurizio Pilu, and Robert~B. Fisher.
 \newblock Direct least square fitting of ellipses.
 \newblock \emph{Pattern Analysis and Machine Intelligence, {IEEE} Transactions
-  on}, 21\penalty0 (5):\penalty0 476{\textendash}480, 1999.
+  on}, 21\penalty0 (5):\penalty0 476--480, 1999.
 
 \bibitem[Forsyth et~al.(1991)Forsyth, Mundy, Zisserman, Coelho, Heller, and
   Rothwell]{forsyth_91}
@@ -95,14 +95,14 @@ Long Quan.
 \newblock Invariant of a pair of non-coplanar conics in space: Definition,
   geometric interpretation and computation.
 \newblock In \emph{Computer Vision, 1995. Proceedings., Fifth International
-  Conference on}, page 926{\textendash}931, 1995.
+  Conference on}, pages 926--931, 1995.
 \newblock 00018.
 
 \bibitem[Quan(1996)]{quan_conic_1996}
 Long Quan.
 \newblock Conic reconstruction and correspondence from two views.
 \newblock \emph{Pattern Analysis and Machine Intelligence, {IEEE} Transactions
-  on}, 18\penalty0 (2):\penalty0 151{\textendash}160, 1996.
+  on}, 18\penalty0 (2):\penalty0 151--160, 1996.
 
 \bibitem[Rusu(2009)]{RusuDoctoralDissertation}
 Radu~Bogdan Rusu.
@@ -117,7 +117,7 @@ Reza Safaee-Rad, Ivo Tchoukanov, Kenneth~Carless Smith, and Bensiyon Benhabib.
 \newblock Three-dimensional location estimation of circular features for
   machine vision.
 \newblock \emph{Robotics and Automation, {IEEE} Transactions on}, 8\penalty0
-  (5):\penalty0 624{\textendash}640, 1992.
+  (5):\penalty0 624--640, 1992.
 \newblock URL
   \url{http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=163786}.
 
@@ -125,27 +125,26 @@ Reza Safaee-Rad, Ivo Tchoukanov, Kenneth~Carless Smith, and Bensiyon Benhabib.
 Hideaki Uchiyama and Eric Marchand.
 \newblock Deformable random dot markers.
 \newblock In \emph{Mixed and Augmented Reality ({ISMAR)}, 2011 10th {IEEE}
-  International Symposium on}, page 237{\textendash}238, 2011.
+  International Symposium on}, pages 237--238, 2011.
 
 \bibitem[Uchiyama and Saito(2011)]{uchiyama_random_2011}
 Hideaki Uchiyama and Hideo Saito.
 \newblock Random dot markers.
-\newblock In \emph{Virtual Reality Conference ({VR)}, 2011 {IEEE}}, page
-  35{\textendash}38, 2011.
+\newblock In \emph{Virtual Reality Conference ({VR}), {IEEE}}, pages 35--38,
+  2011.
 
 \bibitem[Werghi et~al.(1996)Werghi, Doignon, and Abba]{werghi_pose_1996}
 Naoufel Werghi, Christophe Doignon, and Gabriel Abba.
 \newblock Pose estimation of objects based on circular patterns in monocular
   computer vision.
 \newblock In \emph{{SPIE's} 1996 International Symposium on Optical Science,
-  Engineering, and Instrumentation}, page 254{\textendash}257. International
-  Society for Optics and Photonics, 1996.
+  Engineering, and Instrumentation}, pages 254--257. International Society for
+  Optics and Photonics, 1996.
 \newblock 00002.
 
 \bibitem[Ying and Zha(2007)]{ying_camera_2007}
 Xianghua Ying and Hongbin Zha.
 \newblock Camera calibration using principal-axes aligned conics.
-\newblock \emph{Computer {Vision{\textendash}ACCV} 2007}, page
-  138{\textendash}148, 2007.
+\newblock In \emph{Asian Converence on Computer Vision}, pages 138--148, 2007.
 
 \end{thebibliography}
