@@ -1,9 +1,19 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{30}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Calonder et~al.(2010)Calonder, Lepetit, Strecha, and
+  Fua]{Calonder2010}
+Michael Calonder, Vincent Lepetit, Christoph Strecha, and Pascal Fua.
+\newblock Brief: binary robust independent elementary features.
+\newblock In \emph{Proceedings of the 11th European conference on Computer
+  vision: Part IV}, ECCV'10, pages 778--792, Berlin, Heidelberg, 2010.
+  Springer-Verlag.
+\newblock ISBN 3-642-15560-X, 978-3-642-15560-4.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=1888089.1888148}.
 
 \bibitem[Dhome et~al.(1990)Dhome, Laprest{\'e}, Rives, and
   Richetin]{dhome_spatial_1990}
@@ -54,6 +64,39 @@ Richard Hartley and Andrew Zisserman.
 \newblock \emph{Multiple view geometry in computer vision}.
 \newblock Cambridge University Press, Cambridge, {UK;} New York, 2003.
 
+\bibitem[Kato and Billinghurst(1999)]{Kato1999}
+Hirokazu Kato and Mark Billinghurst.
+\newblock Marker tracking and hmd calibration for a video-based augmented
+  reality conferencing system.
+\newblock In \emph{2nd IEEE and ACM International Workshop on Augmented Reality
+  (IWAR)}, pages 85--94, Washington, DC, USA, 1999. IEEE Computer Society.
+\newblock ISBN 0-7695-0359-4.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=857202.858134}.
+
+\bibitem[Ke and Sukthankar(2004)]{Ke2004}
+Yan Ke and Rahul Sukthankar.
+\newblock Pca-sift: a more distinctive representation for local image
+  descriptors.
+\newblock In \emph{IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, volume~2, pages II--506--II--513 Vol.2, 2004.
+\newblock \doi{10.1109/CVPR.2004.1315206}.
+
+\bibitem[Kurz et~al.(2012)Kurz, Olszamowski, and Benhimane]{Kurz2012}
+Daniel Kurz, Thomas Olszamowski, and Selim Benhimane.
+\newblock Representative feature descriptor sets for robust handheld camera
+  localization.
+\newblock In \emph{IEEE International Symposium on Mixed and Augmented Reality
+  (ISMAR)}, pages 65--70, 2012.
+\newblock \doi{10.1109/ISMAR.2012.6402540}.
+
+\bibitem[Lepetit and Fua(2006)]{Lepetit2006}
+V.~Lepetit and P.~Fua.
+\newblock Keypoint recognition using randomized trees.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 28\penalty0 (9):\penalty0 1465--1479, 2006.
+\newblock ISSN 0162-8828.
+\newblock \doi{10.1109/TPAMI.2006.188}.
+
 \bibitem[Lepetit and Fua(2005)]{lepetit_monocular_2005}
 Vincent Lepetit and Pascal Fua.
 \newblock \emph{Monocular model-based 3d tracking of rigid objects: A survey}.
@@ -69,6 +112,13 @@ Diego Lo{\textbackslash}' pez~de Ipin~a, Paulo~{RS} Mendon{\textbackslash}cca,
 \newblock \emph{Personal and Ubiquitous Computing}, 6\penalty0 (3):\penalty0
   206{\textendash}219, 2002.
 
+\bibitem[Lowe(1999)]{Lowe1999}
+D.G. Lowe.
+\newblock Object recognition from local scale-invariant features.
+\newblock In \emph{Computer Vision, 1999. The Proceedings of the Seventh IEEE
+  International Conference on}, volume~2, pages 1150--1157 vol.2, 1999.
+\newblock \doi{10.1109/ICCV.1999.790410}.
+
 \bibitem[Luhmann et~al.(2006)Luhmann, Robson, and Harley]{luhmann_close_2006}
 Thomas Luhmann, Stuart Robson, and Stephen Kyle:~Ian Harley.
 \newblock \emph{Close Range Photogrammetry: Principles, Techniques and
@@ -76,12 +126,41 @@ Thomas Luhmann, Stuart Robson, and Stephen Kyle:~Ian Harley.
 \newblock Whittles Publishing, revised edition edition, October 2006.
 \newblock ISBN 1870325508.
 
+\bibitem[Matsunaga et~al.(2000)Matsunaga, Kanazawa, and
+  Kanatani]{Matsunaga2000}
+Chikara Matsunaga, Yasushi Kanazawa, and Kenichi Kanatani.
+\newblock Optimal grid pattern for automated camera calibration using cross
+  ratio.
+\newblock \emph{IEICE Transactions on Fundamentals}, E83--A:\penalty0
+  1921--1928, 2000.
+
 \bibitem[Naimark and Foxlin(2002)]{naimark_circular_2002}
 Leonid Naimark and Eric Foxlin.
 \newblock Circular data matrix fiducial system and robust image processing for
   a wearable vision-inertial self-tracker.
 \newblock In \emph{Proceedings of the 1st International Symposium on Mixed and
   Augmented Reality}, page~27, 2002.
+
+\bibitem[Nakai et~al.(2005)Nakai, Kise, and Iwamura]{Nakai2005}
+Tomohiro Nakai, Koichi Kise, and Masakazu Iwamura.
+\newblock Camera-based document image retrieval as voting for partial
+  signatures of projective invariants.
+\newblock In \emph{International Conference on Document Analysis and
+  Recognition (ICDAR)}, pages 379--383. IEEE Computer Society, 2005.
+\newblock ISBN 0-7695-2420-6.
+\newblock \doi{10.1109/ICDAR.2005.64}.
+\newblock URL \url{http://dx.doi.org/10.1109/ICDAR.2005.64}.
+
+\bibitem[Nakai et~al.(2006)Nakai, Kise, and Iwamura]{Nakai2006}
+Tomohiro Nakai, Koichi Kise, and Masakazu Iwamura.
+\newblock Use of affine invariants in locally likely arrangement hashing for
+  camera-based document image retrieval.
+\newblock In \emph{Proceedings of the 7th international conference on Document
+  Analysis Systems}, DAS'06, pages 541--552, Berlin, Heidelberg, 2006.
+  Springer-Verlag.
+\newblock ISBN 3-540-32140-3, 978-3-540-32140-8.
+\newblock \doi{10.1007/11669487_48}.
+\newblock URL \url{http://dx.doi.org/10.1007/11669487_48}.
 
 \bibitem[Pagani et~al.(2011)Pagani, K\"{o}hler, and
   Stricker]{pagani_circular_2011}
@@ -127,11 +206,18 @@ Hideaki Uchiyama and Eric Marchand.
 \newblock In \emph{Mixed and Augmented Reality ({ISMAR)}, 2011 10th {IEEE}
   International Symposium on}, pages 237--238, 2011.
 
-\bibitem[Uchiyama and Saito(2011)]{uchiyama_random_2011}
+\bibitem[Uchiyama and Saito(2011{\natexlab{a}})]{Uchiyama2011a}
+Hideaki Uchiyama and Hideo Saito.
+\newblock Random dot markers.
+\newblock In \emph{IEEE Virtual Reality Conference}, 2011{\natexlab{a}}.
+\newblock URL
+  \url{http://hvrl.ics.keio.ac.jp/uchiyama/me/code/UCHIYAMARKERS/index.html}.
+
+\bibitem[Uchiyama and Saito(2011{\natexlab{b}})]{uchiyama_random_2011}
 Hideaki Uchiyama and Hideo Saito.
 \newblock Random dot markers.
 \newblock In \emph{Virtual Reality Conference ({VR}), {IEEE}}, pages 35--38,
-  2011.
+  2011{\natexlab{b}}.
 
 \bibitem[Werghi et~al.(1996)Werghi, Doignon, and Abba]{werghi_pose_1996}
 Naoufel Werghi, Christophe Doignon, and Gabriel Abba.
