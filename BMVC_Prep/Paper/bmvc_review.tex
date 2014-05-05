@@ -95,7 +95,7 @@ We also show that our method is robust against false positives and capable of su
 \section{Introduction}
 \label{sec:intro}
 Correspondence matching is one of the key problems in compute vision. Various vision problems such as pose estimation, object detection or model reconstruction rely on correspondence matching. 
-Correspondence matching is identifying same set of features, either between two or more images (2D-2D) or between a model and its image (2D-3D). In this paper we will focus on the 2D-3D correpondence matching $ m_i \leftrightarrow M_i $ problem. 
+Correspondence matching is identifying same set of features, either between two or more images (2D-2D) or between a model and its image (2D-3D). In this paper we will focus on the 2D-3D correpondence ($ m_i \leftrightarrow M_i $) matching problem from one image. 
 %Matching  aims to find correspondences between two images or ones between object model and its image projection, thus is one of the key problems in computer vision.
 %Pose estimation and object recognition applications require accurate knowledge of correspondence relation $ m_i \leftrightarrow M_i $ between 3D model features $ M_i $ and 2D image features $ m_i $. 
 %In case of monocular systems the $ m_i \leftrightarrow M_i $ problem becomes more challenging as the depth information is lost.
@@ -500,7 +500,7 @@ After computing the \textit{Conic pair descriptors} the following 3 step matchin
 \subfigure[A problem showing four image points, and their correspondence with world points (1-A,2-B,C-3) 
 and one false positive (D)]{\includegraphics[width=0.47\hsize]{images/matchingProblem.pdf}}  &
 \subfigure[Image shows the simplified matching process for the problem suggested in (a), 
-partial results of all 3 steps are shown.]{\includegraphics[width=0.45\hsize]{images/matchingProcess.pdf}}
+partial results of all 3 steps are shown. X denotes the correspondence in the voting matrix]{\includegraphics[width=0.45\hsize]{images/matchingProcess.pdf}}
 %\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/matchingProblem.png}} }&
 %\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/matchingProcess.png}} } \\
 %(a)&(b)
@@ -570,7 +570,8 @@ A $ m_i \leftrightarrow M_i $ pair having maximum votes in the matrix is propose
 In case of conflicting votes the respective $ m_i \leftrightarrow M_i $ relation is not considered. 
 A minimum of 3 correspondence are required to compute the pose of the object \cite{lepetit_monocular_2005}, if camera intrinsics are known. 
 A pose of the object can be computed by selecting top 3 correspondence results and verify other correspondences obtained from the matrix. 
-If only 3 out of $ n $ conics are detected in the image, verification with pose is not possible and results may not be reliable. 
+If only 3 out of $ n $ conics are detected in the image, verification with pose is not possible. 
+%and results may not be reliable. 
 
 \section{Evaluation}
 In this section we will cover experiments carried out to comment on accuracy and robustness of the algorithm. 
@@ -639,7 +640,7 @@ $ T_\theta $ & $ T_{d} $ & NC & Positive & FP & Precision & Recall \\ \hline
 \end{table}
 
 %In Sec. \ref{Sec:ConicInv}, we learned that $ d $ recovery is weak and therefore a flexible threshold may be appropriate for matching. 
-The results ( Table. \ref{tab:Exp2}) show that higher flexibility in $ T_{d} $ impacts both precision and recall values in negative manner. 
+The results ( Table. \ref{tab:Exp2}) show that relaxed values of $ T_{d} $ impacts both precision and recall values in negative manner. 
 On the other hand, very stringent thresholds lead to lower recall values. Therefore, a right balance of threshold can be selected to achieve higher precision and recall rates. Our preferred settings for experiments is $ T_{d} = 10 $ and $ T_\theta = 5 $. The selection may require change based on density of the features. 
 
 \subsection{Descriptor Matching vs Marker Orientation}
@@ -684,7 +685,6 @@ The matching method is provided 3D information of one model at a time, which in 
 The same set of images are used for the two experiments and the results of the experiment are shown in Table \ref{tab:Exp3}.
 We learn that the false positives are completely rejected when matching is focussed on Model 1, On the contrary in case of Model 2 precision and recall values suffer due to presence of false positives from Model 1. 
 In case of Model 1, markers have bigger size and therefore invariant recovery is strong. This can explain higher robustness of Model 1 against false positives. 
-[Exp with False positive on Industrial Model : Data Yet to be collected from Office]
 \begin{table}[h]
 \centering
 \caption{Robustness against False Positive } 
