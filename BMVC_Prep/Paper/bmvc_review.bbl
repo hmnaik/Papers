@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,15 +19,6 @@ Michael Calonder, Vincent Lepetit, Christoph Strecha, and Pascal Fua.
 \newblock ISBN 3-642-15560-X, 978-3-642-15560-4.
 \newblock URL \url{http://dl.acm.org/citation.cfm?id=1888089.1888148}.
 
-\bibitem[Dhome et~al.(1990)Dhome, Laprest{\'e}, Rives, and
-  Richetin]{dhome_spatial_1990}
-Michel Dhome, Jean-Thierry Laprest{\'e}, G{\'e}rard Rives, and Marc Richetin.
-\newblock Spatial localization of modelled objects of revolution in monocular
-  perspective vision.
-\newblock In \emph{Computer {Vision{\textemdash}ECCV} 90}, pages 475--485.
-  Springer, 1990.
-\newblock URL \url{http://link.springer.com/chapter/10.1007/BFb0014897}.
-
 \bibitem[Farin and Hansford(1998)]{farin_geometry_1998}
 Gerald~E Farin and Dianne Hansford.
 \newblock \emph{The geometry toolbox for graphics and modeling}.
@@ -42,13 +33,6 @@ M.~Ferri, F.~Mangili, and G.~Viano.
   1993.
 \newblock ISSN 1049-9660.
 
-\bibitem[Fitzgibbon et~al.(1999)Fitzgibbon, Pilu, and
-  Fisher]{fitzgibbon_direct_1999}
-Andrew Fitzgibbon, Maurizio Pilu, and Robert~B. Fisher.
-\newblock Direct least square fitting of ellipses.
-\newblock \emph{Pattern Analysis and Machine Intelligence, {IEEE} Transactions
-  on}, 21\penalty0 (5):\penalty0 476--480, 1999.
-
 \bibitem[Forsyth et~al.(1991)Forsyth, Mundy, Zisserman, Coelho, Heller, and
   Rothwell]{forsyth_91}
 D.~Forsyth, J.L. Mundy, A.~Zisserman, C.~Coelho, A.~Heller, and C.~Rothwell.
@@ -62,20 +46,6 @@ Patrick Gros and Long Quan.
 \newblock Technical Report RT 90 IMAG - 15 LIFIA, MOVI - IMAG-INRIA
   Rh{\^o}ne-Alpes / GRAVIR , Laboratoire d'Informatique Fondamentale et
   d'Intelligence Artificielle - LIFIA, 1992.
-
-\bibitem[Hartley and Zisserman(2003)]{hartley_multiple_2003}
-Richard Hartley and Andrew Zisserman.
-\newblock \emph{Multiple view geometry in computer vision}.
-\newblock Cambridge University Press, Cambridge, {UK;} New York, 2003.
-
-\bibitem[Kato and Billinghurst(1999)]{Kato1999}
-Hirokazu Kato and Mark Billinghurst.
-\newblock Marker tracking and hmd calibration for a video-based augmented
-  reality conferencing system.
-\newblock In \emph{2nd IEEE and ACM International Workshop on Augmented Reality
-  (IWAR)}, pages 85--94, Washington, DC, USA, 1999. IEEE Computer Society.
-\newblock ISBN 0-7695-0359-4.
-\newblock URL \url{http://dl.acm.org/citation.cfm?id=857202.858134}.
 
 \bibitem[Ke and Sukthankar(2004)]{Ke2004}
 Yan Ke and Rahul Sukthankar.
@@ -145,48 +115,6 @@ Leonid Naimark and Eric Foxlin.
 \newblock In \emph{Proceedings of the 1st International Symposium on Mixed and
   Augmented Reality}, page~27, 2002.
 
-\bibitem[Nakai et~al.(2005)Nakai, Kise, and Iwamura]{Nakai2005}
-Tomohiro Nakai, Koichi Kise, and Masakazu Iwamura.
-\newblock Camera-based document image retrieval as voting for partial
-  signatures of projective invariants.
-\newblock In \emph{International Conference on Document Analysis and
-  Recognition (ICDAR)}, pages 379--383. IEEE Computer Society, 2005.
-\newblock ISBN 0-7695-2420-6.
-\newblock \doi{10.1109/ICDAR.2005.64}.
-\newblock URL \url{http://dx.doi.org/10.1109/ICDAR.2005.64}.
-
-\bibitem[Nakai et~al.(2006)Nakai, Kise, and Iwamura]{Nakai2006}
-Tomohiro Nakai, Koichi Kise, and Masakazu Iwamura.
-\newblock Use of affine invariants in locally likely arrangement hashing for
-  camera-based document image retrieval.
-\newblock In \emph{Proceedings of the 7th international conference on Document
-  Analysis Systems}, DAS'06, pages 541--552, Berlin, Heidelberg, 2006.
-  Springer-Verlag.
-\newblock ISBN 3-540-32140-3, 978-3-540-32140-8.
-\newblock \doi{10.1007/11669487_48}.
-\newblock URL \url{http://dx.doi.org/10.1007/11669487_48}.
-
-\bibitem[Pagani et~al.(2011)Pagani, K\"{o}hler, and
-  Stricker]{pagani_circular_2011}
-Alain Pagani, Johannes K\"{o}hler, and Didier Stricker.
-\newblock Circular markers for camera pose estimation.
-\newblock In \emph{12th International Workshop on Image Analysis for Multimedia
-  Interactive Services (WIAMIS 2011)}, 2011.
-
-\bibitem[Quan(1995)]{quan_invariant_1995}
-Long Quan.
-\newblock Invariant of a pair of non-coplanar conics in space: Definition,
-  geometric interpretation and computation.
-\newblock In \emph{Computer Vision, 1995. Proceedings., Fifth International
-  Conference on}, pages 926--931, 1995.
-\newblock 00018.
-
-\bibitem[Quan(1996)]{quan_conic_1996}
-Long Quan.
-\newblock Conic reconstruction and correspondence from two views.
-\newblock \emph{Pattern Analysis and Machine Intelligence, {IEEE} Transactions
-  on}, 18\penalty0 (2):\penalty0 151--160, 1996.
-
 \bibitem[Rusu(2009)]{RusuDoctoralDissertation}
 Radu~Bogdan Rusu.
 \newblock \emph{Semantic 3D Object Maps for Everyday Manipulation in Human
@@ -204,24 +132,11 @@ Reza Safaee-Rad, Ivo Tchoukanov, Kenneth~Carless Smith, and Bensiyon Benhabib.
 \newblock URL
   \url{http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=163786}.
 
-\bibitem[Uchiyama and Marchand(2011)]{uchiyama_deformable_2011}
-Hideaki Uchiyama and Eric Marchand.
-\newblock Deformable random dot markers.
-\newblock In \emph{Mixed and Augmented Reality ({ISMAR)}, 2011 10th {IEEE}
-  International Symposium on}, pages 237--238, 2011.
-
-\bibitem[Uchiyama and Saito(2011{\natexlab{a}})]{Uchiyama2011a}
-Hideaki Uchiyama and Hideo Saito.
-\newblock Random dot markers.
-\newblock In \emph{IEEE Virtual Reality Conference}, 2011{\natexlab{a}}.
-\newblock URL
-  \url{http://hvrl.ics.keio.ac.jp/uchiyama/me/code/UCHIYAMARKERS/index.html}.
-
-\bibitem[Uchiyama and Saito(2011{\natexlab{b}})]{uchiyama_random_2011}
+\bibitem[Uchiyama and Saito(2011)]{uchiyama_random_2011}
 Hideaki Uchiyama and Hideo Saito.
 \newblock Random dot markers.
 \newblock In \emph{Virtual Reality Conference ({VR}), {IEEE}}, pages 35--38,
-  2011{\natexlab{b}}.
+  2011.
 
 \bibitem[van Rhijn and Mulder(2004)]{van_rhijn_optical_2004}
 Arjen van Rhijn and Jurriaan~D. Mulder.

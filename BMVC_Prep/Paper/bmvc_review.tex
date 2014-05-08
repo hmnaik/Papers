@@ -474,29 +474,27 @@ Following this, we regard that a pair of two non-coplanar conics in an image der
 
 \section{Method}
 %\hemal{non-coplanar conic pair descriptor}
-This section first introduces the proposed descriptor, called {\textit{Conic pair descriptor}}, in \sref{ssec:descriptor} and  further describes a matching method using the descriptor in \sref{ssec:matching}.
-%\hemal{}{invariants from}
-We assume that both the 2D and 3D data are already available and focus on the proposed descriptor and the matching method in detail.
+This section first introduces the proposed descriptor, called {\textit{Conic pair descriptor}}, in \sref{ssec:descriptor}.  Further, the matching method using \textit{Conic pair descriptors} is explained in detail in \sref{ssec:matching}.
+We assume that the 2D data from the image and 3D data from the model is already available.
+%focus on the proposed descriptor and the matching method in detail.
 The 3D data includes the surface normal $N_i$, centre position $M_i$ and size $R_i$ (diameter) of each circle on the model. 
-%\hemal{}{The invariants are computed off-line from the 3D data as explained in Sec. \ref{ssec:conicInv3D}. }
 The 2D data includes circle centre $ m_i $ and conic matrix $ C_i $.
-The 2D data is further used to recover the surface normals ${Nc_i}^a$ and centre positions ${Mc_i}^a$ from the image conics, where $a ={1,2}$ denotes the index of ambiguous solution. 
-%We have followed the approach presented by Naimark \cite{naimark_circular_2002} for ellipse detection and Farin \etal \cite{farin_geometry_1998} for computation of conic matrices from ellipse parameters. 
-%and Fitzgibbon \cite{fitzgibbon_direct_1999} and fitting.
+The surface normals ${Nc_i}^a$ and centre positions ${Mc_i}^a$ are recovered from the 2D data, where $a ={1,2}$ denotes the index of ambiguous solution. 
 The 2D data is extracted from an input image by the following procedure:
 ellipse detection given an input image~\cite{naimark_circular_2002};
 conic parameters estimation from the detected ellipse~\cite{farin_geometry_1998}; and
 the normal vector and the centre position recovery from the conic parameters~\cite{lo_pez_de_ipin_a_trip:_2002}.
-
-
+%We have followed the approach presented by Naimark \cite{naimark_circular_2002} for ellipse detection and Farin \etal \cite{farin_geometry_1998} for computation of conic matrices from ellipse parameters. 
+%and Fitzgibbon \cite{fitzgibbon_direct_1999} and fitting.
 
 \subsection{Descriptor Generation}\label{ssec:descriptor}
 This part mainly discusses generation of \textit{Conic pair descriptor} from Euclidean invariants. 
-%The invariants for 3-D model are computed from available 3D data ($M_i,N_i$) without any ambiguity (Eq. \ref{Eq:3Ddescriptors}) using Eq. \ref{eq:invTheta3d}, \ref{eq:invD3d}. 
-The invariants for 3-D model are computed from available 3D data ($M_i,N_i$) using \eref{Eq:3Ddescriptors} without any ambiguity.
-The same set of invariants can be computed from corresponding image features using Eq. \ref{eq:inv2D}, where the recovered $ d $ component is unique and $ \theta $ component has 4 solutions (Eq. \ref{Eq:2Ddescriptors}). 
-In our approach we pursue the idea that the existence of multiple features on the model can be used to overcome the \textit{Conic ambiguity} problem. 
-The principle idea is to generate descriptors from conic invariants to perform a descriptor matching to obtain $ m_i \leftrightarrow M_i $ correspondence.
+The invariants for 3D model are computed from available 3D data ($M_i,N_i$) using \eref{Eq:3Ddescriptors}. This descriptor does not contain any ambiguity.
+The same set of invariants can be computed from corresponding image features using Eq. \ref{eq:inv2D}, where the recovered $ d $ component is unique and $ \theta $ component has four different solutions (Eq. \ref{Eq:2Ddescriptors}). 
+This \textit{Conic ambiguity} can not be resolved without knowing the correspondence $ m_i \leftrightarrow M_i $.
+In our approach, we pursue the idea that the existence of multiple features on the model can be used to find correspondences without solving the conic ambiguity. 
+The conic invariants are used to generate \textit{Conic pair descriptors}, $ V $ and $ v $ represent the descriptors computed from the model data and the image data respectively.
+The principle idea is to perform a descriptor matching between $ v $ and $ V $ to obtain $ m_i \leftrightarrow M_i $ correspondence.
 The proposed \textit{Conic pair descriptor} structure,
 %which also encapsulates the conic ambiguity, 
 %\begin{align}
@@ -508,16 +506,18 @@ The proposed \textit{Conic pair descriptor} structure,
 \textit{Conic pair descriptor}_{image} &= v_{q} = 
 			\langle  d_{i,j},\theta_{i,j}^{1,1},\theta_{i,j}^{1,2},\theta_{i,j}^{2,1},\theta_{i,j}^{2,2} \rangle \label{Eq:2Ddescriptors} 
 \end{align}
-where $V_{p}$ represents world circles $i,j$ and $v_{q}$ represents image conic pair $i,j$. 
-The reader should note that given a set of points and their corresponding normals in 3D camera space, PFH descriptor \cite{RusuDoctoralDissertation} also computes similar invariants.
-In this case, the concept can not be applied to the results of \textit{Ellipse backprojection} as the \textit{Conic ambiguity} restricts us from computing a unique set of invariants. 
+where index $p$ represents world circles $i,j$ and index $q$ represents image conic pair $i,j$.
+The reader should note that given a unique set of points and their corresponding normals in 3D camera space (e.g. depth images), PFH descriptor \cite{RusuDoctoralDissertation} computes similar invariants.
+In our case, we use a single 2D image to extract ambiguous centre and normal information in 3D camera space.  
+The \textit{Conic ambiguity} introduced by \textit{Ellipse backprojection} forces us to include ambiguity in the descriptor structure (Eq. \ref{Eq:2Ddescriptors}). 
+%In this case, the concept can not be applied to the results of \textit{Ellipse backprojection} as the \textit{Conic ambiguity} restricts us from computing a unique set of invariants. 
 Unlike popular methods, a \textit{Conic pair descriptor} represents two features at same time. 
 In order to uniquely represent a single conic using Euclidean invariants, at least more than two conic features are required. 
 Addition of each conic feature adds 3 wrong solutions of $ \theta $ in the descriptor, additionally the matching must rely on detection of all the conics used for descriptor computation. 
-We propose matching $ v \leftrightarrow V $ first, thereby finding a corresponding conic pair, further we solve individual correspondence $ m_i \leftrightarrow M_i $ problem. 
-Descriptor $ v_{\{1..q\}} $ are computed among each pair of detected $ n $ image conics, where $ q = \binom{n}{2} $. 
-$ V_{\{1...p\}} $ are computed off-line as the 3D data is already available.
-In this case for $ l $ world circles  $ p \leq \binom{l}{2} $, as pairs not likely to appear in same image can be rejected. 
+%We propose matching $ v \leftrightarrow V $ first, thereby finding a corresponding conic pair, further we solve individual correspondence $ m_i \leftrightarrow M_i $ problem. 
+Descriptors $ v_{\{1..q\}} $ are generated for each pair of detected $ n $ image conics, where $ q = \binom{n}{2} $. 
+$ V_{\{1...p\}} $ are generated off-line as the 3D model data is already available.
+In case of $ l $ circles on the model $ p~\leq~\binom{l}{2} $, as the circle pair not likely to appear in the same image can be rejected. 
 After computing the \textit{Conic pair descriptors} the following 3 step matching approach is used to achieve $ m_i \leftrightarrow M_i $ correspondences. 
 
 % -> Figure explaining the issue
@@ -527,9 +527,10 @@ After computing the \textit{Conic pair descriptors} the following 3 step matchin
 %\subfigure[A problem showing four image points, and their correspondence with world points (1-A,2-B,C-3) and one false positive (D)]{\includegraphics[width=0.47\hsize]{images/matchingProblem.pdf}}  
 %\subfigure[Image shows the simplified matching process for the problem suggested in (a), partial results of all 3 steps are shown. X denotes the correspondence in the voting matrix]{\includegraphics[width=0.45\hsize]{images/matchingProcess2.pdf}}
 \includegraphics[width = 0.95\hsize]{images/Problem_3Step.png}
-\caption{ The image shows an example matching problem with real correspondence relations, Image has one false positive detection F. A pictorial overview of the three steps used in the matching process are shown with respect to the given problem. Pairwise Initial Matching results are obtained from Algorithm \ref{algo:PIM}, $ H_i $ represents index of matched descriptor pair.  
+\caption{ The image shows an example matching problem with real correspondence relations, Image has one false positive detection F. A pictorial overview of the three steps used in the matching process are shown with respect to the given problem. %Pairwise Initial Matching results are obtained from Algorithm \ref{algo:PIM}, 
+$ H_i $ represents index of matched descriptor pair.  
 %Matching problem and the overview of the method to generate correspondence hypothesis
- \label{fig:matchingAndProblem}}
+\label{fig:matchingAndProblem}}
 \end{figure}
 
 \subsection{Descriptor matching}
@@ -537,62 +538,82 @@ After computing the \textit{Conic pair descriptors} the following 3 step matchin
 
 \subsubsection{Step 1: Pairwise Initial Matching}
 \label{subsubSec:PIM}
-In the first stage of the matching process we compare the \textit{Conic pair descriptors}.
+In this stage we compare the \textit{Conic pair descriptors} and find all possible $ v \leftrightarrow V $ relationships.
 % ($ V \leftrightarrow v $).
-The objective is to reduce complexity of the problem by finding the possible pair correspondences ($ v \leftrightarrow V $). 
-First the unique component($ d $) between the descriptors is compared, if matched then ($ \theta $) component of $ V $ is compared with all 4 values of $ \theta $ component in $ v $ (Ref. Algorithm \ref{algo:PIM}). 
-$ T_{d} $ and $ T_\theta $ are the threshold values used to compare the respective components. 
-The stage may result in \textit{one to many} type of relation between descriptors. This can be either due to similar feature orientation on object or due to presence of the \textit{Conic ambiguity}. 
-The reader should note that a descriptor represents a pair of conics, therefore the stage is called pairwise matching.
+The reader is reminded that each descriptor represents a pair of conics, therefore the stage is called pairwise matching.
+The objective is to reduce the complexity of the problem by finding possible pair correspondences ($ v \leftrightarrow V $). 
+Figure \ref{fig:matchingAndProblem} shows the possible outcome of step 1 with respect to the problem shown in the figure.
+First, the unique component ($ d $) between the descriptors is compared with $ T_d $ as threshold.
+If a match is found, the component ($ \theta $) of $ V $ is compared with all four values of $ \theta $ component in $ v $ with $ T_\theta $ as threshold.
+% (Ref. Algorithm \ref{algo:PIM}) . 
+The match is considered positive if any one of the four $ \theta $ values match, this may result into false matching as only one of the $ \theta $ is correct for a given pair. 
+This explains that \textit{Conic ambiguity} may contribute into false matching. 
+The results may show \textit{one to many} type of relation between the descriptors, observe $ H_4 $ and $ H_{10} $ in Fig. \ref{fig:matchingAndProblem}. 
+False descriptor matching can also happen if false positives are present in the image. 
+Similarly, symmetric orientation of features on the object may generate same invariants between multiple pairs, which can also contribute towards false descriptor matching. 
+%$ T_{d} $ and $ T_\theta $ are the threshold values used to compare the respective components. 
 %Even an accurate match does not solve individual correspondence in this stage. 
-The example given in Figure \ref{fig:matchingAndProblem} shows possible outcome of step 1 with respect to the given example problem. 
-\begin{algorithm}[tb] \label{algo:PIM}
-\SetKwData{threeDFv}{$ V_{p} $}\SetKwData{twoDFv}{$ v_{q} $}
-\SetKwData{ThresholdD}{$T_{d} $}\SetKwData{ThresholdA}{$T_\theta $}
-\SetKwFunction{compareDist}{compare$d$}\SetKwFunction{compareAngle}{compare$ \theta $}
-\SetKwFunction{Save}{SavePairResult}
-\emph{Goal : Find all possible \threeDFv similar to \twoDFv} \;
-\emph{Initialisation : \ThresholdD = 10 , \ThresholdA = 5} \; 
-\ForAll{ 3D Feature Descriptors ($ V $), $ p \leftarrow 0 $ \KwTo $ n $}{	
-	\ForAll{ 2D Feature Descriptors ($ v $), $ q \leftarrow 0 $ \KwTo $ l $}{
-			% Project conic points 
-			\If (\tcp*[h] {compares $ d $ component} ){ \compareDist{\threeDFv,\twoDFv} $ < $ \ThresholdD } {
-				\If (\tcp*[h] {compares $ \theta $ component} ){ \compareAngle{\threeDFv,\twoDFv} $ < $ \ThresholdA }{
-				\tcp{ All 4 solutions of $ \theta $ in $ v_q $ are checked } \;			
-				\Save{$ p,q $} \tcp{Save matching descriptor pair} \;
-				}
-			}
-		}	
-	}
-\caption{Pairwise Initial Matching algorithm}
-\end{algorithm}
+
+%\begin{algorithm}[tb] \label{algo:PIM}
+%\SetKwData{threeDFv}{$ V_{p} $}\SetKwData{twoDFv}{$ v_{q} $}
+%\SetKwData{ThresholdD}{$T_{d} $}\SetKwData{ThresholdA}{$T_\theta $}
+%\SetKwFunction{compareDist}{compare$d$}\SetKwFunction{compareAngle}{compare$ \theta $}
+%\SetKwFunction{Save}{SavePairResult}
+%\emph{Goal : Find all possible \threeDFv similar to \twoDFv} \;
+%%\emph{Initialisation : \ThresholdD = 10 , \ThresholdA = 5} \; 
+%\ForAll{ $ V $, $ p \leftarrow 0 $ \KwTo $ n $}{	
+%	\ForAll{ $ v $, $ q \leftarrow 0 $ \KwTo $ l $}{
+%			% Project conic points 
+%			\If (\tcp*[h] {compares $ d $ component} ){ \compareDist{~\threeDFv,\twoDFv} $ < $ \ThresholdD } {
+%				\If (\tcp*[h] {compares $ \theta $ component} ){ \compareAngle{\threeDFv,\twoDFv} $ < $ \ThresholdA }{
+%				\tcp{ All 4 solutions of $ \theta $ in $ v_q $ are checked } \;			
+%				\Save{$ p,q $} \tcp{Save result} \;
+%				}
+%			}
+%		}	
+%	}
+%\caption{Pairwise Initial Matching algorithm}
+%\end{algorithm}
 
 %------------------------------------------------------------------------- 
 \subsubsection{Step 2: Pointwise Triplet Matching}
 In this stage we simplify the problem further and obtain hypothesis on point wise matching ($ m_i \leftrightarrow M_i $) by performing a verification on $ v \leftrightarrow V $ matching results. 
-The objective is to compare the results of step 1 to identify and reject false descriptor matches. 
-We seek three $ v \leftrightarrow V $ results, such that they complement each other to form a unique three points $ m_i \leftrightarrow M_i $ hypothesis.
-A simple two stage approach is proposed to generate a triplet matching hypothesis,
-\begin{enumerate}
-\item[1] Find any two results of Pairwise Initial Matching in which both the image and the model descriptors represent one and only one common conic. If such results exist then an initial triplet matching hypothesis can be proposed. 
+The objective is to compare the results of step 1 to identify correspondences and reject the false descriptor matches. 
+We seek three $ v \leftrightarrow V $ results, such that they complement each other to form a unique three point $ m_i \leftrightarrow M_i $ hypothesis, as shown in Fig. \ref{fig:matchingAndProblem}. 
+A simple two stage approach is used to generate a triplet matching hypothesis. 
+\paragraph{Stage 1} Find any two results of Pairwise Initial Matching in which both the image and the model descriptors represent one and only one common conic. If such results exist then an initial triplet matching hypothesis can be proposed. 
+As example we consider results $ H_1 , H_2 $ from Fig. \ref{fig:matchingAndProblem}.
 \[
  V_{12} \leftrightarrow v_{AB},V_{13} \leftrightarrow v_{AC } \xrightarrow{\text{Triplet Hypothesis}} [1~2~3] \leftrightarrow [A~B~ C]
 \]
-In the example above we can see that world conic 1 and image conic A is common among the two solutions. We form a 3 point matching hypothesis with these results. 
-\item[2] Find a new descriptor matching pair which can verify the triplet matching hypothesis formed in the previous stage (e.g. $ V_{23} \leftrightarrow v_{BC}$).
-\end{enumerate}
+In the example above we can see that conic 1 is common in $ V $ and image conic A is common in $ v $ among the two solutions. We can form an initial 3 point matching hypothesis with these results. 
+\paragraph{Stage 2} Find a new descriptor matching pair which can verify the triplet matching hypothesis formed in the previous stage. In context of the example given in stage 1, the result $ H_3 $ (Fig. \ref{fig:matchingAndProblem}) can verify hypothesis of stage 1.  
+%
+%\begin{enumerate}
+%\item[1] Find any two results of Pairwise Initial Matching in which both the image and the model descriptors represent one and only one common conic. If such results exist then an initial triplet matching hypothesis can be proposed. 
+%\[
+% V_{12} \leftrightarrow v_{AB},V_{13} \leftrightarrow v_{AC } \xrightarrow{\text{Triplet Hypothesis}} [1~2~3] \leftrightarrow [A~B~ C]
+%\]
+%In the example above we can see that world conic 1 and image conic A is common among the two solutions. We form a 3 point matching hypothesis with these results. 
+%\item[2] Find a new descriptor matching pair which can verify the triplet matching hypothesis formed in the previous stage (e.g. $ V_{23} \leftrightarrow v_{BC}$).
+%\end{enumerate}
 The verified triplets are saved and others are rejected. 
-The results may also contain false triplet matches (Fig. \ref{fig:matchingAndProblem}). 
-If $ x $ number of results are generated in step 1, the number of pairs compared in this stage is $ \binom{x}{3} $. 
+The results may also contain false triplet matches, $ [F D C]\leftrightarrow [1 2 4]$ as depicted in Fig.\ref{fig:matchingAndProblem} is a wrong triplet. 
+%If $ x $ number of results are generated in step 1, the number of pairs compared in this stage is $ \binom{x}{3} $. 
 
 \subsubsection{Step 3: Correspondence Hypothesis }
 \label{subSec:CHypo}
-In this final step results of triplet matching are combined and a voting matrix is generated (Fig. \ref{fig:matchingAndProblem}). 
-A $ m_i \leftrightarrow M_i $ pair having maximum votes in the matrix is proposed as a correspondence hypothesis. 
-In case of conflicting votes the respective $ m_i \leftrightarrow M_i $ relation is not considered. 
-A minimum of 3 correspondence are required to compute the pose of the object \cite{lepetit_monocular_2005}, if camera intrinsics are known. 
-A pose of the object can be computed by selecting top 3 correspondence results and verify other correspondences obtained from the matrix. 
-If only 3 out of $ n $ conics are detected in the image, verification with pose is not possible. 
+In this final step results of triplet matching are combined and a voting matrix is generated. Each $ m_i \leftrightarrow M_i $ correspondence verified in step 2 is given one vote as shown in Fig. \ref{fig:matchingAndProblem}. 
+Each $ m_i \leftrightarrow M_i $ pair gaining maximum votes in the matrix is proposed as a correspondence hypothesis.
+In Fig. \ref{fig:matchingAndProblem} the results are : A$ \leftrightarrow $1, B$ \leftrightarrow $2, C$ \leftrightarrow $3 , D$ \leftrightarrow $4, E$ \leftrightarrow $5. 
+%In case of conflicting votes the respective $ m_i \leftrightarrow M_i $ relation is not considered. 
+A minimum of three correspondences are required compute the pose of the object \cite{lepetit_monocular_2005}, if the camera intrinsics are known. 
+We propose selecting only the thee most voted results of $ m_i \leftrightarrow M_i $.  
+A pose of the object can be computed by selecting these correspondences and other correspondences having low vote count can be verified using the pose.  
+In the example shown in Fig. \ref{fig:matchingAndProblem} A$ \leftrightarrow $1, B$ \leftrightarrow $2 and C$ \leftrightarrow $3 can be selected to compute the pose $ P $ , and D$ \leftrightarrow $4, E$ \leftrightarrow $5 relation can be verified using the pose $ P $.
+If only 3 out of $ n $ conics are detected in the image, the pose can not be verified. 
+
+
 %and results may not be reliable. 
 
 \section{Evaluation}
@@ -600,21 +621,21 @@ In this section we will cover experiments carried out to comment on accuracy and
 %To the best of our knowledge no other application has attempted using the euclidean invariants generated by circles. 
 The reader should note that the problem of achieving single image 2D-3D correspondences for non-coplanar circles has not been addressed earlier. 
 Therefore, alternative methods for comparison are not available. 
-We prepared test models by attaching circular markers \ref{fig:introProblem}, Model 1 with $ R_i $ = 12 mm ($ p = 20 $) and Model 2 with $ R_i $ 5mm ($ p = 26$). These markers used are widely accepted and used in the Industrial domain for Photogrammetric measurements.     
+We prepared test models by attaching circular markers Fig. \ref{fig:introProblem}, Model 1 with $ R_i $ = 12 mm ($ p = 20 $) and Model 2 with $ R_i $ 5mm ($ p = 26$). These markers used are widely accepted and used in the Industrial domain for photogrammetric measurements.     
 3D measurements for the markers are done with state of the art metrology system, and the ground truth is established by giving each model point a unique ID in the database. 
 The markers are attached randomly and coplanar placement is avoided. 
 A high resolution (2560x1920) camera is used for the experiments and MATLAB is used for synthetic experiments. 
 
 
 \subsection{Preliminary experiment}
-The quality of recovered plane from \textit{Ellipse backprojection} depends on distance from the camera $ r $ and the viewing angle $ \eta $(angle between the image plane and the circle plane)\cite{werghi_pose_1996}. 
+The quality of recovered plane from \textit{Ellipse backprojection} depends on distance from the camera $ r $ and the viewing angle $ \eta $~(angle between the image plane and the circle plane)\cite{werghi_pose_1996}. 
 We performed simulations to understand behaviour of Ellipse Backprojection with respect to both $ r $ and $ \eta $. 
 The parameter $ r $ is varied from 500 to 2000 mm and $ \eta $ from 0-70$^\circ$ in step wise manner, 100 iterations are performed at each position. 
 %Realistic values have been assumed for camera intrinsics and size of circle ($ R_i $ = 5,12 mm).
 %Figure. \ref{fig:InvariantRecovery} shows results recorded with $ R_i = 12 $, and image noise as $ \sigma = 0.3 $. 
-The results (fig. \ref{fig:InvariantRecovery}) suggest that, at low viewing angles ($ \eta $) 0-10$^\circ$ both normal and centre estimation errors are higher, at any given distance. 
+The results (fig. \ref{fig:InvariantRecovery}) suggest that, at low viewing angles ($\eta $) 0-10$^\circ$ both normal and centre estimation errors are higher, at any given distance. 
 %This can be explained by the fact that for 
-At lower values of $ \eta $ the image projection of a circle is more circular than elliptical, therefore recovery of ellipse parameters may have errors. 
+When $ \eta \leq 10 $, the image projection of a circle is more circular than elliptical, therefore recovery of ellipse parameters may have errors. 
 The estimation error grows at higher camera distance, however the error in normal recovery appears less sensitive to increase in camera distance than the error in centre recovery. 
 The results obtained with $ R_i = 5$ mm show similar pattern, although the magnitude of error is higher as smaller image projections reduce the accuracy of computation of ellipse parameters.  
 We also compared the ambiguous results of estimated centres $ {Mc_i}^1 $ and $ {Mc_i}^2 $. 
@@ -625,8 +646,8 @@ This behaviour also explains consistency of invariant $ d $ between two image co
 \begin{figure}[tb]
 \centering
 \begin{tabular}{cc}
-\subfigure[Centre estimation error $ Mc_i $]{\includegraphics[width=0.35\hsize]{images/centerEstimationErrorR6_N3.pdf}}
-\subfigure[Normal estimation error $ Nc_i $]{ \includegraphics[width=0.35\hsize]{images/NormalRecoveryError_R6_3.pdf} }
+\subfigure[Centre estimation error]{\includegraphics[width=0.35\hsize]{images/centerEstimationErrorR6_N3.pdf}}
+\subfigure[Normal estimation error]{ \includegraphics[width=0.35\hsize]{images/NormalRecoveryError_R6_3.pdf} }
 %\bmvaHangBox{\fbox{\includegraphics[width=0.35\hsize,keepaspectratio=true]{images/centerEstimationErrorR6_N3.pdf}} }&
 %\bmvaHangBox{\fbox{\includegraphics[width=0.35\hsize,keepaspectratio=true]{images/NormalRecoveryError_R6_3.pdf}} } \\
 %(a)&(b)
@@ -668,9 +689,9 @@ On the other hand, very stringent thresholds lead to lower recall values. Theref
 
 \subsection{Descriptor Matching vs Marker Orientation}
 This experiment is carried out synthetically to observe the effect of orientation of the circles on the individual descriptor matching.
-Two circle planes are placed in different orientations and images are rendered from 1000 different camera positions for each orientation. Gaussian noise is added to the images to simulate the camera behaviour. 
+Two circle planes are placed in different orientations and images are rendered from 1000 random camera positions for each orientation. Gaussian noise is added to the images to simulate the camera behaviour. 
 The control parameters, the distance between circle centres $ d $ is varied from 10 - 150 (mm) and the angle between the planes $ \theta $ is varied from 10 - 80$ ^\circ $. 
-The objective is to recover the descriptor components $ d $ and $ \theta $ from the images, compare them with ground truth and measure the success rate. 
+The objective is to recover the descriptor components $ d $ and $ \theta $ from the images, compare them with the ground truth and measure the success rate. 
 Realistic values are used for camera intrinsics, $ T_{d} $ = 10 and $ T_\theta $ = 5 are kept constant. 
 Camera positions are chosen at random, x-y-z rotation range is $ \pm 70^\circ $, x-y translation range is $ \pm 500 $ mm, z-translation (Camera distance) range is 500 to 2000 mm. 
 
@@ -702,43 +723,70 @@ This experiments suggest that when features placement is possible, it is advised
 
 \subsection{Robustness against false positives}
 %This experiment aims to understand impact of false positives on the matching result. 
-This experiment aims to show robustness of the matching method in presence of false positives in the scene. 
+This experiment aims to show robustness of the matching method against presence of false positives in the scene. 
 In order to introduce false positives in the scene, Model 1 and Model 2 are placed in the same scene and images are captured from different positions. 
 The matching method is provided 3D information of one model at a time, which in turn make the markers present on the other model act as false positives in the image. 
-The same set of images are used for the two experiments and the results of the experiment are shown in Table \ref{tab:Exp3}.
-We learn that the false positives are completely rejected when matching is focused on Model 1, On the contrary in case of Model 2 precision and recall values suffer due to presence of false positives from Model 1. 
-In case of Model 1, markers have bigger size and therefore invariant recovery is strong. This can explain higher robustness of Model 1 against false positives. 
-\begin{table}[tb]
+The same set of images are used for the two experiments and the results of the experiment are shown in Figure \ref{fig:Exp4}.
+We learn that the false positives are completely rejected when matching is focused on Model 1, On the contrary in case of Model 2, precision and recall values suffer due to presence of false positives from Model 1. 
+Markers on Model 1 have bigger size and therefore invariant recovery is strong. This can explain higher robustness of Model 1 against false positives. 
+
+%\begin{table}[tb]
+%\centering
+%\caption{Robustness against False Positive } 
+%\begin{tabular}{ | c | c | c | c | c | c | c |}
+%\hline
+%Model & Images & NC & Positive & FP & Precision & Recall \\ \hline
+%Model 1 & 50 & 1  & 49 & 0  & 100 & 98 \\
+%Model 2 & 50 & 4 & 31 & 15  & 67.39 & 62 \\ \hline
+%\end{tabular} \\
+%\label{tab:Exp4}
+%\end{table}
+
+\begin{figure}[tb]
+\begin{minipage}{0.5\textwidth}
 \centering
-\caption{Robustness against False Positive } 
-\begin{tabular}{ | c | c | c | c | c | c | c |}
-\hline
-Model & Images & NC & Positive & FP & Precision & Recall \\ \hline
-Model 1 & 50 & 1  & 49 & 0  & 100 & 98 \\
-Model 2 & 50 & 4 & 31 & 15  & 67.39 & 62 \\ \hline
-\end{tabular} \\
-\label{tab:Exp3}
-\end{table}
+ \includegraphics[width=0.80\hsize]{images/Exp4.png}
+ \caption{Robustness against False Positives}
+  \label{fig:Exp4}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\centering
+  \includegraphics[width=0.80\hsize]{images/Exp5.png} 
+ \caption{Time Analysis}
+ \label{fig:Exp5}
+\end{minipage}
+%\subfigure[Robustness against False positives]{\includegraphics[width=0.40\hsize]{images/Exp4.png}}
+%\subfigure[Time Analysis]{ \includegraphics[width=0.40\hsize]{images/Exp5.png} }
+%\caption{ Ellipse backprojection results,Image noise = $ \sigma = 0.3 $, $ R_i = 12 mm $ \label{fig:InvariantRecovery} }
+\end{figure}
+
 %------------------------------------------------------------------------
 \subsection{Time Analysis}
-In this experiment we focus on analysing time consumed by the matching method when introduced into a tracking application. 
-Two cameras CAM 1 (2560 x 1920) and CAM 2 (640x480) are used for tracking, the results presented are averaged over 100 frames. 
-The results show that our method takes $ \leq 1\% $ time from in the tracking pipeline. In terms of frame rates we achieve 2-3 FPS with CAM 1 and 7-8 FPS with CAM 2. Additionally, an exhaustive experiment with 90-140 false positives in the scene shows that the matching method consumes maximum time in the pipeline (0.7 FPS). Limited tracking range ($<$ 500 mm) of CAM 2 does not allow experiment with such large number of false positives. 
-\begin{table}[tb]
-\caption{Time Analysis}\label{table:trackPerformance}
-\centering
-\begin{tabular}{|c | c | c | c |}
-\hline 
-Algorithm Stage & \multicolumn{2}{|c|}{CAM 1} & CAM 2\\ \hline
-{} & Model & Model + FP & Model \\ \hline 
-Image Undistortion & 39.53\% & 12 & 11.79 \\
-Marker Detection & 38.51 & 34 & 30.75 \\
-Correspondence Matching & 0.35 & 44.2 & 1.34 \\
-%Descriptor Generation & 0.10 & 0.33 \\
-%Descriptor Matching & 0.25 & 1.01 \\
-Pose Estimation & 21.61 & 9.8 & 56.12 \\ \hline
-\end{tabular}
-\end{table}
+In this experiment we measure the time consumed by the matching method when introduced into a tracking application. 
+Two cameras CAM 1~(2560 x 1920 pix) and CAM 2~(640x480) are used for tracking Model 1, the results presented are averaged over 100 frames. 
+Tracking process is divided into 4 stages, the graph in Fig. \ref{fig:Exp5} depicts the time consumed by each stage.
+The results show that the \textit{Matching} stage takes 3.09 ms with CAM 1 and 1.88 ms with CAM 2, which is $ \le 2\% $ of the total tracking time. 
+In terms of performance, we achieve tracking speed of 3 FPS with CAM 1 and 8 FPS with CAM 2. 
+The computer used has Intel Core i5 2.8~GHz processor with 8~GB RAM. 
+Additionally, an experiment is performed with CAM 1 by adding 90-140 false positives in the scene. 
+In this case, the \textit{Matching} stage is exhausted and consumes 6.277 seconds out of the total tracking time of 6.7599 seconds. 
+CAM 2 has limited tracking range (i.e. $ < 1000~mm $) and low resolution, therefore accommodating 90-140 false positives in one scene within the tracking range is not possible. 
+%The results show that our method takes $ \leq 1\% $ time from in the tracking pipeline. In terms of frame rates we achieve 2-3 FPS with CAM 1 and 7-8 FPS with CAM 2. Additionally, an exhaustive experiment with 90-140 false positives in the scene shows that the matching method consumes maximum time in the pipeline (0.7 FPS). Limited tracking range ($<$ 500 mm) of CAM 2 does not allow experiment with such large number of false positives. 
+%\begin{table}[tb]
+%\caption{Time Analysis}\label{tab:Exp5}
+%\centering
+%\begin{tabular}{|c | c | c | c |}
+%\hline 
+%Algorithm Stage & \multicolumn{2}{|c|}{CAM 1} & CAM 2\\ \hline
+%{} & Model & Model + FP & Model \\ \hline 
+%Image Undistortion & 39.53\% & 12 & 11.79 \\
+%Marker Detection & 38.51 & 34 & 30.75 \\
+%Correspondence Matching & 0.35 & 44.2 & 1.34 \\
+%%Descriptor Generation & 0.10 & 0.33 \\
+%%Descriptor Matching & 0.25 & 1.01 \\
+%Pose Estimation & 21.61 & 9.8 & 56.12 \\ \hline
+%\end{tabular}
+%\end{table}
 
 \section{Conclusion \& Future work }
 %----------- Do I mention conic ambiguity? 
