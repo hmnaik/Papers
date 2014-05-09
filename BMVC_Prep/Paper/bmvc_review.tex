@@ -72,21 +72,21 @@
 \maketitle
 
 \begin{abstract}
-In this work we introduce a method to determine 2D-3D correspondence for non-coplanar circles using a single image, given that the 3D information is known. 
+In this work we introduce a method to determine 2D-3D correspondences for non-coplanar circles using a single image, given that the 3D information is known. 
 %the orientation of circle plane is known. 
 The core idea of our method is to compute 3D information from 2D features, thereby transforming a 2D-3D problem to a 3D-3D problem. 
 Earlier researchers suggested that a pair of non-coplanar circles preserves Euclidean invariants under perspective projection.
 These invariants can be extracted from their image projections, but with a two fold ambiguity. 
-In this paper, we propose \textit{Conic pair descriptor} based on the Euclidean invariants.
-The proposed descriptor computes unique Euclidean invariants from known 3D model and Euclidean invariants with two fold ambiguity from its image projections.
-The proposed matching approach follows three steps to obtain correspondences between the circular features against the ambiguity.
-In this paper, we have included a detailed account of factors affecting the computation of invariants from conic projections. 
+%In this paper, we propose \textit{Conic pair descriptor} based on the Euclidean invariants.
+%The proposed descriptor computes unique Euclidean invariants from a known 3D model and Euclidean invariants with two fold ambiguity from its image projections.
+In this paper, we propose \textit{Conic pair descriptor}, which computes unique Euclidean invariants from known circular features on the 3D model and invariants with two fold ambiguity from its image projections.
+%The proposed matching approach follows three steps to obtain correspondences between the circular features against the ambiguity.
+In this paper, we include a detailed account of factors affecting the computation of invariants from conic projections. 
 %\yuji{Our method can be used for any 3D object having identical circular features on different planes.}{}
-We have conducted experiments on real and synthetic models, in order to evaluate the proposed method. 
+We conduct experiments on real and synthetic models, in order to evaluate the proposed method. 
 The experiment with synthetic images focuses on showing the impact of the size and plane orientation of the circles on the success of descriptor matching. 
-%The experiments with synthetic images provide understanding of variation in matching success with respect to the orientation and size of the circles. 
-We prepared 3D models with artificial circular features and obtained the ground truth 3D data with a Photogrammetric measurement system. 
-The results of the correspondence matching algorithm are evaluated against the ground truth. 
+3D models with artificial circular markers are prepared and 3D data is measured by using a photogrammetric measurement system. 
+The results of the correspondence matching algorithm are compared against the ground truth, which is also generated from the measurement system. 
 We also show that our method is robust against false positives and capable of supporting real-time applications.   
 
 \end{abstract}
@@ -94,17 +94,11 @@ We also show that our method is robust against false positives and capable of su
 %------------------------------------------------------------------------- 
 \section{Introduction}
 \label{sec:intro}
-Correspondence matching is one of the key problems in compute vision. 
+Correspondence matching is one of the key problems in computer vision. 
 Various vision problems such as pose estimation, object detection or model reconstruction rely on correspondence matching. 
 Correspondence matching is identifying same set of features, either between two or more images (2D-2D matching) or between a model and its image (2D-3D matching).
-%In this paper we will focus on the 2D-3D correspondence matching $ m_i \leftrightarrow M_i $ problem. 
-%Matching  aims to find correspondences between two images or ones between object model and its image projection, thus is one of the key problems in computer vision.
-%Pose estimation and object recognition applications require accurate knowledge of correspondence relation $ m_i \leftrightarrow M_i $ between 3D model features $ M_i $ and 2D image features $ m_i $. 
-%In case of monocular systems the $ m_i \leftrightarrow M_i $ problem becomes more challenging as the depth information is lost.
-%An image is a perspective projection combined with Euclidean motion in space. 
 Perspective projection differs the appearance of an object in the images, therefore correspondence matching needs feature descriptors that are immune to the projection.
 Such feature descriptors consist of invariant quantities which can be computed from certain image features and matched directly with those obtained from the object features in case of the 2D-3D matching.
-%, which can compute invariant quantities preserved under transformation, and establishes correspondence by matching the invariant quantities obtained by the descriptors.
 This paper focuses on the 2D-3D matching problem.
 
 \par 
@@ -117,7 +111,7 @@ One computes invariant quantities defined by local texture in an image such as S
 %Alternatively, 
 This type of feature descriptors is supposed to be used for textured scenes and textured objects so that we can use the descriptor for mobile applications, in which assumption on object shape is disfavored.
 Such methods focus on improving their invariance as well as efficient memory usage so that the matching can run even on powerless processors in mobile phones~\cite{Ke2004,Calonder2010}.
-One of the disadvantages is that their invariance are up to 2D transformation such as affine and rotation transformation around camera lay axis.
+One of the disadvantages is that their invariances are up to 2D transformation such as affine and rotation transformation around camera coordinate system.
 To handle view change caused by perspective transformation, we must explicitly learn how invariant quantities are affected by perspective transformation~\cite{Kurz2012,Lepetit2006}. 
 
 \par 
@@ -131,21 +125,22 @@ Detailed studies on invariant quantities of planar and non-coplanar features as 
 %There exist several works that covered a detailed study on invariants from planar projective group and their stability under projective transformation \cite{forsyth_91,gros_projective_1992}.
 %Especially, plane projective descriptors, which compute invariant quantities against perspective transformation from planar object, have been investigated.
 The descriptors generated by plane projective groups have been proposed in various applications for correspondence matching~\cite{Matsunaga2000,uchiyama_random_2011,ying_camera_2007}.
-In Augmented reality~\cite{uchiyama_random_2011,van_rhijn_optical_2004} and Industrial tracking applications~\cite{AICON}, planar pattern with lines or circles are specifically designed to support invariant computation for correspondence matching.  
+In Augmented Reality~\cite{uchiyama_random_2011,van_rhijn_optical_2004} and industrial tracking applications~\cite{AICON}, planar patterns with lines or circles are specifically designed to support invariant computation for correspondence matching.  
 % invariant quantities unaffected by perspective projection and such invariants are easier to compute from image features ~\cite{hartley_multiple_2003}. 
 %Matsunaga \etal made a special chessboard with different pattern sizes and use cross ratio, which is a projective invariant quantity, defined by intersection of the patterns~\cite{Matsunaga2000}. 
 %In this paper we will focus on a specific class of features, that is \textit{circles}. 
 
 \par 
 %Circles are one of the most primitive features, 
-In Industrial scenario circles are widely present on a model, tracking target, as natural features or circular markers are attached to the model for Photogrammetric measurements \cite{luhmann_close_2006} as shown in Fig. \ref{fig:introProblem}.
-The state of the art measurement system involves taking multiple images of the model with encoded markers added in the scene to solve the correspondence problem. 
-In such cases it is favourable to build tracking approach without support of coded markers. 
+In industrial scenario, circles are widely present on a model, tracking target, as natural features or circular markers are attached to the model for photogrammetric measurements \cite{luhmann_close_2006} as shown in Fig. \ref{fig:introProblem}.
+The state of the art measurement system involves taking multiple images of the model with encoded markers temporarily added in the scene to solve the correspondence problem. 
+The encoded markers are removed after the measurements are done.  
+In such cases it is favourable to build a tracking approach without the support of coded markers. 
 A single view correspondence matching problem with coplanar circles and ellipses has widely been studied~\cite{lepetit_monocular_2005,forsyth_91,Ferri_1993}.
 % Coplanar conics was used to compute cross ratio and  invariant quantity~\cite{forsyth_91,Ferri_1993}.
 However matching problem with non-coplanar circles has not been addressed.
-Figure \ref{fig:introProblem} shows a basic example of the problem, where multiple identical circular features exist on different planes of a 3D model.
-In this case features existing on the model is an advantage, but coplanar invariants can not be used for correspondence matching.
+Figure \ref{fig:introProblem} shows an example of the matching problem, where multiple identical circular features exist on different planes of a 3D model.
+In this case, features existing on the model is an advantage, but coplanar invariants can not be used for correspondence matching.
 In our work we focus on solving this problem of single view matching of multiple non-coplanar conics.
 %Recent works compute perspective~\cite{Nakai2005}, affine~\cite{Nakai2006}, rotation invariants~\cite{Uchiyama2011a} on key-points distribution defined by a set of key-points' location.
 %Quan used algebric invariants section for finding correspondence between two images and 3D reconstruction \cite{quan_conic_1996}.
@@ -163,12 +158,12 @@ In our work we focus on solving this problem of single view matching of multiple
 \end{figure}
 
 \par 
-In case of non planar features on 3D objects, Euclidean invariants are preserved rather than projective invariants \cite{forsyth_91}.
+In case of non-coplanar features on 3D objects, Euclidean invariants are preserved rather than projective invariants \cite{forsyth_91}.
 Euclidean invariants are difficult to extract from images due to perspective mapping, however circles are a special case.   
 %Circles have a special property to retain depth information under projective transformation.
 A world circle always produces an elliptical curve on the image plane. 
-The ellipse in the image can be backprojected and circle plane can be defined in camera frame with a two fold ambiguity \cite{forsyth_91,safaee-rad_three-dimensional_1992}. 
-Further, Forsyth \etal \cite{forsyth_91} showed that for a given pair of non-coplanar circles in 3D, the angle between the circle planes and distance between their centre positions are invariant quantities.
+The ellipse in the image can be backprojected and the plane of the circle can be defined in camera frame with a two fold ambiguity \cite{forsyth_91,safaee-rad_three-dimensional_1992}. 
+Further, Forsyth \etal \cite{forsyth_91} showed that for a given pair of non-coplanar circles in 3D, the angle between the circle planes and the distance between their centre positions are invariant quantities.
 These invariants can be recovered from image projections of conics with a two fold ambiguity. 
 %up to three projective invariant can be computed from a non-coplanar pair of circles.
 %They explain that angle between circle planes (angle between surface normals) and distance between centre of the circles are invariant quantities.
@@ -176,12 +171,12 @@ The concept was proposed in early 90s, however these invariants have remained un
 
 \par 
 We propose using the aforementioned Euclidean invariants to solve the 2D-3D correspondence problem when multiple non-coplanar circular features exist on a model.
-In our approach we bring the problem from 2D to 3D by backprojection image conics, then compute Euclidean invariant quantities to solve matching problem with single image.
-In this paper, We introduce \textit{Conic Pair Descriptor} that encapsulates the invariants computed from elliptical image features.
+In our approach we bring the problem from 2D to 3D by backprojection image conics, then compute Euclidean invariant quantities to solve the matching problem from a single image.
+In this paper, We introduce the \textit{Conic pair descriptor}, which encapsulates the invariants computed from elliptical image features.
 %to solve the conic ambiguity and provide accurate matching with 3D features. 
 Our contribution is a new method to accurately identify image correspondences when multiple identical non-coplanar circular features exist in the scene. 
-The method assumes that calibration of camera is known and 3D information of features is available. 
-Often in Industry based model tracking applications 3D-CAD data is known. 
+The method assumes that the camera intrinsics are known and 3D information (i.e. size, normals, centre position) of features is available. 
+In industry based model tracking application, the 3D-CAD data is often available. 
 %Our matching method is suitable for tracking any 3D objects having known circles on different planes. 
 %In close range photogrammetry circular markers (Figure. \ref{fig:Model}) are widely used on 3D models for surface measurements \cite{luhmann_close_2006}. 
 %These measurements include computation of surface normal and 3D position of each marker. 
@@ -189,188 +184,13 @@ Often in Industry based model tracking applications 3D-CAD data is known.
 %Once 3D measurements are done our method can be extremely useful to support a tracking application without using the coded patterns. %Similarly various industrial parts having natural circles can be identified and tracked with this method. 
 The evaluation consists of synthetic experiments to understand factors influencing invariant computation and matching. 
 %The proposed method is first attempt to use these invariants, therefore we also carried out simulations to show stability of invariants against change of perspective.
-Additionally, real 3D models with circular markers shown in Fig. \ref{fig:introProblem} are used to evaluate the matching method.
-The proposed method can find corresponding circular marker from a single image, with high precision.
-We also show that our method is stable against false positives and it is fast enough to support real-time tracking applications. 
-
-
-%\yuji{any more projective invariants on primitive features?}
-%\yuji{will mention why these invariants have used less in this decade.}
-%\yuji{is here the best place to mention triangulation based matching such as ART?}
-
-%\par 
-%\parmessage{some invariants on fiducial markers}
-%\begin{itemize}
-%\item use 
-%\begin{itemize}
-%\item encoded binary pattern (fiducial markers)
-%\item some invariants on plane~\cite{Matsunaga2000,uchiyama_random_2011}
-%\end{itemize}
-%\item can construct a 3D marker by concatenating multiple planar markers
-%\end{itemize}
-%Another approach also using primitive features embeds binary patterns into a planar object, called fiducial markers.
-%This type of markers can be made with consumer printers, therefore it is preferred by users making light weight system.
-%The embedded patterns are extracted from images by adaptive thresholding for matching the correspondence between the marker model and its image projection and then the extracted patterns are decoded for identifying the extracted marker.
-%The original work by Kato and Billinghurst~\cite{Kato1999} uses the contour of a rectangle but does not use any invariant quantity.
-%
-%\yuji{any disadvantage?}
-
-% %Hemal : 05:05:14
-%Various Computer Vision and Augmented Reality applications demand correspondence matching from a single view.
-%Popular approach to achieve this is to compute projective invariant from features \yuji{like}{such as} points, lines and conics \cite{hartley_multiple_2003}.
-%Such features are \yuji{selected}{preferred} because they are easier to detect from the images. 
-%Invariants are extensively studied topic in vision community, Forsyth \etal \cite{forsyth_91} and Gros \cite{gros_projective_1992} covered a detailed study on \yuji{projective invariant descriptors}{projective invariants} and their stability under projective transformation. 
-
-
-%Commented 04/05/14
-%In learning based model tracking methods initial frames of the camera are used to learn model and compute unique descriptors from dense or sparse set of natural model features \cite{chekhlov_ninja_2007} \cite{hinterstoisser_n3m:_2007} \cite{lowe_object_1999}. Other methods involve using a selective set features (edges, contours, etc.) to compute invariants from a single image \cite{lepetit_monocular_2005}. 
-
-
-%%\section{Related Work}
-%%
-%%Object detection and pose estimation from conic features is widely studied in 3D vision literature  \cite{dhome_spatial_1990}\cite{safaee-rad_three-dimensional_1992} \cite{werghi_pose_1996} \cite{quan_invariant_1995}. Circular shape is also a popular choice for designing artificial fiducial. Detection of contour points from image and fitting ellipse is a well studied topic \cite{fitzgibbon_direct_1999}. 
-%%%Detection of conic sections from the image is easy and also a widely studied subject [conic fitting, gibbon].
-%%Quan \cite{quan_conic_1996} proposed a two view approach for finding correspondence and 3D reconstruction with conic section. Authors have proposed methods to compute invariants for coplanar conics \cite{forsyth_91} \cite{Ferri_1993}.  
-%%%Various tracking and camera calibration methods use a pair coplanar circular features to compute invariant descriptors. 
-%%A 3D problem is simplified to 2D when coplanar features are recovered and used for correspondence.  
-%%Ying \etal \cite{ying_camera_2007} use a coplanar pair for camera calibration. 
-%%Uchimaya \etal \cite{uchiyama_random_2011} developed invariant descriptors from multiple coplanar circles, and extended the work for deformable model \cite{uchiyama_deformable_2011}.
-%%Work of \cite{lo_pez_de_ipin_a_trip:_2002} \cite{naimark_circular_2002} \cite{pagani_circular_2011} propose a circular marker for 6D pose estimation, no invariants are computed as correspondence is solved by using unique coded pattern around the circle. 
-%%\cite{lo_pez_de_ipin_a_trip:_2002}\cite{pagani_circular_2011} use circular shape to define circle plane in 3D, Additionally use a coded pattern is used encode 6D pose without ambiguity.(Fig). 
-%%Luhmann \cite{luhmann_close_2006} provides detailed account of methods using point circular fiducials in close range Photogrammetry. The current state of the art methods coded patterns are introduced to simplify correspondence problem.
-%%[GOM][AICON] are one of the industrial supplies for close range photogrammetry measurement equipments. 
-%%
-%%[Refer Thesis: Comment on catalogue based methods, ]
-%\paragraph{}
-%Literature study suggests that, existing methods either provide a solution for coplanar circular features or non-coplanar  coded circular features. The novelty of our method is that it addresses 2D-3D matching problem for non planar circles present in the scene. 
-%
-%
-%\section{New introduction}
-%
-%\par 
-%\parmessage{what is correspondence matching
-%\begin{itemize}
-%\item correspondence matching is ...
-%\item 2 solutions.
-%\end{itemize}
-%}
-
-%\par 
-%\parmessage{projective invariants on primitive features}
-%Popular approach to achieve this is to compute projective invariant quantities from primitive features such as points, lines, and conics~\cite{hartley_multiple_2003} and use these invariant quantities for matching.
-%Such primitive features are easier to detect from images, therefore invariants on the primitive features have been extensively studied in vision community.
-%There exist several works that covered a detailed study on projective invariants and their stability under projective transformation \cite{forsyth_91,gros_projective_1992}
-%\yuji{ask Hemal whether the followings are right or not.}
-%Quan used \textbf{WHAT} invariant quantity from conic section for finding correspondence between two images and 3D reconstruction \cite{quan_conic_1996}.
-%Coplanar conics was used to compute \textbf{WHAT} invariant quantity~\cite{forsyth_91,Ferri_1993} \yuji{is it better to move this invariant quantity on coplanar conics to the next paragraph?}.
-%\yuji{any more projective invariants on primitive features?}
-%\yuji{will mention why these invariants have used less in this decade.}
-%
-%\par 
-%\parmessage{Projective invariants on planar objects or primitive features}
-%\yuji{ask Hemal whether this paragraph is right or not.}
-%One of the popular approaches use invariant quantities on planar object against perspective transformation.
-%This type of approaches are based on invariants theory, which has been well-studied in 90s.
-%There exist several works that covered a detailed study on projective invariants and their stability under projective transformation \cite{forsyth_91,gros_projective_1992}
-%The invariants theory revealed that primitive features such as points, lines, and conics have invariant quantities against perspective transformation~\cite{hartley_multiple_2003} and the idea is to use these invariant quantities for matching.
-%Especially, planar projective descriptors, which compute invariant quantities against perspective transformation from planar object, have been investigated.
-%Quan used \textbf{WHAT} invariant quantity from conic section for finding correspondence between two images and 3D reconstruction \cite{quan_conic_1996}.
-%Coplanar conics was used to compute \textbf{WHAT} invariant quantity~\cite{forsyth_91,Ferri_1993}.
-%\yuji{any more projective invariants on primitive features?}
-%\yuji{will mention why these invariants have used less in this decade.}
-%\yuji{is here the best place to mention triangulation based matching such as ART?}
-%
-%\par 
-%\parmessage{some invariants on fiducial markers}
-%\begin{itemize}
-%\item use 
-%\begin{itemize}
-%\item encoded binary pattern (fiducial markers)
-%\item some invariants on plane~\cite{Matsunaga2000,uchiyama_random_2011}
-%\end{itemize}
-%\item can construct a 3D marker by concatenating multiple planar markers
-%\end{itemize}
-%Another approach also using primitive features embeds binary patterns into a planar object, called fiducial markers.
-%%This type of markers can be made with consumer printers, therefore it is preferred by users making light weight system.
-%The embedded patterns are extracted from images by adaptive thresholding for matching the correspondence between the marker model and its image projection and then the extracted patterns are decoded for identifying the extracted marker.
-%The original work by Kato and Billinghurst~\cite{Kato1999} uses the contour of a rectangle but does not use any invariant quantity.
-%Matsunaga \etal made a special chessboard with different pattern sizes and use cross ratio, which is a projective invariant quantity, defined by intersection of the patterns~\cite{Matsunaga2000}.
-%Recent works compute perspective~\cite{Nakai2005}, affine~\cite{Nakai2006}, rotation invariants~\cite{Uchiyama2011a} on key-points distribution defined by a set of key-points' location.
-%\yuji{any disadvantage?}
-%
-%\par 
-%\parmessage{local texture descriptors}
-%\begin{itemize}
-%\item encodes local texture in image
-%\item like SIFT
-%\item for mobile applications
-%\item up to rotation, affine invariants
-%\item more idea~\cite{Kurz2012,Lepetit2006}, to handle perspective transformation
-%\end{itemize}
-% % % % % Hemal Moved up : 04 -05 - 2014 
-%Recent trend computes some invariant quantities defined by local texture in image such as SIFT descriptor~\cite{Lowe1999}.
-%Contrast to the above approaches, this type of approaches does not assume any primitive features in target scene.
-%Alternatively, the approaches assume textured scene so that we can use the approaches for mobile applications, in which primitive shapes cannot be assumed.
-%The approaches focus on improving their invariance as well as efficient memory usage so that the matching can run even on powerless processors in mobile phones~\cite{Ke2004,Calonder2010}.
-%One of the disadvantages of these approaches is that their invariance are up to 2D transformation such as affine and rotation transformation.
-%To handle view change caused by perspective transformation, we must explicitly learn how invariant quantities are affected by perspective transformation~\cite{Kurz2012,Lepetit2006}
-
-%\subsection{Conic invariants under perspective transformation}
-%\parmessage{conic invariants under perspective transformation}
-%\yuji{will add more stuff later.}\\
-%3D objects are known to retain Euclidean invariants rather than projective invariants~\cite{forsyth_91}.
-%In case of 3D objects, Euclidean invariants are difficult to extract from images due to perspective projection.
-%Circles have a special property to retain depth information even under projective transformation.
-%A circle in the 3D world coordinate always appears as an elliptical curve on the image plane.
-%When the size of circle is known, orientation of circle plane can be defined in 3D (camera coordinates) with a two fold ambiguity~\cite{forsyth_91,safaee-rad_three-dimensional_1992}.
-%Further, Forsyth \etal~\cite{forsyth_91} proposed that up to three projective invariant can be computed from a pair of non-coplanar circles.
-%Is is explained that angle between circle planes (angle between surface normals) and distance between centre of the circles are perspective invariant quantities.
-%Although those invariants were theoretically validated even in early 90s, its practical application have not been explored.
-
-%\subsection{Our contribution}
-%\parmessage{Our contribution}
-%\yuji{will touch later}\\
-%\begin{itemize}
-%\item conic pair descriptor
-%	\begin{itemize}
-%	\item 3D information
-%	\item based on invariants of a pair of non-coplanar conics
-%	\end{itemize}
-%\end{itemize}
-%\comments{h: our work based on conic invariants}
-%We propose using these invariants to solve correspondence problem when multiple 3D circular features exist on a model. 
-%%We \revise{propose}{derive \textit{Conic pair descriptor}} using these invariants \revise{}{computed from a pair of non-coplanar circles} to solve correspondence problem\revise{ when multiple 3D circular features exist on a model}{}. 
-%In this approach we bring problem from 2D to 3D by computing 3D invariants from image features, then solve 3D-3D matching problem with model.
-%We introduce $ Conic Pair Descriptor $, which encapsulate invariants computed from elliptical image features to solve the conic ambiguity and provide accurate matching with 3D features.%\revise{In this approach we bring problem from 2D to 3D by computing 3D invariants from image features, then solve 3D-3D matching problem with model.
-%%We introduce $ Conic Pair Descriptor $, which encapsulate invariants computed from elliptical image features to solve the conic ambiguity and provide accurate matching with 3D features.}
-%%{With the proposed descriptor, we can extract 3D information from a set of non-coplanar circles, therefore the 2D-3D matching problem is solved as a 3D-3D matching problem.}
-%The proposed method is first attempt to use these invariants, therefore we also carried out simulations to show stability of invariants against change of perspective.  
-%
-%\comments{i: our contribution}
-%%We demonstrate  practical scenario where such method can be used effectively.
-%Our contribution is a new method to accurately identify image correspondences when multiple identical 3D circular features exist in the scene. We assume that calibration of camera is known and 3D information of features is available. 
-%Often in Industry based model tracking applications 3D-CAD data is known. Our matching method is suitable for tracking any 3D objects having known circles on different planes. In close range photogrammetry multiple circular markers (Figure. \ref{fig:introProblem}) are placed on 3D models for surface measurements \cite{luhmann_close_2006}. 
-%These measurements include computation of surface normal and 3D position of each marker. 
-%This process involves taking multiple images of the model with additional presence of encoded markers in the scene to solve correspondence. 
-%Once 3D measurements are done our method can be extremely useful to support tracking application without using coded patterns. Similarly various industrial parts having natural circles can be identified and tracked with this method. 
-%We prepared two car models with circular markers for evaluating our matching method. The proposed method can find corresponding circular marker from a single image, with high accuracy. We also show that our method is stable against false positives detected from the scene. Our method is fast enough to support real-time tracking applications. 
-
-%\subsection{Conic invariants under perspective transformation}
-%\parmessage{conic invariants under perspective transformation}
-%\yuji{will add more stuff later.}\\
-%3D objects are known to retain Euclidean invariants rather than projective invariants~\cite{forsyth_91}.
-%In case of 3D objects, Euclidean invariants are difficult to extract from images due to perspective projection.
-%Circles have a special property to retain depth information even under projective transformation.
-%A circle in the 3D world coordinate always appears as an elliptical curve on the image plane.
-%When the size of circle is known, orientation of circle plane can be defined in 3D (camera coordinates) with a two fold ambiguity~\cite{forsyth_91,safaee-rad_three-dimensional_1992}.
-%Further, Forsyth \etal~\cite{forsyth_91} proposed that up to three projective invariant can be computed from a pair of non-coplanar circles.
-%Is is explained that angle between circle planes (angle between surface normals) and distance between centre of the circles are perspective invariant quantities.
-%Although those invariants were theoretically validated even in early 90s, its practical application have not been explored.
+Additionally, real 3D models with circular markers as shown in Fig. \ref{fig:introProblem} are used to evaluate the matching method.
+The proposed method can find corresponding circular markers from a single image, with high precision.
+We also show that our method is stable against false positives and that it is fast enough to support real-time tracking applications. 
 
 \section{Conic Invariants : Theory and Computation}
 \label{Sec:ConicInv}
-%In this part we will explain the theory and computational aspects behind generating Euclidean invariants from the image conics. 
-This section explains the theory of conic invariants, which was derived by Forsyth \etal~\cite{forsyth_91}.
+This section explains the theory of conic invariants derived by Forsyth \etal~\cite{forsyth_91}.
 In this section we will describe Euclidean invariants preserved under perspective transformation defined by a pair of non-coplanar circles.
 
 \par 
@@ -378,11 +198,8 @@ In this section we will describe Euclidean invariants preserved under perspectiv
 A rigid 3D model can be assumed as a set of rigidly coupled planes.
 Suppose there exists a set of circles on different planes of the model and the normal vector $N_i \in \mathbb{R}^3$ and the centre position $M_i \in \mathbb{R}^3$ is known in object frame.
 %\revise{Forsyth \etal \cite{forsyth_91} explained that in case of three dimensional objects invariant descriptors consists of Euclidean invariants rather than projective invariants. 
-%Various invariants can be computed from a pair of two non-coplanar circles based on Ellipse backprojection. }
-%{better to move this striked out sentence to other places : Introduction?  Hemal}
-%$(N_i,M_i)$ and $(N_j,M_j)$
-Forsyth \etal pointed out that between each pair of non-coplanar circles the following Euclidean invariant quantities are preserved under perspective transformation: angle between the conics and the distance between their centre positions.
-The angle between the conics $\theta$ is equivalent to the angle between the surface normals, thus is obtained as
+Forsyth \etal pointed out that between each pair of non-coplanar circles the following Euclidean invariant quantities are preserved under perspective transformation: angle between the conic planes $ \theta $ and the distance between their centre positions $ d $.
+The angle between the planes is equivalent to the angle between the surface normals, thus is obtained as
 \begin{align}
 \theta_{i,j} = \angle(N_i,N_j),~~~i \neq j,
 \label{eq:invTheta3d}
@@ -393,12 +210,12 @@ The distance between the conic centres $d$ is computed as
 d_{i,j} = {\rm dist}(M_i,M_j),~~~i \neq j.
 \label{eq:invD3d}
 \end{align} 
-
-\subsection{Conic invariants from a single image}\label{ssec:conicInv2D}
+\par
+%\subsection{Conic invariants from a single image}\label{ssec:conicInv2D}
 We can recover both invariants, the angle $\theta$ and the distance $d$, from image projections if the size of the circles is known.
 This is possible because image projection of a circle is always elliptical. 
-This property can be exploited further by back projecting the ellipse in camera space~($ \in \mathbb{R}^3 $) to obtain plane orientation of the circle, using ellipse parameters $C_i$ and centre position $m_i$ of each image conic.
-A method to back project ellipses is described in~\cite{forsyth_91}, we can compute the normal vector ${Nc_i}^1,{Nc_i}^2 \in \mathbb{R}^3$ and the centre position ${Mc_i}^1, {Mc_i}^2 \in \mathbb{R}^3$ of $i$-th ellipse up to a two fold ambiguity as
+This property can be exploited further by backprojecting the ellipse in camera space~($\mathbb{R}^3 $) to obtain plane orientation of the circle, using ellipse parameters $C_i$ and centre position $m_i$ of each image conic.
+A method to backproject ellipses is described in~\cite{forsyth_91}, we can compute the normal vector ${Nc_i}^1,{Nc_i}^2 \in \mathbb{R}^3$ and the centre position ${Mc_i}^1, {Mc_i}^2 \in \mathbb{R}^3$ of $i$-th ellipse up to a two fold ambiguity as
 \begin{align} \label{Eq:Backprojection}
 \{ ( {Nc_i}^a,{Mc_i}^a ) \} = \text{EllipseBackprojection}(m_i,C_i),~~~ a = \{1,2\}, % \\
 %\{ ( {Nc_j}^b,{Mc_j}^b ) \} = \text{EllipseBackprojection}(m_i,C_i),~~~ b = \{1,2\},
@@ -414,18 +231,12 @@ d_{i,j}^{a,b} &= {\rm dist}({Mc_i}^a,{Mc_j}^b),\\
 \end{aligned}
 \right. ~~~i \neq j, ~~~ a,b = \{ 1,2 \}.
 \end{align}
-It is evident that due to \textit{conic ambiguity} we have 4 solutions for each invariant. 
+It is evident that due to \textit{Conic ambiguity} we have four solutions for each invariant. 
 Forsyth \etal explained that the solutions for $d_{i,j}^{a,b}$ are consistent, whereas only one solution of $\theta_{i,j}^{a,b}$ is correct ~\cite{forsyth_91}.
 Following this, we regard that a pair of two non-coplanar conics in an image derives a unique $d_{i,j}$ and four $\theta_{i,j}^{a,b}$.
 
-%\section{Method}
-%We will assume that both the 2D and 3D data are already available and focus on the matching method in detail. 
-%The 3D data includes the surface normal $N_i$, centre position $M_i$ and size $R_i$ (diameter) of the circles present on the model. 
-%The 2D data includes centre points $m_i$ and conic matrices $C_i$ recovered from the undistorted image. The camera intrinsics ($K$) and distortion parameters are known. 
-%We have followed the approach presented by Naimark \cite{naimark_circular_2002} for ellipse detection and Farin \etal \cite{farin_geometry_1998} for computation of conic matrices from ellipse parameters. 
-%%and Fitzgibbon \cite{fitzgibbon_direct_1999} and fitting.
-%
-%\subsection{Conic Invariants : Theory and Computation}
+
+%\section{Conic Invariants : Theory and Computation}
 %\label{subSec:ConicInv}
 %In this part we will explain the theory and computational aspects behind generating Euclidean invariants from the image conics. 
 %Let the camera projection centre be assumed as the vertex of a cone having the world circle is as its base.
@@ -450,27 +261,6 @@ Following this, we regard that a pair of two non-coplanar conics in an image der
 %\end{itemize}
 %%It should be noted that ambiguity of Ellipse Backprojection produces 4 solutions for $\theta$, only one of which is correct. 
 %%Other invariants can be computed from recovered normal and centre values. These invariants are unstable \cite{forsyth_91} as the error from both recovered components influences the computation.
-%The quality of recovered plane from \textit{Ellipse backprojection} depends on distance from the camera $ r $ and the viewing angle $ \eta $(angle between the image plane and the circle plane)\cite{werghi_pose_1996}. 
-%We performed simulations to understand behaviour of Ellipse Backprojection with respect to both $ r $ and $ \eta $. The parameter $ r $ is varied from 0.5 to 2 m and $ \eta $ from 0-70$^\circ$ in step wise manner, while recording 100 iterations at each step (Fig. \ref{fig:InvariantRecovery}). Realistic values have been assumed for camera intrinsics and size of circle ($ R_i $ = 5,8,12 mm).
-%Figure. \ref{fig:InvariantRecovery} shows results recorded with $ R_i = 12 $, and image noise as $ \sigma = 0.3 $. 
-%The results suggest, at low viewing angles 0-10$^\circ$ both normal and centre estimation errors are high, at any given distance. 
-%This can be explained by the fact that for lower values of $ \eta $ image projection of a circle is circular and not elliptical, therefore recovery of elliptical parameters may have errors. 
-%We also observe that the estimation error grows with camera distance, however the error in normal recovery appears less sensitive to camera distance than the error in centre recovery. 
-%The results obtained with $ R_i = 5,8~ mm $ show similar pattern, however the magnitude of error is higher as the image projection become smaller in the image. 
-%We also computed and compared the results of estimated centres $ {Mc_i}^1 $ and $ {Mc_i}^2 $. The maximum distance recored between the two is $ \leq $  0.1 mm for $R_i$ = 12 mm, this suggests that ambiguity can be neglected for the recovered centre position. The centre recovery is prone to higher errors with higher camera distances, however it produces a consistent solution for invariant $ d $. After performing \textit{Ellipse backprojection} we have essentially transformed our problem from image space to three dimensional space. 
-%
-%\begin{figure}
-%\centering
-%\begin{tabular}{cc}
-%\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/centerEstimationErrorR6_N3.png}} }&
-%\bmvaHangBox{\fbox{\includegraphics[width=4cm,keepaspectratio=true]{images/NormalRecoveryError_R6_3.png}} } \\
-%%\caption{\label{fig:matchingProblem}}
-%%\caption{\label{fig:matchingProcess}}
-%(a)&(b)
-%\end{tabular}
-%\caption{ Ellipse backprojection results at different camera distance and viewing angles,Image noise = $ \sigma = 0.3 $,$ \phi = 12 mm $ ;
-%(a) Error in Centre ($ Mc_i $) (b) Error in Normal ($ Nc_i $) \label{fig:InvariantRecovery} }
-%\end{figure}
 
 \section{Method}
 %\hemal{non-coplanar conic pair descriptor}
@@ -488,7 +278,7 @@ the normal vector and the centre position recovery from the conic parameters~\ci
 %and Fitzgibbon \cite{fitzgibbon_direct_1999} and fitting.
 
 \subsection{Descriptor Generation}\label{ssec:descriptor}
-This part mainly discusses generation of \textit{Conic pair descriptor} from Euclidean invariants. 
+This part mainly discusses the generation of \textit{Conic pair descriptor} from conic invariants. 
 The invariants for 3D model are computed from available 3D data ($M_i,N_i$) using \eref{Eq:3Ddescriptors}. This descriptor does not contain any ambiguity.
 The same set of invariants can be computed from corresponding image features using Eq. \ref{eq:inv2D}, where the recovered $ d $ component is unique and $ \theta $ component has four different solutions (Eq. \ref{Eq:2Ddescriptors}). 
 This \textit{Conic ambiguity} can not be resolved without knowing the correspondence $ m_i \leftrightarrow M_i $.
@@ -511,10 +301,9 @@ The reader should note that given a unique set of points and their corresponding
 In our case, we use a single 2D image to extract ambiguous centre and normal information in 3D camera space.  
 The \textit{Conic ambiguity} introduced by \textit{Ellipse backprojection} forces us to include ambiguity in the descriptor structure (Eq. \ref{Eq:2Ddescriptors}). 
 %In this case, the concept can not be applied to the results of \textit{Ellipse backprojection} as the \textit{Conic ambiguity} restricts us from computing a unique set of invariants. 
-Unlike popular methods, a \textit{Conic pair descriptor} represents two features at same time. 
-In order to uniquely represent a single conic using Euclidean invariants, at least more than two conic features are required. 
-Addition of each conic feature adds 3 wrong solutions of $ \theta $ in the descriptor, additionally the matching must rely on detection of all the conics used for descriptor computation. 
-%We propose matching $ v \leftrightarrow V $ first, thereby finding a corresponding conic pair, further we solve individual correspondence $ m_i \leftrightarrow M_i $ problem. 
+Unlike popular methods, a \textit{Conic pair descriptor} represents two features at the same time. 
+In order to uniquely represent a single conic using Euclidean invariants, at least three conic features are required. 
+The addition of each conic feature adds 3 wrong solutions of $ \theta $ in the descriptor, moreover the matching must rely on detection of all the conics used for descriptor computation. 
 Descriptors $ v_{\{1..q\}} $ are generated for each pair of detected $ n $ image conics, where $ q = \binom{n}{2} $. 
 $ V_{\{1...p\}} $ are generated off-line as the 3D model data is already available.
 In case of $ l $ circles on the model $ p~\leq~\binom{l}{2} $, as the circle pair not likely to appear in the same image can be rejected. 
@@ -540,11 +329,11 @@ $ H_i $ represents index of matched descriptor pair.
 \label{subsubSec:PIM}
 In this stage we compare the \textit{Conic pair descriptors} and find all possible $ v \leftrightarrow V $ relationships.
 % ($ V \leftrightarrow v $).
-The reader is reminded that each descriptor represents a pair of conics, therefore the stage is called pairwise matching.
+Each descriptor represents a pair of conics, therefore this step is called pairwise matching.
 The objective is to reduce the complexity of the problem by finding possible pair correspondences ($ v \leftrightarrow V $). 
 Figure \ref{fig:matchingAndProblem} shows the possible outcome of step 1 with respect to the problem shown in the figure.
-First, the unique component ($ d $) between the descriptors is compared with $ T_d $ as threshold.
-If a match is found, the component ($ \theta $) of $ V $ is compared with all four values of $ \theta $ component in $ v $ with $ T_\theta $ as threshold.
+First, the unique $ d $ component between the descriptors is compared with $ T_d $ as threshold.
+If a match is found, the unique $ \theta $ component of $ V $ is compared with all four values of $ \theta $ component in $ v $ with $ T_\theta $ as threshold.
 % (Ref. Algorithm \ref{algo:PIM}) . 
 The match is considered positive if any one of the four $ \theta $ values match, this may result into false matching as only one of the $ \theta $ is correct for a given pair. 
 This explains that \textit{Conic ambiguity} may contribute into false matching. 
@@ -577,7 +366,7 @@ Similarly, symmetric orientation of features on the object may generate same inv
 
 %------------------------------------------------------------------------- 
 \subsubsection{Step 2: Pointwise Triplet Matching}
-In this stage we simplify the problem further and obtain hypothesis on point wise matching ($ m_i \leftrightarrow M_i $) by performing a verification on $ v \leftrightarrow V $ matching results. 
+In this stage we simplify the problem further and obtain hypothesis on pointwise matching ($ m_i \leftrightarrow M_i $) by performing a verification on $ v \leftrightarrow V $ matching results. 
 The objective is to compare the results of step 1 to identify correspondences and reject the false descriptor matches. 
 We seek three $ v \leftrightarrow V $ results, such that they complement each other to form a unique three point $ m_i \leftrightarrow M_i $ hypothesis, as shown in Fig. \ref{fig:matchingAndProblem}. 
 A simple two stage approach is used to generate a triplet matching hypothesis. 
@@ -598,19 +387,20 @@ In the example above we can see that conic 1 is common in $ V $ and image conic 
 %\item[2] Find a new descriptor matching pair which can verify the triplet matching hypothesis formed in the previous stage (e.g. $ V_{23} \leftrightarrow v_{BC}$).
 %\end{enumerate}
 The verified triplets are saved and others are rejected. 
-The results may also contain false triplet matches, $ [F D C]\leftrightarrow [1 2 4]$ as depicted in Fig.\ref{fig:matchingAndProblem} is a wrong triplet. 
+The results may also contain false triplet matches, $ [F~ D ~C]\leftrightarrow [1~ 2~ 4]$ as depicted in Fig.\ref{fig:matchingAndProblem} is a wrong triplet. 
 %If $ x $ number of results are generated in step 1, the number of pairs compared in this stage is $ \binom{x}{3} $. 
 
 \subsubsection{Step 3: Correspondence Hypothesis }
 \label{subSec:CHypo}
-In this final step results of triplet matching are combined and a voting matrix is generated. Each $ m_i \leftrightarrow M_i $ correspondence verified in step 2 is given one vote as shown in Fig. \ref{fig:matchingAndProblem}. 
-Each $ m_i \leftrightarrow M_i $ pair gaining maximum votes in the matrix is proposed as a correspondence hypothesis.
+In this final step results of triplet matching are combined and a voting matrix is generated. 
+For each $ m_i \leftrightarrow M_i $ correspondence verified in step 2, one vote is added to the corresponding matrix entry. 
+As a result, all unique $ m_i \leftrightarrow M_i $ pair gaining maximum votes in the matrix are proposed as a correspondence hypothesis.
 In Fig. \ref{fig:matchingAndProblem} the results are : A$ \leftrightarrow $1, B$ \leftrightarrow $2, C$ \leftrightarrow $3 , D$ \leftrightarrow $4, E$ \leftrightarrow $5. 
 %In case of conflicting votes the respective $ m_i \leftrightarrow M_i $ relation is not considered. 
-A minimum of three correspondences are required compute the pose of the object \cite{lepetit_monocular_2005}, if the camera intrinsics are known. 
-We propose selecting only the thee most voted results of $ m_i \leftrightarrow M_i $.  
-A pose of the object can be computed by selecting these correspondences and other correspondences having low vote count can be verified using the pose.  
-In the example shown in Fig. \ref{fig:matchingAndProblem} A$ \leftrightarrow $1, B$ \leftrightarrow $2 and C$ \leftrightarrow $3 can be selected to compute the pose $ P $ , and D$ \leftrightarrow $4, E$ \leftrightarrow $5 relation can be verified using the pose $ P $.
+A minimum of three correspondences are required compute a pose of the object \cite{lepetit_monocular_2005}, if the camera intrinsics are known. 
+We propose computing the pose by selecting the three most voted $ m_i \leftrightarrow M_i $ results from the matrix.  
+Other correspondences having lower vote count can be verified by using the pose. 
+In Fig. \ref{fig:matchingAndProblem}, A$ \leftrightarrow $1, B$ \leftrightarrow $2 and C$ \leftrightarrow $3 can be selected to compute the pose $ P $ , and D$ \leftrightarrow $4, E$ \leftrightarrow $5 relation can be verified using the pose $ P $.
 If only 3 out of $ n $ conics are detected in the image, the pose can not be verified. 
 
 
@@ -621,23 +411,24 @@ In this section we will cover experiments carried out to comment on accuracy and
 %To the best of our knowledge no other application has attempted using the euclidean invariants generated by circles. 
 The reader should note that the problem of achieving single image 2D-3D correspondences for non-coplanar circles has not been addressed earlier. 
 Therefore, alternative methods for comparison are not available. 
-We prepared test models by attaching circular markers Fig. \ref{fig:introProblem}, Model 1 with $ R_i $ = 12 mm ($ p = 20 $) and Model 2 with $ R_i $ 5mm ($ p = 26$). These markers used are widely accepted and used in the Industrial domain for photogrammetric measurements.     
-3D measurements for the markers are done with state of the art metrology system, and the ground truth is established by giving each model point a unique ID in the database. 
+We prepared two car models by attaching circular markers as shown in Fig. \ref{fig:introProblem}.
+Model 1 has 20 markers of size $ R_i $ = 12 mm and Model 2 has 26 markers of size $ R_i $ = 5mm. 
+These markers are widely accepted and used in the industrial domain for photogrammetric measurements.     
+3D measurements of the markers are done with state of the art metrology system, and the ground truth is established by giving each model point a unique ID in the database. 
 The markers are attached randomly and coplanar placement is avoided. 
-A high resolution (2560x1920) camera is used for the experiments and MATLAB is used for synthetic experiments. 
-
+A high resolution (2560x1920 pix) camera is used for the experiments and MATLAB~\cite{MATLAB} is used for synthetic experiments. 
 
 \subsection{Preliminary experiment}
 The quality of recovered plane from \textit{Ellipse backprojection} depends on distance from the camera $ r $ and the viewing angle $ \eta $~(angle between the image plane and the circle plane)\cite{werghi_pose_1996}. 
-We performed simulations to understand behaviour of Ellipse Backprojection with respect to both $ r $ and $ \eta $. 
+We performed simulations to understand the behaviour of \textit{Ellipse backprojection} with respect to both $ r $ and $ \eta $. 
 The parameter $ r $ is varied from 500 to 2000 mm and $ \eta $ from 0-70$^\circ$ in step wise manner, 100 iterations are performed at each position. 
 %Realistic values have been assumed for camera intrinsics and size of circle ($ R_i $ = 5,12 mm).
 %Figure. \ref{fig:InvariantRecovery} shows results recorded with $ R_i = 12 $, and image noise as $ \sigma = 0.3 $. 
-The results (fig. \ref{fig:InvariantRecovery}) suggest that, at low viewing angles ($\eta $) 0-10$^\circ$ both normal and centre estimation errors are higher, at any given distance. 
+The results (Fig. \ref{fig:InvariantRecovery}) suggest that, at low viewing angles ($\eta $) 0-10$^\circ$ both normal and centre estimation errors are higher, at any given distance. 
 %This can be explained by the fact that for 
 When $ \eta \leq 10 $, the image projection of a circle is more circular than elliptical, therefore recovery of ellipse parameters may have errors. 
 The estimation error grows at higher camera distance, however the error in normal recovery appears less sensitive to increase in camera distance than the error in centre recovery. 
-The results obtained with $ R_i = 5$ mm show similar pattern, although the magnitude of error is higher as smaller image projections reduce the accuracy of computation of ellipse parameters.  
+The results obtained with $ R_i = 5$ mm show a similar pattern, although the magnitude of the error is higher as smaller image projections reduce the accuracy of computation of ellipse parameters.  
 We also compared the ambiguous results of estimated centres $ {Mc_i}^1 $ and $ {Mc_i}^2 $. 
 The maximum distance recorded between the two is $ \leq $  0.1 mm for $R_i$ = 12 mm, this suggests that ambiguity can be neglected for the recovered centre position. 
 This behaviour also explains consistency of invariant $ d $ between two image conics. 
@@ -648,21 +439,17 @@ This behaviour also explains consistency of invariant $ d $ between two image co
 \begin{tabular}{cc}
 \subfigure[Centre estimation error]{\includegraphics[width=0.35\hsize]{images/centerEstimationErrorR6_N3.pdf}}
 \subfigure[Normal estimation error]{ \includegraphics[width=0.35\hsize]{images/NormalRecoveryError_R6_3.pdf} }
-%\bmvaHangBox{\fbox{\includegraphics[width=0.35\hsize,keepaspectratio=true]{images/centerEstimationErrorR6_N3.pdf}} }&
-%\bmvaHangBox{\fbox{\includegraphics[width=0.35\hsize,keepaspectratio=true]{images/NormalRecoveryError_R6_3.pdf}} } \\
-%(a)&(b)
 \end{tabular}
-\caption{ Ellipse backprojection results,Image noise = $ \sigma = 0.3 $, $ R_i = 12 mm $ \label{fig:InvariantRecovery} }
+\caption{ Ellipse backprojection results,~Image noise = $ \sigma = 0.3 $, $ R_i = 12 mm $ \label{fig:InvariantRecovery} }
 \end{figure}
 
 %------------------------------------------------------------------------- 
 \subsection{Correspondence Matching vs Threshold Settings}
-%In case of model with natural features choice over size or placement is not available.
-The aim of this experiment is to understand the role of threshold values $ T_{d}$ and $ T_\theta $ in $ m_i \leftrightarrow M_i $ matching results. 
-In order to perform this experiment we took 75 images of car model with 12 mm markers (Distance Range 500-2000 mm). 
+The aim of this experiment is to understand the role of the threshold values $ T_{d}$ and $ T_\theta $ in $ m_i \leftrightarrow M_i $ matching results. 
+In order to perform this experiment we took 75 images of Model 1 from different camera positions (Distance Range 500-2000 mm). 
 %All the results (Table.~\ref{tab:Exp2}) are verified with ground truth data manually. 
-As suggested in Sec. \ref{subSec:CHypo}, each image has at least 4 detected conics. 
-The results are considered \textit{Not Converged} (NC) in case of less than 3 $ m_i \leftrightarrow M_i $ results.
+As suggested in Sec. \ref{subSec:CHypo}, each image has at least four detected conics. 
+The results are considered \textit{Not Converged} (NC) in case of less than three $ m_i \leftrightarrow M_i $ results.
 %If hypothesis proposes less than 3 $ m_i \leftrightarrow M_i $ results we consider it as \textit{Not Converged}. %\textit{Correct} results are divided in two categories purely to provide detailed overview of algorithm performance. \textit{ Complete} refers to $ m_i \leftrightarrow M_i $ hypothesis being 100\% correct, \textit{Partial} results suggest that some of the matching results (excluding top 3 voted pairs) are not correct.  
 
 \begin{table}[tb]
@@ -695,35 +482,53 @@ The objective is to recover the descriptor components $ d $ and $ \theta $ from 
 Realistic values are used for camera intrinsics, $ T_{d} $ = 10 and $ T_\theta $ = 5 are kept constant. 
 Camera positions are chosen at random, x-y-z rotation range is $ \pm 70^\circ $, x-y translation range is $ \pm 500 $ mm, z-translation (Camera distance) range is 500 to 2000 mm. 
 
+%\begin{table}[tb]
+%\centering
+%\caption{Descriptor Matching Analysis } \label{table:MatchingSuccess}
+%\begin{tabular}{|c | c | c | c | c |}
+%\hline
+%$ R_i $ & $ \theta $ & $ d $ & Camera Distance (mm) & Min-Max Success($ \% $) \\ \hline
+%5 & 10-40 & 10-150 & 500-2000 & 58-82 \\
+% {}& 40-80 & 10-150 & 500-2000 & 35-65 \\ \hline
+%% & 0-40 & 1200-2000 & 55-80 \\
+%% & 40-90 & 1200-2000 & 35-55\\ 
+%12 & 10-40 & 10-150 & 500-2000 & 64-86 \\
+%{}& 40-80 & 10-150& 500-2000 & 40-69 \\ \hline
+%%& 0-40 & 10-150& 2000-4000 & 40-60 \\
+%%& 40-90 & 10-150 & 2000-4000 & 20-40 \\ \hline
+% 20 & 10-40 & 10-150 & 500-2000 & 74-92 \\
+%{} & 40-80 & 10-150 & 500-2000  & 48-77 \\ \hline 
+%\end{tabular} \\
+%\label{tab:Exp1}
+%\end{table}
+
 \begin{table}[tb]
 \centering
 \caption{Descriptor Matching Analysis } \label{table:MatchingSuccess}
-\begin{tabular}{|c | c | c | c | c |}
+\begin{tabular}{|c | c | c | c |}
 \hline
-$ R_i $ & $ \theta $ & $ d $ & Camera Distance (mm) & Min-Max Success($ \% $) \\ \hline
-5 & 10-40 & 10-150 & 500-2000 & 58-82 \\
- {}& 40-80 & 10-150 & 500-2000 & 35-65 \\ \hline
-% & 0-40 & 1200-2000 & 55-80 \\
-% & 40-90 & 1200-2000 & 35-55\\ 
-12 & 10-40 & 10-150 & 500-2000 & 64-86 \\
-{}& 40-80 & 10-150& 500-2000 & 40-69 \\ \hline
-%& 0-40 & 10-150& 2000-4000 & 40-60 \\
-%& 40-90 & 10-150 & 2000-4000 & 20-40 \\ \hline
- 20 & 10-40 & 10-150 & 500-2000 & 74-92 \\
-{} & 40-80 & 10-150 & 500-2000  & 48-77 \\ \hline 
+$ R_i $ (mm) & $ \theta $  & $ d $ (mm) & Min-Max Success($ \% $) \\ \hline
+5 & 10$ ^\circ $-40$ ^\circ $ & 10-150  & 58-82 \\
+ {}& 40$ ^\circ $-80$ ^\circ $ & 10-150  & 35-65 \\ \hline
+12 & 10$ ^\circ $-40$ ^\circ $ & 10-150  & 64-86 \\
+{}& 40$ ^\circ $-80$ ^\circ $ & 10-150 & 40-69 \\ \hline
+ 20 & 10$ ^\circ $-40$ ^\circ $ & 10-150 & 74-92 \\
+{} & 40$ ^\circ $-80$ ^\circ $ & 10-150 &  48-77 \\ \hline 
 \end{tabular} \\
 \label{tab:Exp1}
 \end{table}
+
+\par
 The table \ref{table:MatchingSuccess} provides summary of key observations made during the experiment. 
 The matching success shows inversely proportional relation with $ \theta $, independent of $ d $. 
-We learn that descriptor matching is influenced more by angle between planes than distance between the circle centres. 
+We learn that descriptor matching is influenced more by the angle between the planes than the distance between the circle centres. 
 It is also seen that success of matching can be improved by increasing the size of the circles. 
 %even at higher values of $ \theta $. 
-This experiments suggest that when features placement is possible, it is advised to choose larger circles or surfaces with lower plane angles for improved matching results. 
+This experiments suggest that when feature placement is possible, it is advised to choose larger circles or surfaces with lower plane angles for improved matching results. 
 
 \subsection{Robustness against false positives}
 %This experiment aims to understand impact of false positives on the matching result. 
-This experiment aims to show robustness of the matching method against presence of false positives in the scene. 
+This experiment aims to show the robustness of the matching method against presence of false positives in the scene. 
 In order to introduce false positives in the scene, Model 1 and Model 2 are placed in the same scene and images are captured from different positions. 
 The matching method is provided 3D information of one model at a time, which in turn make the markers present on the other model act as false positives in the image. 
 The same set of images are used for the two experiments and the results of the experiment are shown in Figure \ref{fig:Exp4}.
@@ -791,18 +596,20 @@ CAM 2 has limited tracking range (i.e. $ < 1000~mm $) and low resolution, theref
 \section{Conclusion \& Future work }
 %----------- Do I mention conic ambiguity? 
 In this paper we have demonstrated a successful approach for solving 2D-3D correspondence matching problem for non-coplanar circular features from a single image. 
-We propose a new \textit{Conic descriptor} which represents euclidean invariants generated by a pair of non-coplanar circles.
-Our method can successfully define correspondences for more than 3 circular features are present in the scene. 
+We propose a new \textit{Conic pair descriptor} which represents Euclidean invariants generated by a pair of non-coplanar circles.
+Our method can successfully define correspondences when more than three circular features are present in the scene. 
 The proposed method is the first to address the correspondence matching using these invariants since its introduction in the 90s.
-Our contribution also includes providing detailed understanding of behaviour of invariants with respect to orientation and size of the circles. The major factors affecting matching are also discussed to optimize the method for best possible matching results based on application (threshold settings, circle size, camera distance). 
+Our contribution also includes providing detailed understanding of behaviour of invariants with respect to orientation and size of the circles. 
+The major factors affecting matching are also discussed to optimize the method for best possible matching results based on the application (threshold settings, circle size, camera distance). 
 The results of the experiments support our claim, that the method is fast, reliable and robust against false positives.
-Our method can be used for object tracking or object identification in Industrial scenario, where natural or artificial circular features exist on the models. However, the method is generic and can be used for any application dealing with non coplanar circles. 
+Our method can be used for object tracking or object identification in the industrial environment, where natural or artificial circular features exist predominantly on the models. 
+However, the method is generic and can be used for any application dealing with non-coplanar circles. 
 The 3D information of the features on the model and camera calibration are the only prerequisites for matching. 
 The reader should also note that algorithm may not perform well with symmetric or coplanar arrangement of circular features. 
 
 \par 
 In context of future work, we would like to improve the method to be able to handle features of different sizes simultaneously.
-Also a faster matching strategy is required to handle large number of feature points and false positives. We would like to use the same invariants to compute 2D-2D correspondence matching between two images in order to generate the 3D data which is a prerequisite now. We also consider using such matching algorithm to support creating 3D markers for monocular Augmented Reality applications. This can be a cheap alternative to conventionally used 3D spherical markers.  
+Also a faster matching strategy is required to handle large number of feature points and false positives. We would like to use the same invariants to compute 2D-2D correspondence matching between two images in order to generate the 3D data which is a prerequisite now. We also consider using such a matching algorithm to support creating 3D markers for monocular Augmented Reality applications. This can be a cheap alternative to conventionally used 3D spherical markers.  
 
 
 \bibliography{egbib,tracking}

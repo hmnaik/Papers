@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -8,6 +8,10 @@
 \bibitem[AIC()]{AICON}
 Aicon 3d systems.
 \newblock URL \url{http://www.aicon3d.de/start.html}.
+
+\bibitem[MAT()]{MATLAB}
+Mathworks.
+\newblock URL \url{http://www.mathworks.de}.
 
 \bibitem[Calonder et~al.(2010)Calonder, Lepetit, Strecha, and
   Fua]{Calonder2010}

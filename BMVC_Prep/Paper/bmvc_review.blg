@@ -3,5 +3,7 @@ The style file: plainnat.bst
 Database file #1: egbib.bib
 Database file #2: tracking.bib
 Warning--to sort, need author or key in AICON
+Warning--to sort, need author or key in MATLAB
 Warning--empty year in AICON
-(There were 2 warnings)
+Warning--empty year in MATLAB
+(There were 4 warnings)
